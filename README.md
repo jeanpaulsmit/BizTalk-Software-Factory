@@ -9,6 +9,7 @@ Create a structured project layout for BizTalk solutions built in 2006/R2/2009/2
 * v3.0 BizTalk Server 2010
 * v4.0 BizTalk Server 2013
 * v5.0 BizTalk Server 2013R2
+* v6.0 BizTalk Server 2016 (tbd)
 
 ###Version 1.7 for BizTalk Server 2006 (R2)
 
