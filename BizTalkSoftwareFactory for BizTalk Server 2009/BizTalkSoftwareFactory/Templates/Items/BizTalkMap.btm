@@ -1,0 +1,9 @@
+<mapsource Name="BizTalk Map" BizTalkServerMapperTool_Version="2.0" Version="2" XRange="100" YRange="420" OptimizeValueMapping="yes">
+	<SrcTree>
+		<Reference Location="$BizTalkNamespace$.Schemas.$SourceSchema$"/>
+	</SrcTree>
+	<TrgTree>
+		<Reference Location="$BizTalkNamespace$.Schemas.$DestinationSchema$"/>
+	</TrgTree>
+<Pages />
+</mapsource>

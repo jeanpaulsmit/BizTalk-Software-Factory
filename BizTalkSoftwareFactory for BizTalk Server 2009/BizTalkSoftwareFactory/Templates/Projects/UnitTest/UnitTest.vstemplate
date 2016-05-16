@@ -1,0 +1,25 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>Unit test Project</Name>
+		<Description>Unit test project </Description>
+		<Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4547" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>20</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>UnitTest</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="UnitTest.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">TestClass.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">TestCases\SampleTestCase.xml</ProjectItem>
+			<ProjectItem ReplaceParameters="true">TestCases\TestCaseGenericSetup.xml</ProjectItem>
+			<ProjectItem ReplaceParameters="true">TestData\SampleTestData.xml</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+</VSTemplate>

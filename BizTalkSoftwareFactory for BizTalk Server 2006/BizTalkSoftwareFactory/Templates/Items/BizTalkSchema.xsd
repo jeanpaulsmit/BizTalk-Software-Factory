@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<xs:schema targetNamespace="http://$BizTalkNamespace$.Schemas.$safeitemrootname$/$Year$/$Month$" xmlns="http://$BizTalkNamespace$.Schemas.$safeitemrootname$/$Year$/$Month$" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="$safeitemrootname$">
+    <xs:complexType />
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,68 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="MapsProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="MapName" #>
+<#@ property processor="PropertyProcessor" name="MapsProjectName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using NUnit.Framework;
+//using Microsoft.VisualStudio.TestTools.UnitTests;
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    //[TestClass] for use with Visual Studio Unit testing
+    [TestFixture]
+    public class <#=UnitTestName #>_Test
+    {
+        public <#=UnitTestName #>_Test()
+        {
+        }
+
+		// [TestInitialize] for use with Visual Studio Unit testing
+        [TestFixtureSetUp]
+        public void Setup()
+        {
+        }
+
+        /// <summary>
+        /// In the next version of BizUnit testing a map will be one of the possibilities.
+        /// Use the following attribute if you expect an exception for example an XmlSchemaValidationException
+        /// [ExpectedException(typeof(XmlSchemaValidationException)]
+        /// </summary>
+		// [TestMethod] for use with Visual Studio Unit testing
+        [Test]
+        public void <#=UnitTestName #>_BizUnitCase()
+        {
+            // Execute the testcase
+            BizUnit.BizUnit bizUnit = new BizUnit.BizUnit(@"..\..\TestCases\" + "<#=UnitTestName #>" + ".xml");
+            bizUnit.RunTest();
+        }
+
+        /// <summary>
+		/// Validate map using the tools BizTalk Server 2009 is supplying
+        /// </summary>
+		// [TestMethod] for use with Visual Studio Unit testing
+        [Test]
+        public void <#=UnitTestName #>_BtsCase()
+        {
+            string inputFile = @"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml";
+            string outputFile = @"<#=UnitTestName #>_DataOutput.xml";
+            string expectedFile = @"..\..\TestData\" + "<#=UnitTestName #>" + "_DataExpected.xml";
+
+			Microsoft.BizTalk.TestTools.Mapper.TestableMapBase map = new <#=MapsProjectName #>.<#=MapName #>();
+			map.TestMap(inputFile, 
+						Microsoft.BizTalk.TestTools.Schema.InputInstanceType.Xml, 
+						outputFile, 
+						Microsoft.BizTalk.TestTools.Schema.OutputInstanceType.XML);
+		 
+			bool filesIdentical = CompareFiles(outputFile, expectedFile);
+		 
+			Assert.IsTrue(filesIdentical);
+        }
+    }
+}

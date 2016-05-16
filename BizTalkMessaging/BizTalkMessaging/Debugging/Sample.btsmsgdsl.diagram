@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<minimalLanguageDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 8.5" isCompleteView="false" name="Sample">
+  <bizTalkMessagingModelMoniker Id="d0ef8901-b604-4281-958f-51ea126b1fa6" />
+  <nestedChildShapes>
+    <brokerShape Id="512ceb35-d74e-444d-b237-72a141803af8" absoluteBounds="5.75, 3, 2.75, 2.5">
+      <brokerMoniker Id="f7f7a4fc-4a50-49ed-b02a-839d270acd4c" />
+      <relativeChildShapes>
+        <inPortShape Id="56ff54ab-874e-499b-b945-e42eeb2b6a9d" absoluteBounds="5.65, 4.0625, 0.2, 0.2">
+          <inPortMoniker Id="aca7f186-0b89-4398-9823-55007223a687" />
+        </inPortShape>
+        <outPortShape Id="001e222b-dd82-42ca-9391-0ef418d7f403" absoluteBounds="6.875, 5.4, 0.2, 0.2">
+          <outPortMoniker Id="09a52493-bcc9-439d-97de-55b5cf07b3a8" />
+        </outPortShape>
+        <inPortShape Id="f6069b71-949c-4d4c-9b48-844e6a216e16" isExpanded="false" absoluteBounds="5.65, 3.59375, 0.2, 0.2">
+          <inPortMoniker Id="fb20aea4-21bd-451a-b9a8-31b70f82625e" />
+        </inPortShape>
+        <outPortShape Id="ceac5eca-4f0f-4f37-a4ec-cafd5e8f0d2d" absoluteBounds="8.4, 3.5625, 0.2, 0.2">
+          <outPortMoniker Id="6bb64065-69de-4878-be56-9e8a2ab8f58a" />
+        </outPortShape>
+      </relativeChildShapes>
+    </brokerShape>
+    <applicationShape Id="e9e564d3-f432-47ca-9d8c-d4b595ae4a2e" absoluteBounds="1.5, 5.125, 2, 0.75">
+      <applicationMoniker name="/d0ef8901-b604-4281-958f-51ea126b1fa6/Application1" />
+    </applicationShape>
+    <connectionApplication_InPort edgePoints="[(2.0937475 : 5.125); (2.0937475 : 4.1625); (5.65 : 4.1625)]" fixedFrom="Algorithm" fixedTo="Caller" TargetRelationshipDomainClassId="64fd4b60-ba48-48e8-a50d-1a748680102e">
+      <nodes>
+        <applicationShapeMoniker Id="e9e564d3-f432-47ca-9d8c-d4b595ae4a2e" />
+        <inPortShapeMoniker Id="56ff54ab-874e-499b-b945-e42eeb2b6a9d" />
+      </nodes>
+    </connectionApplication_InPort>
+    <connectionOutPort_Application edgePoints="[(6.975 : 5.6); (6.975 : 5.975); (5.375 : 5.975); (5.375 : 4.75); (2.75 : 4.75); (2.75 : 5.125)]" manuallyRouted="true" fixedFrom="Caller" fixedTo="Caller" TargetRelationshipDomainClassId="a46621df-0465-4def-bdc3-49a8cd936a9a">
+      <nodes>
+        <outPortShapeMoniker Id="001e222b-dd82-42ca-9391-0ef418d7f403" />
+        <applicationShapeMoniker Id="e9e564d3-f432-47ca-9d8c-d4b595ae4a2e" />
+      </nodes>
+    </connectionOutPort_Application>
+    <applicationShape Id="f185e6da-e6d1-4e78-b458-ba6f66c5ca13" absoluteBounds="1.125, 1.75, 2, 0.75">
+      <applicationMoniker name="/d0ef8901-b604-4281-958f-51ea126b1fa6/CRM" />
+    </applicationShape>
+    <applicationShape Id="7a50fb2d-3993-4cd2-9210-7a30673fcc7e" absoluteBounds="10.125, 4.875, 2, 0.75">
+      <applicationMoniker name="/d0ef8901-b604-4281-958f-51ea126b1fa6/Application3" />
+    </applicationShape>
+    <connectionOutPort_Application edgePoints="[(8.6 : 3.6625); (11.125 : 3.6625); (11.125 : 4.875)]" fixedFrom="Caller" fixedTo="Algorithm" TargetRelationshipDomainClassId="a46621df-0465-4def-bdc3-49a8cd936a9a">
+      <nodes>
+        <outPortShapeMoniker Id="ceac5eca-4f0f-4f37-a4ec-cafd5e8f0d2d" />
+        <applicationShapeMoniker Id="7a50fb2d-3993-4cd2-9210-7a30673fcc7e" />
+      </nodes>
+    </connectionOutPort_Application>
+    <connectionApplication_InPort edgePoints="[(2.125 : 2.5); (2.125 : 3.69375); (5.65 : 3.69375)]" fixedFrom="Algorithm" fixedTo="Caller" TargetRelationshipDomainClassId="64fd4b60-ba48-48e8-a50d-1a748680102e">
+      <nodes>
+        <applicationShapeMoniker Id="f185e6da-e6d1-4e78-b458-ba6f66c5ca13" />
+        <inPortShapeMoniker Id="f6069b71-949c-4d4c-9b48-844e6a216e16" />
+      </nodes>
+    </connectionApplication_InPort>
+  </nestedChildShapes>
+</minimalLanguageDiagram>

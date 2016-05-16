@@ -1,0 +1,16 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="2.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<Name Package="{9204b2f6-ddc7-4163-9609-02e626156d2d}" ID="103"/>
+		<Description Package="{9204b2f6-ddc7-4163-9609-02e626156d2d}" ID="102"/>
+		<Icon Package="{9204b2f6-ddc7-4163-9609-02e626156d2d}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>BizTalkMessaging.btsmsgdsl</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.btsmsgdsl">btsmsgdsl.btsmsgdsl</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.btsmsgdsl.diagram">btsmsgdsl.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+

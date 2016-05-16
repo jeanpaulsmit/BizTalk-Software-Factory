@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="CreateSolution" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Create BizTalk solution</Caption>
+  <Description>Create BizTalk solution</Description>
+  <Arguments>
+    <!-- Include fixed project values -->
+    <xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+    <xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+    <Argument Name="SolutionArgument" Type="EnvDTE.Solution, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Converter Type="SolutionConverter" />
+      <ValueProvider Type="Evaluator"
+					Expression="/">
+      </ValueProvider>
+    </Argument>
+    <Argument Name="BizTalkNamespace">
+      <Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+      <ValueProvider Type="Evaluator"	Expression="$(Solution.Properties.Item('Name').Value)" />
+    </Argument>
+    <Argument Name="BizTalkAppName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace)">
+        <MonitorArgument Name="BizTalkNamespace" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="KeyFile" Type="System.String" Required="false"/>
+    <Argument Name="AddSchemasProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddMapsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddOrchestrationsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddPipelinesProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddBusinessComponentsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <!--<Argument Name="AddPipelineComponentsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>-->
+    <Argument Name="AddUnitTestProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddDeploymentProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddNamespacePrefixToProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="MultiProjectSolution" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="MainProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace)">
+        <MonitorArgument Name="BizTalkNamespace" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="SchemasProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(SchemasProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="SchemasProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="MapsProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(MapsProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="MapsProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="OrchestrationsProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(OrchestrationsProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="OrchestrationsProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="PipelinesProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(PipelinesProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="PipelinesProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="BusinessComponentsProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(BusinessComponentsProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="BusinessComponentsProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="UnitTestProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(UnitTestProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="UnitTestProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <!--<Argument Name="PipelineComponentProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(PipelineComponentProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="PipelineComponentProjectSuffix" />
+      </ValueProvider>
+    </Argument>-->
+    <Argument Name="DeploymentProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(DeploymentProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="DeploymentProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="FinalSolutionName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).sln">
+        <MonitorArgument Name="BizTalkNamespace" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="ReferencesFolderTargetDir">
+      <ValueProvider Type="Evaluator" Expression="References" />
+    </Argument>
+    <Argument Name="DeploymentFolderTargetDir">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).Deployment" />
+    </Argument>
+    <Argument Name="DeploymentBuildFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\$(BizTalkNamespace).Deployment.btdfproj" />
+    </Argument>
+	  <Argument Name="BuildDebugMsiFileName">
+		  <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildDebugMsi.bat" />
+	  </Argument>
+	  <Argument Name="BuildReleaseMsiFileName">
+		  <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildReleaseMsi.bat" />
+	  </Argument>
+	  <Argument Name="InstallWizardFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\InstallWizard.xml" />
+    </Argument>
+    <Argument Name="UnInstallWizardFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\UnInstallWizard.xml" />
+    </Argument>
+    <Argument Name="PortBindingsMasterFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\PortBindingsMaster.xml" />
+    </Argument>
+    <Argument Name="DeploymentProductIdCodeGuid">
+      <ValueProvider Type="BizTalkSoftwareFactory.ValueProviders.NewGuidValueProvider, BizTalkSoftwareFactory" />
+    </Argument>
+    <Argument Name="DeploymentProductUpgradeCodeGuid">
+      <ValueProvider Type="BizTalkSoftwareFactory.ValueProviders.NewGuidValueProvider, BizTalkSoftwareFactory" />
+    </Argument>
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+      <Pages>
+        <Page>
+          <Title>Setup values for the BizTalk solution</Title>
+          <Fields>
+            <Field Label="Namespace" ValueName="BizTalkNamespace" />
+            <Field Label="BizTalk Application Name" ValueName="BizTalkAppName" />
+            <Field Label="Add Schemas Project" ValueName="AddSchemasProject" />
+            <Field Label="Add Mappings Project" ValueName="AddMapsProject" />
+            <Field Label="Add Orchestrations Project" ValueName="AddOrchestrationsProject" />
+            <Field Label="Add Pipelines Project" ValueName="AddPipelinesProject" />
+            <!--<Field Label="Add Pipeline Components Project" ValueName="AddPipelineComponentsProject" />-->
+            <Field Label="Add Business Components Project" ValueName="AddBusinessComponentsProject" />
+            <Field Label="Add Unit Test Project" ValueName="AddUnitTestProject" />
+            <Field Label="Add Deployment Framework" ValueName="AddDeploymentProject">
+              <Help>This option will add the BizTalk Deployment Framework v5.0 to your solution.</Help>
+            </Field>
+          </Fields>
+        </Page>
+        <Page>
+          <Title>Options for the BizTalk solution</Title>
+          <Fields>
+            <!--<Field Label="Add namespace prefix to project names" ValueName="AddNamespacePrefixToProject">
+              <Tooltip>By selecting this option the project names will be prefixed with the namespace.</Tooltip>
+              <Help>By selecting this option the project names will be prefixed with the namespace.</Help>
+            </Field>-->
+            <Field Label="Create Multi-Project Solution" ValueName="MultiProjectSolution">
+              <Tooltip>If checked every artifact will be a project in the solution, otherwise the artifacts will be grouped into folders in one project.</Tooltip>
+              <Help>If checked every artifact will be a project in the solution, otherwise the artifacts will be grouped into folders in one project.</Help>
+            </Field>
+            <Field Label="KeyFile" ValueName="KeyFile" ReadOnly="true">
+              <Help>If no keyfile is picked, a new one will be generated in the solution root folder</Help>
+              <Editor Type="BizTalkSoftwareFactory.Editors.KeyFileChooser, BizTalkSoftwareFactory" />
+            </Field>
+          </Fields>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions CoordinatorServiceType="Microsoft.Practices.RecipeFramework.Extensions.Coordinators.ConditionalCoordinator, Microsoft.Practices.RecipeFramework.Extensions">
+    <!-- Add projects to the solution -->
+    <Action Name="AddSingleProjectSolution" Type="BizTalkSoftwareFactory.Actions.CreateSingleProjectSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="BizTalkNamespace" />
+      <Input Name="BizTalkApplicationName" RecipeArgument="BizTalkAppName" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+      <Input Name="AddSchemasFolder" RecipeArgument="AddSchemasProject" />
+      <Input Name="AddMapsFolder" RecipeArgument="AddMapsProject" />
+      <Input Name="AddOrchestrationsFolder" RecipeArgument="AddOrchestrationsProject" />
+      <Input Name="AddPipelinesFolder" RecipeArgument="AddPipelinesProject" />
+    </Action>
+    <Action Condition="$(AddSchemasProject)" Name="AddSchemasProject" Type="BizTalkSoftwareFactory.Actions.AddBizTalkProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="SchemasProjectName" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+      <Input Name="BizTalkApplicationName" RecipeArgument="BizTalkAppName" />
+    </Action>
+    <Action Condition="$(AddMapsProject)" Name="AddMapsProject" Type="BizTalkSoftwareFactory.Actions.AddBizTalkProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="MapsProjectName" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+      <Input Name="BizTalkApplicationName" RecipeArgument="BizTalkAppName" />
+    </Action>
+    <Action Condition="$(AddOrchestrationsProject)" Name="AddOrchestrationsProject" Type="BizTalkSoftwareFactory.Actions.AddBizTalkProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="OrchestrationsProjectName" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+      <Input Name="BizTalkApplicationName" RecipeArgument="BizTalkAppName" />
+    </Action>
+    <Action Condition="$(AddPipelinesProject)" Name="AddPipelinesProject" Type="BizTalkSoftwareFactory.Actions.AddBizTalkProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="PipelinesProjectName" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+      <Input Name="BizTalkApplicationName" RecipeArgument="BizTalkAppName" />
+    </Action>
+    <!--<Action Condition="$(AddPipelineComponentsProject)" Name="AddPipelineComponentsProject" Type="BizTalkSoftwareFactory.Actions.AddClassLibraryProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="PipelineComponentProjectName" />
+      <Input Name="ProjectTemplate" RecipeArgument="PipelineComponentsProjectTemplate" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+    </Action>-->
+    <Action Condition="$(AddBusinessComponentsProject)" Name="AddBusinessComponentsProject" Type="BizTalkSoftwareFactory.Actions.AddClassLibraryProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="BusinessComponentsProjectName" />
+      <Input Name="ProjectTemplate" RecipeArgument="BusinessComponentProjectTemplate" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+    </Action>
+    <Action Condition="$(AddUnitTestProject)" Name="AddUnitTestProject" Type="BizTalkSoftwareFactory.Actions.AddClassLibraryProjectToSolution, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ProjectName" RecipeArgument="UnitTestProjectName" />
+      <Input Name="ProjectTemplate" RecipeArgument="UnitTestProjectTemplate" />
+      <Input Name="SolutionName" RecipeArgument="BizTalkNamespace" />
+    </Action>
+    <Action Condition="$(AddDeploymentProject)" Name="CopyDeploymentFolder" Type="BizTalkSoftwareFactory.Actions.CopyFilesRecursively, BizTalkSoftwareFactory">
+      <Input Name="SourceDir" RecipeArgument="DeploymentFolderSourceDir" />
+      <Input Name="SearchPattern" RecipeArgument="SearchPatternAll" />
+      <Input Name="RelativeTargetDir" RecipeArgument="DeploymentFolderTargetDir" />
+    </Action>
+    <Action Name="CopyReferencesFolder" Type="BizTalkSoftwareFactory.Actions.CopyFilesRecursively, BizTalkSoftwareFactory">
+      <Input Name="SourceDir" RecipeArgument="ReferencesFolderSourceDir" />
+      <Input Name="SearchPattern" RecipeArgument="SearchPatternAll" />
+      <Input Name="RelativeTargetDir" RecipeArgument="ReferencesFolderTargetDir" />
+    </Action>
+    <!-- Customize deployment script file -->
+	  <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildFile" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+            Template="Text\Deployment\Deployment.btdfproj.t4">
+      <Input Name="solutionName" RecipeArgument="BizTalkNamespace"/>
+      <Input Name="includeSchemas" RecipeArgument="AddSchemasProject"/>
+      <Input Name="includeMappings" RecipeArgument="AddMapsProject"/>
+      <Input Name="includeOrchestrations" RecipeArgument="AddOrchestrationsProject"/>
+      <Input Name="includePipelines" RecipeArgument="AddPipelinesProject"/>
+      <Input Name="includeComponents" RecipeArgument="AddBusinessComponentsProject"/>
+      <!--<Input Name="includePipelineComponents" RecipeArgument="AddPipelineComponentsProject"/>-->
+      <Input Name="productIdCodeGuid" RecipeArgument="DeploymentProductIdCodeGuid"/>
+      <Input Name="productUpgradeCodeGuid" RecipeArgument="DeploymentProductUpgradeCodeGuid"/>
+      <Output Name="Content" />
+    </Action>
+    <Action Condition="$(AddDeploymentProject)" Name="AddDeployment_btdfproj" Type="BizTalkSoftwareFactory.Actions.AddSolutionFolderItemFromString, BizTalkSoftwareFactory">
+      <Input Name="RelativePath" RecipeArgument="DeploymentBuildFileName" />
+      <Input Name="Content" ActionOutput="GenerateBuildFile.Content" />
+    </Action>
+	  <!-- Do it for BuildDebugMsi.bat as well -->
+  <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildDebugMsiFile" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+		  Template="Text\Deployment\BuildDebugMsi.bat.t4">
+	  <Input Name="solutionName" RecipeArgument="BizTalkNamespace"/>
+	  <Output Name="Content" />
+  </Action>
+  <Action Condition="$(AddDeploymentProject)" Name="AddDeployment_BuildDebugMsi" Type="BizTalkSoftwareFactory.Actions.AddSolutionFolderItemFromString, BizTalkSoftwareFactory">
+	  <Input Name="RelativePath" RecipeArgument="BuildDebugMsiFileName" />
+	  <Input Name="Content" ActionOutput="GenerateBuildDebugMsiFile.Content" />
+  </Action>
+	  <!-- Do it for BuildReleaseMsi.bat as well -->
+	  <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildReleaseMsiFile" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+			  Template="Text\Deployment\BuildReleaseMsi.bat.t4">
+		  <Input Name="solutionName" RecipeArgument="BizTalkNamespace"/>
+		  <Output Name="Content" />
+	  </Action>
+	  <Action Condition="$(AddDeploymentProject)" Name="AddDeployment_BuildReleaseMsi" Type="BizTalkSoftwareFactory.Actions.AddSolutionFolderItemFromString, BizTalkSoftwareFactory">
+		  <Input Name="RelativePath" RecipeArgument="BuildReleaseMsiFileName" />
+		  <Input Name="Content" ActionOutput="GenerateBuildReleaseMsiFile.Content" />
+	  </Action>
+
+	  <!--<Action Conditition="$(AddDeploymentProject)" Name="CreateSolutionFolderDeployment" Type="BizTalkSoftwareFactory.Actions.CreateSolutionFolder, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="SolutionFolderDeployment" />
+    </Action>-->
+    <Action Condition="$(AddDeploymentProject)" Name="AddInstallWizardFile" Type="BizTalkSoftwareFactory.Actions.AddSolutionItem, BizTalkSoftwareFactory">
+      <Input Name="From" RecipeArgument="InstallWizardFile" />
+      <Input Name="To" RecipeArgument="InstallWizardFileName" />
+    </Action>
+    <Action Condition="$(AddDeploymentProject)" Name="AddUnInstallWizardFile" Type="BizTalkSoftwareFactory.Actions.AddSolutionItem, BizTalkSoftwareFactory">
+      <Input Name="From" RecipeArgument="UnInstallWizardFile" />
+      <Input Name="To" RecipeArgument="UnInstallWizardFileName" />
+    </Action>
+    <Action Condition="$(AddDeploymentProject)" Name="AddPortBindingsMasterFile" Type="BizTalkSoftwareFactory.Actions.AddSolutionItem, BizTalkSoftwareFactory">
+      <Input Name="From" RecipeArgument="PortBindingsMasterFile" />
+      <Input Name="To" RecipeArgument="PortBindingsMasterFileName" />
+    </Action>
+
+    <!-- Get projects to be referenced by later actions -->
+    <Action Name="GetMainProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="MainProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <Action Name="GetSchemasProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="SchemasProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <Action Name="GetMapsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="MapsProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <Action Name="GetOrchestrationsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="OrchestrationsProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <Action Name="GetPipelinesProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="PipelinesProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <!--<Action Name="GetPipelineComponentsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="PipelineComponentProjectName" />
+      <Output Name="Project" />
+    </Action>-->
+    <Action Name="GetBusinessComponentsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="BusinessComponentsProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <Action Name="GetUnitTestProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+      <Input Name="ProjectName" RecipeArgument="UnitTestProjectName" />
+      <Output Name="Project" />
+    </Action>
+    <!-- Add references from projects to project -->
+    <Action Name="AddSchemasReferenceToMapsProject" Type="BizTalkSoftwareFactory.Actions.AddReferenceToBizTalkProject, BizTalkSoftwareFactory">
+      <Input Name="ReferringProject" ActionOutput="GetMapsProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetSchemasProject.Project" />
+    </Action>
+    <Action Name="AddSchemasReferenceToOrchestrationProject" Type="BizTalkSoftwareFactory.Actions.AddReferenceToBizTalkProject, BizTalkSoftwareFactory">
+      <Input Name="ReferringProject" ActionOutput="GetOrchestrationsProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetSchemasProject.Project" />
+    </Action>
+    <Action Name="AddMapsReferenceToOrchestrationProject" Type="BizTalkSoftwareFactory.Actions.AddReferenceToBizTalkProject, BizTalkSoftwareFactory">
+      <Input Name="ReferringProject" ActionOutput="GetOrchestrationsProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetMapsProject.Project" />
+    </Action>
+    <!-- This is a custom action to make the reference for Maps to UnitTests go right fot both multi and single project solutions-->
+    <Action Condition="$(AddUnitTestProject)" Name="AddMapsReferenceToUnitTestProject" Type="BizTalkSoftwareFactory.Actions.AddProjectReferenceActionEx, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetMapsProject.Project" />
+      <Input Name="ReferencedProject2" ActionOutput="GetMainProject.Project" />
+    </Action>
+    <!-- This is a custom action to make the reference for Schemas to UnitTests go right fot both multi and single project solutions-->
+    <Action Condition="$(AddUnitTestProject)" Name="AddSchemasReferenceToUnitTestProject" Type="BizTalkSoftwareFactory.Actions.AddProjectReferenceActionEx, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetSchemasProject.Project" />
+      <Input Name="ReferencedProject2" ActionOutput="GetMainProject.Project" />
+    </Action>
+    <!-- This is a custom action to make the reference for Pipelines to UnitTests go right fot both multi and single project solutions-->
+    <Action Condition="$(AddUnitTestProject)" Name="AddPipelinesReferenceToUnitTestProject" Type="BizTalkSoftwareFactory.Actions.AddProjectReferenceActionEx, BizTalkSoftwareFactory">
+      <Input Name="IsMultiProjectSolution" RecipeArgument="MultiProjectSolution" />
+      <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetPipelinesProject.Project" />
+      <Input Name="ReferencedProject2" ActionOutput="GetMainProject.Project" />
+    </Action>
+    <Action Name="AddSchemasReferenceToPipelinesProject" Type="BizTalkSoftwareFactory.Actions.AddReferenceToBizTalkProject, BizTalkSoftwareFactory">
+      <Input Name="ReferringProject" ActionOutput="GetPipelinesProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetSchemasProject.Project" />
+    </Action>
+    <!--<Action Name="AddPipelineComponentsReferenceToPipelinesProject" Type="BizTalkSoftwareFactory.Actions.AddReferenceToBizTalkProject, BizTalkSoftwareFactory">
+      <Input Name="ReferringProject" ActionOutput="GetPipelinesProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetPipelineComponentsProject.Project" />
+    </Action>-->
+    <Action Name="AddBusinessComponentsReferenceToOrchestrationProject" Type="BizTalkSoftwareFactory.Actions.AddReferenceToBizTalkProject, BizTalkSoftwareFactory">
+      <Input Name="ReferringProject" ActionOutput="GetOrchestrationsProject.Project" />
+      <Input Name="ReferencedProject" ActionOutput="GetBusinessComponentsProject.Project" />
+    </Action>
+    <Action Name="RenameSolution" Type="BizTalkSoftwareFactory.Actions.RenameSolution, BizTalkSoftwareFactory">
+      <Input Name="NewSolutionName" RecipeArgument="FinalSolutionName" />
+    </Action>
+    <Action Name="SetBizTalkNamespace" Type="AddSolutionGlobalsEntryAction" PropertyName="BizTalkNamespace" PropertyValue="BizTalkNamespace">
+      <Input Name="Solution" RecipeArgument="SolutionArgument" />
+    </Action>
+    <!-- Start adjust the project name of the projects if the prefix should be removed -->
+    <!--<Action Condition="$(AddSchemasProject)" Name="SchemasRemovePrefix" Type="BizTalkSoftwareFactory.Actions.RenameItem, BizTalkSoftwareFactory">
+      <Input Name="CurrentItem" ActionOutput="GetSchemasProject.Project" />
+      <Input Name="NewItemName" RecipeArgument="SchemasProjectName" />
+    </Action>-->
+    <!-- End adjust the assembly name and root namespace of the projects if the prefix was removed -->
+    <Action Name="CreateStrongNamedKey" Type="BizTalkSoftwareFactory.Actions.CreateStrongNamedKey, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="BizTalkNamespace"/>
+      <Input Name="KeyFile" RecipeArgument="KeyFile"/>
+    </Action>
+    <Action Name="CreateSolutionFolderRules" Type="BizTalkSoftwareFactory.Actions.CreateSolutionFolder, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="SolutionFolderRules" />
+    </Action>
+    <Action Name="CreateSolutionFolderPolicies" Type="BizTalkSoftwareFactory.Actions.CreateSolutionFolder, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="SolutionFolderPolicies" />
+    </Action>
+  </Actions>
+</Recipe>

@@ -1,0 +1,22 @@
+﻿<VSTemplate Version="2.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Map</Name>
+    <Description>A BizTalk Map</Description>
+	<Icon Package="{7a51b143-7eea-450d-baef-827253c52e43}" ID="500" />
+    <ProjectType>BizTalk</ProjectType>
+    <SortOrder>10</SortOrder>
+    <DefaultName>This_name_will_be_replaced.btm</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem ReplaceParameters="false">BizTalkMap.btm</ProjectItem>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+    <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+          SchemaVersion="1.0"
+          Recipe="NewItemMap"/>
+  </WizardData>
+</VSTemplate>

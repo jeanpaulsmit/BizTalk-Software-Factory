@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Types xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <!-- VS -->
+  <TypeAlias Name="EnvDTE" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <!-- Converters -->
+  <TypeAlias Name="ProjectConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.ProjectConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="SolutionFolderConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.SolutionFolderConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="ProjectItemConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.ProjectItemConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="SolutionConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.SolutionConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="XmlNamespaceStringConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.XmlNamespaceStringConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="PathConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.PathConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="FileExistsConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.FileExistsConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="ValidFileNameConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.ValidFileNameConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="OverwriteItemConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.OverwriteItemConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="CodeIdentifierStringConverter" Type="Microsoft.Practices.RecipeFramework.Library.Converters.CodeIdentifierStringConverter, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="AgregatorStringConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.AgregatorStringConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="VsAddCodeFileStringConverter" Type="Microsoft.Practices.RecipeFramework.Extensions.Converters.VsAddCodeFileStringConverter, Microsoft.Practices.RecipeFramework.Extensions" />
+  <!-- Actions -->
+  <TypeAlias Name="Referencer" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="RefCreator" Type="Microsoft.Practices.RecipeFramework.Library.Actions.CreateUnboundReferenceAction, Microsoft.Practices.RecipeFramework.Library"/>
+  <TypeAlias Name="AddSolutionGlobalsEntryAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddSolutionGlobalsEntryAction, Microsoft.Practices.RecipeFramework.Extensions"/>
+  <TypeAlias Name="AddProjectGlobalsEntryAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddProjectGlobalsEntryAction, Microsoft.Practices.RecipeFramework.Extensions"/>
+  <TypeAlias Name="OpenFileInBrowserAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.OpenFileInBrowserAction, Microsoft.Practices.RecipeFramework.Extensions"/>
+  <TypeAlias Name="EnableGuidancePackageAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.GAX.EnableGuidancePackageAction, Microsoft.Practices.RecipeFramework.Extensions"/>
+  <TypeAlias Name="AddAssemblyReferenceAction" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddAssemblyReferenceAction, Microsoft.Practices.RecipeFramework.Extensions" />
+  <!-- Value Providers -->
+  <TypeAlias Name="SolutionPath" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.SolutionPathProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="ProjectByNameProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.ProjectByNameProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="Evaluator" Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.ExpressionEvaluatorValueProvider,Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="XmlNamespaceProvider" Type="Microsoft.Practices.SoftwareFactories.ServiceFactory.ValueProviders.XmlNamespaceProvider, Microsoft.Practices.SoftwareFactories.ServiceFactory" />
+  <TypeAlias Name="ProjectGlobalsEntryProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.ProjectGlobalsEntryProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="GlobalValueProvider" Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.GlobalValueProvider, Microsoft.Practices.RecipeFramework.Library" />
+  <TypeAlias Name="CreateInstanceProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.General.CreateInstanceProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="ProjectByPathExpressionProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.ProjectByPathExpressionProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="CurrentProjectProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.CurrentProjectProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+  <TypeAlias Name="CurrentItemProvider" Type="Microsoft.Practices.RecipeFramework.Extensions.ValueProviders.VisualStudio.CurrentItemProvider, Microsoft.Practices.RecipeFramework.Extensions" />
+</Types>  

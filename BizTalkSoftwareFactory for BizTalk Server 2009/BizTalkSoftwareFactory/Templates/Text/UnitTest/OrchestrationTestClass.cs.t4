@@ -1,0 +1,41 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using NUnit.Framework;
+//using Microsoft.VisualStudio.TestTools.UnitTests;
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    //[TestClass] for use with Visual Studio Unit testing
+    [TestFixture]
+    public class <#=UnitTestName #>_Test
+    {
+        public <#=UnitTestName #>_Test()
+        {
+        }
+
+		// [TestInitialize] for use with Visual Studio Unit testing
+        [TestFixtureSetUp]
+        public void Setup()
+        {
+            // Setup the system for a new test, for example restart the BizTalk host or configure something
+            BizUnit.BizUnit bizUnit = new BizUnit.BizUnit(@"..\..\TestCases\TestCaseGenericSetup.xml", TestGroupPhase.TestGroupSetup);
+            bizUnit.RunTest();
+        }
+
+		// [TestMethod] for use with Visual Studio Unit testing
+        [Test]
+        public void <#=UnitTestName #>_BizUnitCase()
+        {
+            // Execute the testcase
+            BizUnit.BizUnit bizUnit = new BizUnit.BizUnit(@"..\..\TestCases\" + "<#=UnitTestName #>" + ".xml");
+            bizUnit.RunTest();
+        }
+    }
+}

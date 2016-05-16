@@ -1,0 +1,5 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ Assembly Name="BizTalkSoftwareFactory.dll" #>
+<#@ property processor="PropertyProcessor" name="solutionName" #>
+MSBuild.exe /p:Configuration=Debug /t:Installer <#=solutionName #>.Deployment.btdfproj

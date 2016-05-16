@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dsl", "Dsl\Dsl.csproj", "{7223389E-6074-4CA5-862D-876B9665C31B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DslPackage", "DslPackage\DslPackage.csproj", "{8B1410E4-64AF-41AE-9B49-D432425A780B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs07.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Dsl\\Dsl.csproj
+		SccProjectName1 = Dsl
+		SccLocalPath1 = Dsl
+		SccProjectUniqueName2 = DslPackage\\DslPackage.csproj
+		SccProjectName2 = DslPackage
+		SccLocalPath2 = DslPackage
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7223389E-6074-4CA5-862D-876B9665C31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7223389E-6074-4CA5-862D-876B9665C31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7223389E-6074-4CA5-862D-876B9665C31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7223389E-6074-4CA5-862D-876B9665C31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B1410E4-64AF-41AE-9B49-D432425A780B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B1410E4-64AF-41AE-9B49-D432425A780B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B1410E4-64AF-41AE-9B49-D432425A780B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B1410E4-64AF-41AE-9B49-D432425A780B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

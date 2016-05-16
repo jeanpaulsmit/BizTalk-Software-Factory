@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bizTalkMessagingModel dslVersion="1.0.0.0" Id="196332b7-bdd4-45c8-853b-a20c808cfd82" xmlns="http://schemas.microsoft.com/dsltools/BizTalkMessaging">
+  <applications>
+    <application name="Application1" />
+  </applications>
+</bizTalkMessagingModel>

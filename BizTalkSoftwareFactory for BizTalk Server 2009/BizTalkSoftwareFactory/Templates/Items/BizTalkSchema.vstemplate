@@ -1,0 +1,22 @@
+﻿<VSTemplate Version="2.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Schema</Name>
+    <Description>A BizTalk Schema</Description>
+	<Icon Package="{7a51b143-7eea-450d-baef-827253c52e43}" ID="229" />
+    <ProjectType>BizTalk</ProjectType>
+    <SortOrder>4</SortOrder>
+    <DefaultName>Schema.xsd</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem ReplaceParameters="true">BizTalkSchema.xsd</ProjectItem>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.0.60429.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0"
+              Recipe="NewItemSchema"/>
+  </WizardData>
+</VSTemplate>

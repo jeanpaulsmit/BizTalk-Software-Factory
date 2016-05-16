@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkSoftwareFactory", "BizTalkSoftwareFactory\BizTalkSoftwareFactory.csproj", "{F03C110A-B8D0-45ED-B509-1346A67B26D1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs07
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BizTalkSoftwareFactory\\BizTalkSoftwareFactory.csproj
+		SccProjectName1 = BizTalkSoftwareFactory
+		SccLocalPath1 = BizTalkSoftwareFactory
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F03C110A-B8D0-45ED-B509-1346A67B26D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03C110A-B8D0-45ED-B509-1346A67B26D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03C110A-B8D0-45ED-B509-1346A67B26D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03C110A-B8D0-45ED-B509-1346A67B26D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

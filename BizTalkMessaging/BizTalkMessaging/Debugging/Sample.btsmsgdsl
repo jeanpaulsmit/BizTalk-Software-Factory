@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bizTalkMessagingModel dslVersion="1.0.0.0" Id="d0ef8901-b604-4281-958f-51ea126b1fa6" xmlns="http://schemas.microsoft.com/dsltools/BizTalkMessaging">
+  <applications>
+    <application name="Application1">
+      <inPort>
+        <inPortMoniker Id="aca7f186-0b89-4398-9823-55007223a687" />
+      </inPort>
+    </application>
+    <application name="CRM">
+      <inPort>
+        <inPortMoniker Id="fb20aea4-21bd-451a-b9a8-31b70f82625e" />
+      </inPort>
+    </application>
+    <application name="Application3" />
+  </applications>
+  <broker>
+    <broker Id="f7f7a4fc-4a50-49ed-b02a-839d270acd4c">
+      <outPorts>
+        <outPort Id="09a52493-bcc9-439d-97de-55b5cf07b3a8">
+          <applications>
+            <applicationMoniker name="/d0ef8901-b604-4281-958f-51ea126b1fa6/Application1" />
+          </applications>
+        </outPort>
+        <outPort Id="6bb64065-69de-4878-be56-9e8a2ab8f58a">
+          <applications>
+            <applicationMoniker name="/d0ef8901-b604-4281-958f-51ea126b1fa6/Application3" />
+          </applications>
+        </outPort>
+      </outPorts>
+      <inPorts>
+        <inPort Id="aca7f186-0b89-4398-9823-55007223a687" protocol="HTTP" />
+        <inPort Id="fb20aea4-21bd-451a-b9a8-31b70f82625e" protocol="HTTP" />
+      </inPorts>
+    </broker>
+  </broker>
+</bizTalkMessagingModel>

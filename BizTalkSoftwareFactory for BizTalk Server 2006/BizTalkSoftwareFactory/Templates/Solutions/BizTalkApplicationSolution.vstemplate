@@ -1,0 +1,28 @@
+﻿<VSTemplate 
+	Version="2.0" 
+	Type="ProjectGroup"
+	xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>BizTalk Software Factory Solution</Name>
+		<Description>BizTalk Software Factory Solution</Description>
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>90</SortOrder>
+		<Icon>BizTalkSolution.ico</Icon>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>BSFSolution</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent />
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.0.60429.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0"
+              Recipe="CreateSolution">
+			<References>
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

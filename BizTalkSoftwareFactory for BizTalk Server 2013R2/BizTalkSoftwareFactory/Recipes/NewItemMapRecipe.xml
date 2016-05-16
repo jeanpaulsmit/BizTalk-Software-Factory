@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemMap" Recurrent="true" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+	<Caption>Create BizTalk map</Caption>
+	<Description>Create BizTalk map</Description>
+	<HostData>
+		<Icon Guid="FAE04EC1-301F-11d3-BF4B-00C04F79EFBC" ID="4542" />
+		<CommandBar Menu="BSFProject" />
+	</HostData>
+	<Arguments>
+		<xi:include href="Common\PropertyValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+    
+		<Argument Name="CurrentItem" Type="EnvDTE.ProjectItem, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<ValueProvider Type="CurrentItemProvider" />
+		</Argument>
+		<Argument Name="FinalMapName">
+			<ValueProvider Type="Evaluator" Expression="$(SourceSchema.Name)_To_$(DestinationSchema.Name).btm">
+				<MonitorArgument Name="SourceSchema" />
+				<MonitorArgument Name="DestinationSchema" />
+			</ValueProvider>
+		</Argument>
+    <Argument Name="FinalMapTypeName">
+      <ValueProvider Type="Evaluator" Expression="$(SourceSchema.Name)_To_$(DestinationSchema.Name)">
+        <MonitorArgument Name="SourceSchema" />
+        <MonitorArgument Name="DestinationSchema" />
+      </ValueProvider>
+    </Argument>
+
+    <Argument Name="BizTalkNamespace">
+			<ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+		</Argument>
+
+		 <!--// Excluded because unclear how to handle multiple root nodes, for now let BizTalk handle it-->
+		<Argument Name="SourceSchemaRootNode">
+			<ValueProvider Type="Evaluator" Expression="$(SourceSchema.RootNode)">
+				<MonitorArgument Name="SourceSchema" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="DestinationSchemaRootNode">
+			<ValueProvider Type="Evaluator" Expression="$(DestinationSchema.RootNode)">
+				<MonitorArgument Name="DestinationSchema" />
+			</ValueProvider>
+		</Argument>
+		
+		<Argument Name="SourceSchema" Type="BizTalkSoftwareFactory.BusinessEntities.SchemaItem, BizTalkSoftwareFactory">
+			<Converter Type="BizTalkSoftwareFactory.Converters.SchemaConverter, BizTalkSoftwareFactory" />
+		</Argument>
+
+		<Argument Name="DestinationSchema" Type="BizTalkSoftwareFactory.BusinessEntities.SchemaItem, BizTalkSoftwareFactory">
+			<Converter Type="BizTalkSoftwareFactory.Converters.SchemaConverter, BizTalkSoftwareFactory" />
+		</Argument>
+
+	</Arguments>
+	<GatheringServiceData>
+		<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+			<Pages>
+				<Page>
+					<Title>Map properties</Title>
+					<Fields>
+						<Field Label="Select Source Schema" ValueName="SourceSchema" />
+						<Field Label="Select Destination Schema" ValueName="DestinationSchema" />
+					</Fields>
+				</Page>
+				<!-- 
+					This second page is necessary because otherwise the SourceSchemaRootNode will
+					not be used to replace tags in the BizTalk map template
+					This is a known bug, not solved yet (http://forums.microsoft.com/msdn/ShowPost.aspx?PostID=3075808&SiteID=1)
+				<Page>
+					<Title>Selection overview</Title>
+					<Fields>
+						<Field Label="Selected Source Schema" ValueName="SourceSchemaRootNode" ReadOnly="true" />
+						<Field Label="Selected Destination Schema" ValueName="DestinationSchemaRootNode" ReadOnly="true" />
+					</Fields>
+				</Page>
+				-->
+			</Pages>
+		</Wizard>
+	</GatheringServiceData>
+	<Actions>
+    <Action Name="SetItemProperty" Type="BizTalkSoftwareFactory.Actions.SetItemProperty, BizTalkSoftwareFactory">
+			<Input Name="CurrentItem" RecipeArgument="CurrentItem" />
+			<Input Name="PropertyName" RecipeArgument="TypeName" />
+			<Input Name="PropertyValue" RecipeArgument="FinalMapTypeName" />
+		</Action>
+		<Action Name="RenameItem" Type="BizTalkSoftwareFactory.Actions.RenameItem, BizTalkSoftwareFactory">
+			<Input Name="CurrentItem" RecipeArgument="CurrentItem" />
+			<Input Name="NewItemName" RecipeArgument="FinalMapName" />
+		</Action>
+    <Action Name="SetMapRootNodes" Type="BizTalkSoftwareFactory.Actions.SetMapRootNodes, BizTalkSoftwareFactory">
+      <Input Name="CurrentItem" RecipeArgument="CurrentItem" />
+      <Input Name="Source" RecipeArgument="SourceSchema" />
+      <Input Name="Destination" RecipeArgument="DestinationSchema" />
+      <Input Name="MapName" RecipeArgument="FinalMapName" />
+    </Action>
+  </Actions>
+</Recipe>

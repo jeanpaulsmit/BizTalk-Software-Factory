@@ -1,0 +1,109 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="SchemasProjectSfx" #>
+<#@ property processor="PropertyProcessor" name="MapsProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="MapName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.IO;
+using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BizUnit;
+using BizUnit.TestSteps.BizTalk.Map;
+using BizUnit.TestSteps.Common;
+using BizUnit.TestSteps.ValidationSteps.Xml;
+using BizUnit.Xaml;
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    [TestClass]
+    public class <#=UnitTestName #>_Test
+    {
+        public <#=UnitTestName #>_Test()
+        {
+        }
+
+		[TestInitialize]
+        public void Setup()
+        {
+        }
+
+        /// <summary>
+		/// Validate map using the tools BizTalk Server 2010 is supplying
+        /// </summary>
+        [DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml")]
+        [TestMethod]
+        public void <#=UnitTestName #>_BtsCase()
+        {
+            string inputFile = @"<#=UnitTestName #>_Data.xml";
+            string outputFile = @"<#=UnitTestName #>_DataOutput.xml";
+
+			Microsoft.BizTalk.TestTools.Mapper.TestableMapBase map = new <#=MapsProjectSuffix #>.<#=MapName #>();
+			map.TestMap(inputFile, 
+						Microsoft.BizTalk.TestTools.Schema.InputInstanceType.Xml, 
+						outputFile, 
+						Microsoft.BizTalk.TestTools.Schema.OutputInstanceType.XML);
+		 
+            // If the basic mapping failed, then there is no output file
+            Assert.IsTrue(File.Exists(outputFile));
+        }
+
+        /// <summary>
+		/// Validate map using the BizUnit tool
+        /// </summary>
+        [DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml")]
+        [TestMethod]
+        public void <#=UnitTestName #>_BizUnitCase()
+        {
+            string inputFile = @"<#=UnitTestName #>_Data.xml";
+            string outputFile = @"<#=UnitTestName #>_DataOutput.xml";
+
+			// Create a new test case and add one validation to it as an example
+		    var testCase = new TestCase { Name = "<#=UnitTestName #>" };
+
+            // Create an assembly based on the maptype (prevents the usage of hardcoded paths)
+            Type mapType = typeof(<#=MapsProjectSuffix #>.<#=MapName #>);
+            Assembly mapDll = Assembly.GetAssembly(mapType);
+
+            // Create an ExecuteMapStep
+            ExecuteMapStep ems = new ExecuteMapStep()
+            {
+                Source = inputFile,
+                Destination = outputFile,
+                MapAssemblyPath = mapDll.Location,
+                MapTypeName = mapType.FullName
+            };
+
+            // Define the validation rules
+            Type outputSchemaType = typeof(<#=SchemasProjectSfx #>.<Put here the target schema type>);
+            var validation = new XmlValidationStep();
+            validation.XmlSchemas.Add(new SchemaDefinition() 
+			{ 
+				// Set the namespace of the source schema, as well as the path to the XSD of the source schema
+				XmlSchemaNameSpace = <Put here the namespace of the target schema>, 
+				XmlSchemaPath = @"..\..\..\" + "<#=BizTalkNamespace #>.<#=SchemasProjectSfx #>" + "\<put here target schema.xsd>"
+			});
+
+            // Define the field to validate and the expectedvalue
+            var xpathMsg = new XPathDefinition
+            {
+                Description = "Some description about what node you want to test",
+                XPath = "XPath expression to a node",
+                Value = "Expected value of XPath node"
+            };
+
+            // Add the validation rules to the testcase
+            validation.XPathValidations.Add(xpathMsg);
+            ems.SubSteps.Add(validation);
+
+            testCase.ExecutionSteps.Add(ems);
+
+            // Execute the test
+            BizUnit.BizUnit bu = new BizUnit.BizUnit(testCase);
+            bu.RunTest();
+        }
+    }
+}

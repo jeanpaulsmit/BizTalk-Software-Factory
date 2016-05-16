@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemUnitTestOrchestrations" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+	<Caption>Add Orchestration unit test</Caption>
+	<HostData>
+		<Icon ID="133" />
+		<CommandBar Name="Project Add" />
+	</HostData>
+	<Arguments>
+		<!-- Include fixed project values -->
+		<xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\UnitTestValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+		<Argument Name="UnitTestProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+		</Argument>
+		<Argument Name="UnitTestClassOrchestrationFileName">
+			<ValueProvider Type="Evaluator" Expression="Orchestration_$(UnitTestOrchestration.Name).cs">
+				<MonitorArgument Name="UnitTestOrchestration" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestCaseOrchestrationFileName">
+			<ValueProvider Type="Evaluator" Expression="Orchestration_$(UnitTestOrchestration.Name).xml">
+				<MonitorArgument Name="UnitTestOrchestration" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestDataOrchestrationFileName">
+			<ValueProvider Type="Evaluator" Expression="Orchestration_$(UnitTestOrchestration.Name)_Data.xml.xml">
+				<MonitorArgument Name="UnitTestOrchestration" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestOrchestrationName">
+			<ValueProvider Type="Evaluator" Expression="Orchestration_$(UnitTestOrchestration.Name)">
+				<MonitorArgument Name="UnitTestOrchestration" />
+			</ValueProvider>
+		</Argument>
+
+		<Argument Name="BizTalkNamespace">
+			<ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+		</Argument>
+		
+		<Argument Name="UnitTestOrchestration" Type="BizTalkSoftwareFactory.BusinessEntities.OrchestrationItem, BizTalkSoftwareFactory">
+			<Converter Type="BizTalkSoftwareFactory.Converters.OrchestrationConverter, BizTalkSoftwareFactory" />
+		</Argument>
+	</Arguments>
+	<GatheringServiceData>
+		<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+			<Pages>
+				<Page>
+					<Title>Select Orchestration to generate Unit test for</Title>
+					<Fields>
+						<Field Label="Select Orchestration to generate Unit test for" ValueName="UnitTestOrchestration" />
+					</Fields>
+				</Page>
+			</Pages>
+		</Wizard>
+	</GatheringServiceData>
+	<Actions>
+		<!-- Add the Unit Test Class to the project -->
+		<Action Name="GenerateOrchestrationTestClass" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\OrchestrationTestClass.cs.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestProjectSuffix" RecipeArgument="UnitTestProjectSuffix"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestOrchestrationName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddOrchestrationTestClass" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Open="true">
+			<Input Name="Content" ActionOutput="GenerateOrchestrationTestClass.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestClassOrchestrationFileName" />
+			<Input Name="Project" RecipeArgument="UnitTestProject" />
+		</Action>
+		<!-- Add the Unit Test Data to the project, this will be stored in the TestData folder of the project -->
+		<Action Name="GetUnitTestProjectTestDataFolder" Type="BizTalkSoftwareFactory.Actions.GetProjectFolderItem, BizTalkSoftwareFactory">
+			<Input Name="CurrentProject" RecipeArgument="UnitTestProject" />
+			<Input Name="FolderName" RecipeArgument="UnitTestDataFolderName" />
+			<Output Name="Item" />
+		</Action>
+		<Action Name="GenerateOrchestrationTestData" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\OrchestrationTestData.xml.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestOrchestrationName"/>
+			<Input Name="TestMsgContent" RecipeArgument="UnitTestOrchestrationName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddOrchestrationTestData" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions"
+	        Open="true" >
+			<Input Name="Content" ActionOutput="GenerateOrchestrationTestData.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestDataOrchestrationFileName" />
+			<Input Name="InputProjectItem" ActionOutput="GetUnitTestProjectTestDataFolder.Item" />
+		</Action>
+	</Actions>
+</Recipe>

@@ -1,0 +1,67 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="MapsProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="MapName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using NUnit.Framework;
+using Microsoft.Services.BizTalkApplicationFramework.BizUnit;	
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    [TestFixture]
+    public class <#=UnitTestName #>Fixture
+    {
+        public <#=UnitTestName #>Fixture()
+        {
+        }
+
+        [TestFixtureSetUp]
+        public void Setup()
+        {
+        }
+
+        /// <summary>
+        /// In the next version of BizUnit testing a map will be one of the possibilities.
+        /// Use the following attribute if you expect an exception for example an XmlSchemaValidationException
+        /// [ExpectedException(typeof(XmlSchemaValidationException)]
+        /// </summary>
+        [Test]
+        public void <#=UnitTestName #>Case()
+        {
+            // Execute the testcase
+            BizUnit bizUnit = new BizUnit(@"..\..\TestCases\" + "<#=UnitTestName #>" + ".xml");
+            bizUnit.RunTest();
+        }
+
+        /// <summary>
+        /// Use this method to test using the MapValidator by Michael Stephenson.
+        /// Remark: I couldn't get this to work using the transform.
+        /// Another issue is that after the map converted the XML message, it is compared to a test result XML message
+        /// and it performs a character by character compare so if the result out of the map is <Test /> and the test result
+        /// XML message is <Test></Test> then this test will fail.
+        /// </summary>
+        [Test]
+        public void <#=UnitTestName #>_MapValidatorCase()
+        {
+            string inputPath = @"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml";
+            string outputPath = @"<#=UnitTestName #>_DataOutput.xml";
+            string expectedFilePath = @"..\..\TestData\" + "<#=UnitTestName #>" + "_DataExpected.xml";
+
+            Helper.MapValidator.ExecuteMapInMemory(new <#= BizTalkNamespace #>.<#= MapsProjectSuffix #>.<#= MapName #>(), inputPath, outputPath);
+            Helper.MapValidator.ValidateMapOutput(outputPath, expectedFilePath);
+ 		
+			/*
+			In the sample you can see we have the paths to the input, output and expected file.  we then have 2 choices of method to call on the MapValidator.  
+			We can use:
+			- ExecuteMapInMemory - Which uses the traditional way of mapping by passing in the input as an XPathDocument 
+			- ExecuteMapScalable - Which uses the scalable transform method of the BtsXsltTransform class.  This is recommended for larger input files 
+			*/
+        }
+    }
+}

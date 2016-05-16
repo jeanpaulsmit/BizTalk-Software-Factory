@@ -1,0 +1,45 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="SchemaPath" #>
+<#@ property processor="PropertyProcessor" name="SchemaNamespace" #>
+
+<!-- This is a sample BizUnit Test Case for testing Schemas -->
+<TestCase testName="<#=UnitTestName #>">
+
+<TestSetup>
+</TestSetup>
+
+<TestExecution>
+    <TestStep assemblyPath="" typeName="BizUnit.FileExistStep">
+        <DirectoryPath>..\..\TestData</DirectoryPath>
+        <SearchPattern><#= UnitTestName #>_Data.xml</SearchPattern>
+        <ExpectedNoOfFiles>1</ExpectedNoOfFiles>
+    </TestStep>
+
+    <TestStep assemblyPath="" typeName="BizUnit.FileValidateStep">
+        <Timeout>10000</Timeout>
+        <Directory>..\..\TestData</Directory>
+        <SearchPattern><#= UnitTestName #>_Data.xml</SearchPattern>
+        <DeleteFile>false</DeleteFile>
+
+        <ValidationStep assemblyPath="" typeName="BizUnit.XmlValidationStep">
+            <XmlSchemaPath><#= SchemaPath #></XmlSchemaPath>
+            <XmlSchemaNameSpace><#= SchemaNamespace #></XmlSchemaNameSpace>
+            <XPathList>
+                <XPathValidation query="Put here the XPath query to get the data">Fill in here the expected result</XPathValidation>
+                <XPathValidation query="Put here the XPath query to get the data">Fill in here the expected result</XPathValidation>
+            </XPathList>
+        </ValidationStep>
+    </TestStep>
+
+</TestExecution>
+
+<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+<TestCleanup>
+
+</TestCleanup>
+
+</TestCase>
+

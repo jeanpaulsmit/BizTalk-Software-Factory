@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemUnitTestMaps" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+	<Caption>Add Map unit test</Caption>
+	<HostData>
+		<Icon ID="133" />
+		<CommandBar Name="Project Add" />
+	</HostData>
+	<Arguments>
+		<!-- Include fixed project values -->
+		<xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\UnitTestValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+		<Argument Name="UnitTestProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+		</Argument>
+		<Argument Name="UnitTestClassMapFileName">
+			<ValueProvider Type="Evaluator" Expression="Map_$(UnitTestMap.Name).cs">
+				<MonitorArgument Name="UnitTestMap" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestCaseMapFileName">
+			<ValueProvider Type="Evaluator" Expression="Map_$(UnitTestMap.Name)_Case.xml">
+				<MonitorArgument Name="UnitTestMap" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestDataMapFileName">
+			<ValueProvider Type="Evaluator" Expression="Map_$(UnitTestMap.Name)_Data.xml">
+				<MonitorArgument Name="UnitTestMap" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestDataMapFileNameExpected">
+			<ValueProvider Type="Evaluator" Expression="Map_$(UnitTestMap.Name)_DataExpected.xml">
+				<MonitorArgument Name="UnitTestMap" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestMapName">
+			<ValueProvider Type="Evaluator" Expression="Map_$(UnitTestMap.Name)">
+				<MonitorArgument Name="UnitTestMap" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="MapName">
+			<ValueProvider Type="Evaluator" Expression="$(UnitTestMap.Name)">
+				<MonitorArgument Name="UnitTestMap" />
+			</ValueProvider>
+		</Argument>
+
+		<Argument Name="BizTalkNamespace">
+			<ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+		</Argument>
+		
+		<Argument Name="UnitTestMap" Type="BizTalkSoftwareFactory.BusinessEntities.MapItem, BizTalkSoftwareFactory">
+			<Converter Type="BizTalkSoftwareFactory.Converters.MapConverter, BizTalkSoftwareFactory" />
+		</Argument>
+	</Arguments>
+	<GatheringServiceData>
+		<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+			<Pages>
+				<Page>
+					<Title>Select Map to generate Unit test for</Title>
+					<Fields>
+						<Field Label="Select Map to generate Unit test for" ValueName="UnitTestMap" />
+					</Fields>
+				</Page>
+			</Pages>
+		</Wizard>
+	</GatheringServiceData>
+	<Actions>
+		<!-- Add the Unit Test Class to the project, this will be stored in the root of the project -->
+		<Action Name="GenerateMapTestClass" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\MapTestClass.cs.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="MapsProjectSuffix" RecipeArgument="MapsProjectSuffix"/>
+			<Input Name="UnitTestProjectSuffix" RecipeArgument="UnitTestProjectSuffix"/>
+			<Input Name="MapName" RecipeArgument="MapName"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestMapName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddMapTestClass" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library"
+				Open="true">
+			<Input Name="Content" ActionOutput="GenerateMapTestClass.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestClassMapFileName" />
+			<Input Name="Project" RecipeArgument="UnitTestProject" />
+		</Action>
+		<!-- Add the Unit Test Case to the project, this will be stored in the TestCase folder of the project -->
+		<Action Name="GetUnitTestProjectTestCaseFolder" Type="BizTalkSoftwareFactory.Actions.GetProjectFolderItemAction, BizTalkSoftwareFactory">
+			<Input Name="CurrentProject" RecipeArgument="UnitTestProject" />
+			<Input Name="FolderName" RecipeArgument="UnitTestCaseFolderName" />
+			<Output Name="Item" />
+		</Action>
+		<Action Name="GenerateMapTestCase" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\MapTestCase.xml.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestMapName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddMapTestCase" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions"
+	        Open="true" >
+			<Input Name="Content" ActionOutput="GenerateMapTestCase.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestCaseMapFileName" />
+			<Input Name="InputProjectItem" ActionOutput="GetUnitTestProjectTestCaseFolder.Item" />
+		</Action>
+		<!-- Add the Unit Test Data to the project, this will be stored in the TestData folder of the project -->
+		<Action Name="GetUnitTestProjectTestDataFolder" Type="BizTalkSoftwareFactory.Actions.GetProjectFolderItemAction, BizTalkSoftwareFactory">
+			<Input Name="CurrentProject" RecipeArgument="UnitTestProject" />
+			<Input Name="FolderName" RecipeArgument="UnitTestDataFolderName" />
+			<Output Name="Item" />
+		</Action>
+		<Action Name="GenerateMapTestData" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\MapTestData.xml.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestMapName"/>
+			<Input Name="TestMsgContent" RecipeArgument="UnitTestMapName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddMapTestData" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions"
+	        Open="true" >
+			<Input Name="Content" ActionOutput="GenerateMapTestData.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestDataMapFileName" />
+			<Input Name="InputProjectItem" ActionOutput="GetUnitTestProjectTestDataFolder.Item" />
+		</Action>
+		<!-- Add the Unit Test Expected Data to the project, this will be stored in the TestData folder of the project -->
+		<Action Name="GenerateMapTestDataExpected" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\MapTestData.xml.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestMapName"/>
+			<Input Name="TestMsgContent" RecipeArgument="UnitTestMapName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddMapTestDataExpected" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions"
+	        Open="true" >
+			<Input Name="Content" ActionOutput="GenerateMapTestData.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestDataMapFileNameExpected" />
+			<Input Name="InputProjectItem" ActionOutput="GetUnitTestProjectTestDataFolder.Item" />
+		</Action>
+	</Actions>
+</Recipe>

@@ -1,0 +1,156 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ Assembly Name="BizTalkSoftwareFactory.dll" #>
+<#@ property processor="PropertyProcessor" name="solutionName" #>
+<#@ property processor="PropertyProcessor" name="includeSchemas" #>
+<#@ property processor="PropertyProcessor" name="includeMappings" #>
+<#@ property processor="PropertyProcessor" name="includeOrchestrations" #>
+<#@ property processor="PropertyProcessor" name="includePipelines" #>
+<#@ property processor="PropertyProcessor" name="includeComponents" #>
+<#@ property processor="PropertyProcessor" name="productIdCodeGuid" #>
+<#@ property processor="PropertyProcessor" name="productUpgradeCodeGuid" #>
+<#var solutionPath = string.Concat("..\\", solutionName);  #>
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+  Deployment Framework for BizTalk 5.0
+  Copyright (C) 2008-2010 Thomas F. Abraham and Scott Colestock
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Deploy">
+
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <SchemaVersion>1.0</SchemaVersion>
+    <ProjectName><#=solutionName #></ProjectName>
+    <ProjectVersion>1.0</ProjectVersion>
+
+    <!-- The BizTalk application name is default the project name, use the element below to change that -->
+    <!-- <BizTalkAppName></BizTalkAppName> -->
+
+    <EnableSideBySide>true</EnableSideBySide>
+
+    <!-- Set following properties to true or false to include various pieces of a BizTalk deployment. -->
+    <IncludeSchemas><#=includeSchemas #></IncludeSchemas>
+    <IncludeOrchestrations><#=includeOrchestrations #></IncludeOrchestrations>
+    <IncludeTransforms><#=includeMappings #></IncludeTransforms>
+    <IncludePipelines><#=includePipelines #></IncludePipelines>
+    <IncludeComponents><#=includeComponents #></IncludeComponents>
+    <IncludeCustomFunctoids>false</IncludeCustomFunctoids>
+    <IncludeVocabAndRules>false</IncludeVocabAndRules>
+    <IncludeVirtualDirectories>false</IncludeVirtualDirectories>
+    <IncludeMessagingBindings>true</IncludeMessagingBindings>
+    <IncludeDeploymentTest>false</IncludeDeploymentTest>
+    <Includelog4net>false</Includelog4net>
+    <IncludeSSO>false</IncludeSSO>
+    <IncludeBAM>false</IncludeBAM>
+    <SkipBamUndeploy>false</SkipBamUndeploy>
+    <!-- Do not restart IIS during deployment since we don't use any IIS artifacts in this sample. -->
+    <SkipIISReset>true</SkipIISReset>
+
+    <UseIsolatedAppDomain>true</UseIsolatedAppDomain>
+
+    <!-- Set these true if we have a "master" port bindings file where the transporttypedata elements are stored in unescaped XML for convenience/readability sake. -->
+    <ApplyXmlEscape>true</ApplyXmlEscape>
+    <UsingMasterBindings>true</UsingMasterBindings>
+
+    <!-- Name of the portbindings file, it is added as resource to the application so the name should be unique -->
+    <PortBindings>PortbindingsMaster.xml</PortBindings>
+
+    <!-- Set to a value if developer needs local version of environment settings. -->
+    <!--<DeveloperPreProcessSettings>$(MSBuildProjectDirectory)\EnvironmentSettings\local_settings.xml</DeveloperPreProcessSettings>-->
+
+    <!-- We are asking the deployment framework to create MSBuild properties from the values
+        in our environment settings file that are named here. ssoAppUserGroup and ssoAppAdminGroup
+        should be supplied if they need to be different for SSO app creation than the defaults
+        specified in BizTalkDeploymentFramework.targets -->
+    <PropsFromEnvSettings></PropsFromEnvSettings>
+
+    <FilesToXmlPreprocess></FilesToXmlPreprocess>
+
+    <!-- Relative path to a folder that holds assemblies to be GAC'd/unGAC'd along with the rest of the solution. -->
+    <ExternalAssembliesPath>..\ExternalReferences</ExternalAssembliesPath>
+    <ExternalAssemblies></ExternalAssemblies>
+
+    <!-- Properties to assist in deploying BizTalk rule engine vocabularies and rules
+        This sample does NOT include rules at this point - these properties just illustrate
+        what you would do if you had them.  The DeployBTRules.exe utility is used by
+        the include file to support this functionality.  -->
+    <RuleVocabulary><#=solutionName #>.RuleVocabulary.1.3.xml</RuleVocabulary>
+    <RulePolicy><#=solutionName #>.RulePolicy.1.1.xml</RulePolicy>
+    <RulePolicyName>SomeBusinessRuleMsgPolicy</RulePolicyName>
+  </PropertyGroup>
+
+  <!-- !! Check this section and apply the correct settings !! -->
+  <ItemGroup>
+    <!-- The Deployment Framework defaults to Transforms but we use Maps -->
+	<!-- Adjust the LocationPath to remove the blocking " + ", this was necessary to be able to generate this using T4 -->
+	<Transforms Include="<#=solutionName #>.Maps.dll">
+      <LocationPath><#=solutionPath #>.Maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
+    <!-- The Deployment Framework defaults to Transforms but we use Maps -->
+	<!-- Adjust the LocationPath to remove the blocking " + ", this was necessary to be able to generate this using T4 -->
+	<Components Include="<#=solutionName #>.BusinessComponents.dll">
+      <LocationPath><#=solutionPath #>.BusinessComponents\bin\$(Configuration)</LocationPath>
+    </Components>
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DeploymentFrameworkTargetsPath>$(MSBuildExtensionsPath)\DeploymentFrameworkForBizTalk\5.0\</DeploymentFrameworkTargetsPath>
+    <OutputPath>bin\Debug\</OutputPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+    <!-- We name our host(s) explicitly to avoid having the framework bounce them all. -->
+    <BizTalkHosts>BizTalkServerApplication</BizTalkHosts>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DeploymentFrameworkTargetsPath>$(MSBuildExtensionsPath)\DeploymentFrameworkForBizTalk\5.0\</DeploymentFrameworkTargetsPath>
+    <OutputPath>bin\Release\</OutputPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+    <!-- We name our host(s) explicitly to avoid having the framework bounce them all. -->
+    <BizTalkHosts>BizTalkServerApplication</BizTalkHosts>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Server'">
+    <DeploymentFrameworkTargetsPath>Framework\</DeploymentFrameworkTargetsPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+    <!-- We name our host(s) explicitly to avoid having the framework bounce them all. -->
+    <BizTalkHosts>BizTalkServerApplication</BizTalkHosts>
+  </PropertyGroup>
+
+  <Import Project="$(DeploymentFrameworkTargetsPath)BizTalkDeploymentFramework.targets" />
+
+  <PropertyGroup>
+    <!-- Properties related to building an MSI for server deployments -->
+    <!-- BizTalk App Version Upgrade -->
+    <!--   For each new product release to be deployed to your BizTalk servers: -->
+    <!--     1) Increment ProductVersion -->
+    <!--     2) Generate a new GUID and update ProductId with the new GUID -->
+    <!--   This allows the new MSI to automatically uninstall (not undeploy!) the old MSI and install the new one. -->
+    <ProductVersion>1.0.0</ProductVersion>
+    <ProductId><#=productIdCodeGuid #></ProductId>
+    <!-- BizTalk App Version Upgrade -->
+    <!-- NEVER change the ProductUpgradeCode. -->
+    <ProductUpgradeCode><#=productUpgradeCodeGuid #></ProductUpgradeCode>
+    <ProductName><#=solutionName #></ProductName>
+    <Manufacturer>Your company name</Manufacturer>
+    <PackageDescription>Your description</PackageDescription>
+    <PackageComments>Your comments</PackageComments>
+  </PropertyGroup>
+
+ <!-- Whatever is required for your project to correctly assemble a "redist" directory should be done here. (Redist contents will be in MSI.) -->
+  <Target Name="CustomRedist">
+    <MakeDir Directories="$(RedistDir)\TestFiles" />
+
+    <!-- Force MSBuild to expand the item spec into physical file specs -->
+    <CreateItem Include="..\TestFiles\**\*.*">
+      <Output TaskParameter="Include" ItemName="TestFilesSourceGroup" />
+    </CreateItem>
+
+	<!-- Copy all of the files and subfolders from ..\TestFiles to $(RedistDir)\TestFiles -->
+    <Copy DestinationFolder="$(RedistDir)\TestFiles\%(RecursiveDir)" SourceFiles="@(TestFilesSourceGroup)"/>
+  </Target>
+
+</Project>

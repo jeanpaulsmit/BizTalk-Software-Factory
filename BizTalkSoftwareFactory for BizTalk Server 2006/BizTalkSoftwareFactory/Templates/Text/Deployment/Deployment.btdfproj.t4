@@ -1,0 +1,176 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ Assembly Name="BizTalkSoftwareFactory.dll" #>
+<#@ property processor="PropertyProcessor" name="solutionName" #>
+<#@ property processor="PropertyProcessor" name="includeSchemas" #>
+<#@ property processor="PropertyProcessor" name="includeMappings" #>
+<#@ property processor="PropertyProcessor" name="includeOrchestrations" #>
+<#@ property processor="PropertyProcessor" name="includePipelines" #>
+<#@ property processor="PropertyProcessor" name="includeComponents" #>
+<#@ property processor="PropertyProcessor" name="includePipelineComponents" #>
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+      Deployment Framework for BizTalk 5.0
+      Scott Colestock / www.traceofthought.net
+      Thomas F. Abraham
+
+      BizTalkSample.dfbtproj is a template build file designed to show how to
+      leverage the MSBuild-based deployment framework for BizTalk.
+      
+      The framework addresses BizTalk 2006 deployments, both for developer desktops
+      and for production use after an MSI installation.
+      
+      It relies on BizTalkDeploymentFramework.targets for the actual BizTalk deployment work; 
+      only project-specific variations and deployment work must be done in this file.
+      Think of this like a .csproj or .vbproj project file.
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Deploy">
+
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <SchemaVersion>1.0</SchemaVersion>
+    <ProjectName><#=solutionName #></ProjectName>
+    <ProjectVersion>1.0</ProjectVersion>
+
+    <!-- The BizTalk application name is default the project name, use the element below to change that -->
+    <!-- <BizTalkAppName></BizTalkAppName> -->
+
+    <EnableSideBySide>true</EnableSideBySide>
+
+    <!-- Set following properties to true or false to include various pieces of a BizTalk deployment. -->
+    <IncludeSchemas><#=includeSchemas #></IncludeSchemas>
+    <IncludeOrchestrations><#=includeOrchestrations #></IncludeOrchestrations>
+    <IncludeTransforms><#=includeMappings #></IncludeTransforms>
+    <IncludePipelines><#=includePipelines #></IncludePipelines>
+    <IncludeComponents><#=includeComponents #></IncludeComponents>
+    <IncludePipelineComponents><#=includePipelineComponents #></IncludePipelineComponents>
+    <IncludeCustomFunctoids>false</IncludeCustomFunctoids>
+    <IncludeVocabAndRules>false</IncludeVocabAndRules>
+    <IncludeVirtualDirectories>false</IncludeVirtualDirectories>
+    <IncludeMessagingBindings>true</IncludeMessagingBindings>
+    <IncludeDeploymentTest>false</IncludeDeploymentTest>
+    <Includelog4net>false</Includelog4net>
+    <IncludeSSO>false</IncludeSSO>
+    <IncludeBAM>false</IncludeBAM>
+
+    <UseIsolatedAppDomain>true</UseIsolatedAppDomain>
+
+    <!-- Name of the portbindings file, it is added as resource to the application so the name should be unique -->
+    <PortBindings>PortBindings.xml</PortBindings>
+    <UsingMasterBindings>false</UsingMasterBindings>
+
+    <!-- Set to a value if developer needs local version of environment settings. -->
+    <!--<DeveloperPreProcessSettings>$(MSBuildProjectDirectory)\EnvironmentSettings\local_settings.xml</DeveloperPreProcessSettings>-->
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DeploymentFrameworkTargetsPath>$(MSBuildExtensionsPath)\DeploymentFrameworkForBizTalk\5.0\</DeploymentFrameworkTargetsPath>
+    <OutputPath>bin\Debug\</OutputPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+    <!-- We name our host(s) explicitly to avoid having the framework bounce them all. -->
+    <BizTalkHosts>BizTalkServerApplication</BizTalkHosts>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DeploymentFrameworkTargetsPath>$(MSBuildExtensionsPath)\DeploymentFrameworkForBizTalk\5.0\</DeploymentFrameworkTargetsPath>
+    <OutputPath>bin\Release\</OutputPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+    <!-- We name our host(s) explicitly to avoid having the framework bounce them all. -->
+    <BizTalkHosts>BizTalkServerApplication</BizTalkHosts>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Server'">
+    <DeploymentFrameworkTargetsPath>Framework\</DeploymentFrameworkTargetsPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+    <!-- We name our host(s) explicitly to avoid having the framework bounce them all. -->
+    <BizTalkHosts>BizTalkServerApplication</BizTalkHosts>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Make your MSI unique - your project should change these.  -->
+    <ProductId>66B24BD1-0FC1-4ae4-9109-C371134F540C</ProductId>
+    <ProductUpgradeCode>5C21D566-0D99-4003-BBF9-53A3739DD7CB</ProductUpgradeCode>
+    <ProductName><#=solutionName #></ProductName>
+    <ProductVersion>1.0.0</ProductVersion>
+    <Manufacturer>Your company name</Manufacturer>
+    <PackageDescription>Your description</PackageDescription>
+    <PackageComments>Your comments</PackageComments>
+    <!-- OPTIONAL property DefaultInstallDir can be used to override the default install path. -->
+    <!-- %ProgramFiles% is a Windows-defined environment variable that holds the default Program Files path. -->
+    <!--<DefaultInstallDir>%ProgramFiles%\BizTalkDeploymentSample</DefaultInstallDir>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Transforms Include="<#=solutionName #>.Maps.dll">
+	  <!-- You must add the correct path to the DLL -->
+	  <LocationPath>..\\<#=solutionName #>.Maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
+  </ItemGroup>
+
+  <!--
+  <ItemGroup>
+    <FilesToXmlPreprocess Include="AdditionalXmlToPreprocess.xml">
+      <LocationPath>..</LocationPath>
+    </FilesToXmlPreprocess>
+  </ItemGroup>
+  -->
+
+  <!--
+  <ItemGroup>
+    <AdditionalFiles Include="AdditionalXmlToPreprocess.xml">
+      <LocationPath>..</LocationPath>
+    </AdditionalFiles>
+  </ItemGroup>
+  -->
+  
+  <!-- We are asking the Deployment Framework to create MSBuild properties from the values
+		in our environment settings file that are named here. ssoAppUserGroup and ssoAppAdminGroup
+		should be supplied if they need to be different for SSO app creation than the defaults
+		specified in BizTalkDeploymentFramework.targets -->
+  <!--
+  <ItemGroup>
+    <PropsFromEnvSettings Include="SsoAppUserGroup;SsoAppAdminGroup;BAMViewsAndAccounts" />
+  </ItemGroup>
+  -->
+
+  <!-- Do not specify rule policy name. It is automatically extracted from the XML file. -->
+  <!--
+  <ItemGroup>
+    <RuleVocabularies Include="<#=solutionName #>.Vocabulary.xml">
+      <LocationPath>..</LocationPath>
+    </RuleVocabularies>
+  </ItemGroup>
+  <ItemGroup>
+    <RulePolicies Include="<#=solutionName #>.Policy.xml">
+      <LocationPath>..</LocationPath>
+    </RulePolicies>
+  </ItemGroup>
+  -->
+
+  <!-- Specify which BizTalk applications are referenced by this solution. -->
+  <!--
+  <ItemGroup>
+    <AppsToReference Include="AnotherBizTalkApp" />
+    <AppsToReference Include="OneMoreBizTalkApp" />
+  </ItemGroup>
+  -->
+
+  <Import Project="$(DeploymentFrameworkTargetsPath)BizTalkDeploymentFramework.targets" />
+
+  <!-- Whatever is required for your project to correctly assemble a "redist" directory should be done here. (Redist contents will be in MSI.) -->
+  <!--
+  <Target Name="CustomRedist">
+    <MakeDir Directories="$(RedistDir)\TestFiles" />
+
+    <CreateItem Include="..\TestFiles\**\*.*">
+      <Output TaskParameter="Include" ItemName="TestFilesSourceGroup" />
+    </CreateItem>
+
+    <Copy DestinationFolder="$(RedistDir)\TestFiles\%(RecursiveDir)" SourceFiles="@(TestFilesSourceGroup)"/>
+  </Target>
+  -->
+</Project>

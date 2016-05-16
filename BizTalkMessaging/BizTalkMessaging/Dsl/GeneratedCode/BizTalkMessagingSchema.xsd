@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="BizTalkMessagingSchema" targetNamespace="http://schemas.microsoft.com/dsltools/BizTalkMessaging" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/BizTalkMessaging" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- BizTalkMessagingModel -->
+  <xsd:element name="bizTalkMessagingModel" type="BizTalkMessagingModel" />
+  <xsd:complexType name="BizTalkMessagingModel">
+    <xsd:annotation>
+      <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Relationship: BizTalkMessagingModelHasApplications -->
+      <xsd:element name="applications" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Instances of BizTalkMessagingModelHasApplications</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+              <xsd:element ref="bizTalkMessagingModelHasApplications">
+                <xsd:annotation>
+                  <xsd:documentation>[Relationship deriving from BizTalkMessagingModelHasApplications needs to be serialized in full-form]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element ref="application" >
+                <xsd:annotation>
+                  <xsd:documentation>[Target role-player]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <!-- Relationship: BizTalkMessagingModelHasBroker -->
+      <xsd:element name="broker" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Instance of BizTalkMessagingModelHasBroker</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1" >
+              <xsd:element ref="bizTalkMessagingModelHasBroker">
+                <xsd:annotation>
+                  <xsd:documentation>[Relationship deriving from BizTalkMessagingModelHasBroker needs to be serialized in full-form]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element ref="broker" >
+                <xsd:annotation>
+                  <xsd:documentation>[Target role-player]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <!-- Id -->
+    <xsd:attribute name="Id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <!-- dslVersion -->
+    <xsd:attribute name="dslVersion" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Version of the model serialized in this file.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- BizTalkMessagingModel Moniker -->
+  <xsd:element name="bizTalkMessagingModelMoniker" type="BizTalkMessagingModelMoniker" />
+  <xsd:complexType name="BizTalkMessagingModelMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BizTalkMessagingModel instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Id" type="xsd:string" >
+      <xsd:annotation>
+        <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- Application -->
+  <xsd:element name="application" type="Application" />
+  <xsd:complexType name="Application">
+    <xsd:annotation>
+      <xsd:documentation>Elements embedded in the model. Appear as boxes on the diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Relationship: ApplicationSendsToInPort -->
+      <xsd:element name="inPort" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Instance of ApplicationSendsToInPort</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="1" >
+              <xsd:element ref="applicationSendsToInPort">
+                <xsd:annotation>
+                  <xsd:documentation>[Relationship deriving from ApplicationSendsToInPort needs to be serialized in full-form]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element ref="inPortMoniker" >
+                <xsd:annotation>
+                  <xsd:documentation>[Target role-player]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <!-- Property: Name -->
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+  </xsd:complexType>
+  
+  <!-- Application Moniker -->
+  <xsd:element name="applicationMoniker" type="ApplicationMoniker" />
+  <xsd:complexType name="ApplicationMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Application instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="name" type="xsd:string" >
+      <xsd:annotation>
+        <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- OutPort -->
+  <xsd:element name="outPort" type="OutPort" />
+  <xsd:complexType name="OutPort">
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Relationship: OutPortSendsToApplication -->
+      <xsd:element name="applications" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Instances of OutPortSendsToApplication</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="unbounded" >
+              <xsd:element ref="outPortSendsToApplication">
+                <xsd:annotation>
+                  <xsd:documentation>[Relationship deriving from OutPortSendsToApplication needs to be serialized in full-form]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element ref="applicationMoniker" >
+                <xsd:annotation>
+                  <xsd:documentation>[Target role-player]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <!-- Id -->
+    <xsd:attribute name="Id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- OutPort Moniker -->
+  <xsd:element name="outPortMoniker" type="OutPortMoniker" />
+  <xsd:complexType name="OutPortMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for OutPort instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Id" type="xsd:string" >
+      <xsd:annotation>
+        <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- InPort -->
+  <xsd:element name="inPort" type="InPort" />
+  <xsd:complexType name="InPort">
+    <!-- Id -->
+    <xsd:attribute name="Id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <!-- Property: Message -->
+    <xsd:attribute name="message" type="xsd:string" />
+    <!-- Property: Protocol -->
+    <xsd:attribute name="protocol" type="Protocol" />
+  </xsd:complexType>
+  
+  <!-- InPort Moniker -->
+  <xsd:element name="inPortMoniker" type="InPortMoniker" />
+  <xsd:complexType name="InPortMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for InPort instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Id" type="xsd:string" >
+      <xsd:annotation>
+        <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- Broker -->
+  <xsd:element name="broker" type="Broker" />
+  <xsd:complexType name="Broker">
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Relationship: BrokerHasOutPorts -->
+      <xsd:element name="outPorts" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Instances of BrokerHasOutPorts</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+              <xsd:element ref="brokerHasOutPorts">
+                <xsd:annotation>
+                  <xsd:documentation>[Relationship deriving from BrokerHasOutPorts needs to be serialized in full-form]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element ref="outPort" >
+                <xsd:annotation>
+                  <xsd:documentation>[Target role-player]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <!-- Relationship: BrokerHasInPorts -->
+      <xsd:element name="inPorts" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Instances of BrokerHasInPorts</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+              <xsd:element ref="brokerHasInPorts">
+                <xsd:annotation>
+                  <xsd:documentation>[Relationship deriving from BrokerHasInPorts needs to be serialized in full-form]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element ref="inPort" >
+                <xsd:annotation>
+                  <xsd:documentation>[Target role-player]</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <!-- Id -->
+    <xsd:attribute name="Id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- Broker Moniker -->
+  <xsd:element name="brokerMoniker" type="BrokerMoniker" />
+  <xsd:complexType name="BrokerMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Broker instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Id" type="xsd:string" >
+      <xsd:annotation>
+        <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
+  <!-- BizTalkMessagingModelHasApplications -->
+  <xsd:element name="bizTalkMessagingModelHasApplications" abstract="true" type="BizTalkMessagingModelHasApplications" />
+  <xsd:complexType name="BizTalkMessagingModelHasApplications" abstract="true" >
+    <xsd:annotation>
+      <xsd:documentation>Embedding relationship between the Model and Elements</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Target end Application -->
+      <xsd:element ref="application" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>[Target role-player]</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- BizTalkMessagingModelHasApplications Moniker -->
+  <xsd:element name="bizTalkMessagingModelHasApplicationsMoniker" abstract="true" type="BizTalkMessagingModelHasApplicationsMoniker" />
+  <xsd:complexType name="BizTalkMessagingModelHasApplicationsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BizTalkMessagingModelHasApplications instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  
+  <!-- BizTalkMessagingModelHasBroker -->
+  <xsd:element name="bizTalkMessagingModelHasBroker" abstract="true" type="BizTalkMessagingModelHasBroker" />
+  <xsd:complexType name="BizTalkMessagingModelHasBroker" abstract="true" >
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Target end Broker -->
+      <xsd:element ref="broker" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>[Target role-player]</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- BizTalkMessagingModelHasBroker Moniker -->
+  <xsd:element name="bizTalkMessagingModelHasBrokerMoniker" abstract="true" type="BizTalkMessagingModelHasBrokerMoniker" />
+  <xsd:complexType name="BizTalkMessagingModelHasBrokerMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BizTalkMessagingModelHasBroker instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  
+  <!-- BrokerHasOutPorts -->
+  <xsd:element name="brokerHasOutPorts" abstract="true" type="BrokerHasOutPorts" />
+  <xsd:complexType name="BrokerHasOutPorts" abstract="true" >
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Target end OutPort -->
+      <xsd:element ref="outPort" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>[Target role-player]</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- BrokerHasOutPorts Moniker -->
+  <xsd:element name="brokerHasOutPortsMoniker" abstract="true" type="BrokerHasOutPortsMoniker" />
+  <xsd:complexType name="BrokerHasOutPortsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BrokerHasOutPorts instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  
+  <!-- BrokerHasInPorts -->
+  <xsd:element name="brokerHasInPorts" abstract="true" type="BrokerHasInPorts" />
+  <xsd:complexType name="BrokerHasInPorts" abstract="true" >
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Target end InPort -->
+      <xsd:element ref="inPort" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>[Target role-player]</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- BrokerHasInPorts Moniker -->
+  <xsd:element name="brokerHasInPortsMoniker" abstract="true" type="BrokerHasInPortsMoniker" />
+  <xsd:complexType name="BrokerHasInPortsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BrokerHasInPorts instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  
+  <!-- ApplicationSendsToInPort -->
+  <xsd:element name="applicationSendsToInPort" abstract="true" type="ApplicationSendsToInPort" />
+  <xsd:complexType name="ApplicationSendsToInPort" abstract="true" >
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Target end InPort -->
+      <xsd:element ref="inPortMoniker" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>[Target role-player]</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- ApplicationSendsToInPort Moniker -->
+  <xsd:element name="applicationSendsToInPortMoniker" abstract="true" type="ApplicationSendsToInPortMoniker" />
+  <xsd:complexType name="ApplicationSendsToInPortMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ApplicationSendsToInPort instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  
+  <!-- OutPortSendsToApplication -->
+  <xsd:element name="outPortSendsToApplication" abstract="true" type="OutPortSendsToApplication" />
+  <xsd:complexType name="OutPortSendsToApplication" abstract="true" >
+    <xsd:sequence minOccurs="0" maxOccurs="1">
+      <!-- Target end Application -->
+      <xsd:element ref="applicationMoniker" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>[Target role-player]</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- OutPortSendsToApplication Moniker -->
+  <xsd:element name="outPortSendsToApplicationMoniker" abstract="true" type="OutPortSendsToApplicationMoniker" />
+  <xsd:complexType name="OutPortSendsToApplicationMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for OutPortSendsToApplication instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  
+  <!-- Enum Protocol -->
+  <xsd:simpleType name="Protocol">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FILE"/>
+      <xsd:enumeration value="HTTP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>
+

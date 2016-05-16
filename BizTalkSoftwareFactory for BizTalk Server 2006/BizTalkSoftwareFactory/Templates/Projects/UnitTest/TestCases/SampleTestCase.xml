@@ -1,0 +1,42 @@
+﻿<!-- This Sample TestCase was taken from the BizUnit sample solution -->
+<TestCase testName="SampleTestCase">
+
+	<!-- Start with a clean test by doing some cleanup (or setup like configuration) in advance -->
+	<TestSetup>
+		<!-- For example clean the messagebox folder
+		<TestStep assemblyPath="" typeName="Microsoft.Services.BizTalkApplicationFramework.BizUnit.FileDeleteMultipleStep">
+			<Directory>C:\BizTalkMessageBox\Out</Directory>
+			<SearchPattern>*.xml</SearchPattern>
+		</TestStep>
+		-->
+	</TestSetup>
+
+	<TestExecution>
+		<!-- For example create a file and drop it in the pickup folder
+		<TestStep assemblyPath="" typeName="Microsoft.Services.BizTalkApplicationFramework.BizUnit.FileCreateStep">
+			<SourcePath>..\..\TestData\SampleTestData.xml</SourcePath>
+			<CreationPath>C:\BizTalkMessageBox\In\SampleTestData.xml</CreationPath>
+		</TestStep>
+		-->
+		<!-- For example a count step to check the number of messages in the output folder
+		<TestStep assemblyPath="" typeName="Microsoft.Services.BizTalkApplicationFramework.BizUnit.FilesExistStep">
+			<Timeout>3000</Timeout>
+			<DirectoryPath>C:\BizTalkMessageBox\Out</DirectoryPath>
+			<SearchPattern>*.xml</SearchPattern>
+			<ExpectedNoOfFiles>1</ExpectedNoOfFiles>
+		</TestStep>
+		-->
+	</TestExecution>
+
+	<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+	<TestCleanup>
+		<!-- For example cleanup the output folder
+		<TestStep assemblyPath="" typeName="Microsoft.Services.BizTalkApplicationFramework.BizUnit.FileDeleteMultipleStep" failOnError="false" >
+			<Directory>C:\BizTalkMessageBox\Out</Directory>
+			<SearchPattern>*.xml</SearchPattern>
+		</TestStep>
+		-->
+	</TestCleanup>
+
+</TestCase>
+

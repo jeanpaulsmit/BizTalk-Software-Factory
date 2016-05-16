@@ -1,0 +1,67 @@
+﻿<VisualStudioProject>
+    <BIZTALK>
+        <Build>
+            <Settings>
+              <EditorCommon/>
+              <ProjectCommon
+                  AssemblyKeyName = ""
+                  AssemblyKeyFile = "$KeyFile$"
+                  AssemblyDelaySign = "False"
+                  AssemblyTitle = ""
+                  AssemblyDescription = ""
+                  AssemblyDefaultAlias = ""
+                  AssemblyConfiguration = ""
+                  AssemblyTrademark = ""
+                  AssemblyProduct = ""
+                  AssemblyInformationalVersion = "1.0.0.0"
+                  AssemblyFileVersion = "1.0.0.0"
+                  AssemblyCompany = ""
+                  AssemblyVersion = "1.0.0.0"
+                  />
+              <Config
+                  Name = "Debug"
+                  ApplicationName = "$BizTalkAppName$"
+                  BpelCompliance = "True"
+                  GenerateDebuggingInformation = "True"
+                  EmbedTrackingInformation = "True"
+                  TreatWarningsAsErrors = "False"
+                  WarningLevel = "4"
+                  OutputPath = "bin\Debug\"
+                  />
+              <Config
+                  Name = "Release"
+                  ApplicationName = "$BizTalkAppName$"
+                  BpelCompliance = "True"
+                  GenerateDebuggingInformation = "False"
+                  EmbedTrackingInformation = "True"
+                  TreatWarningsAsErrors = "False"
+                  WarningLevel = "4"
+                  OutputPath = "bin\Release\"
+                  />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                />
+                <Reference
+                    Name = "Microsoft.BizTalk.DefaultPipelines"
+                    AssemblyName = "Microsoft.BizTalk.DefaultPipelines"
+                />
+                <Reference
+                    Name = "Microsoft.BizTalk.GlobalPropertySchemas"
+                    AssemblyName = "Microsoft.BizTalk.GlobalPropertySchemas"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+            </Include>
+        </Files>
+    </BIZTALK>
+</VisualStudioProject>
+

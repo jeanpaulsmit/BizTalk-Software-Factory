@@ -1,0 +1,4 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Put here your test XML message -->

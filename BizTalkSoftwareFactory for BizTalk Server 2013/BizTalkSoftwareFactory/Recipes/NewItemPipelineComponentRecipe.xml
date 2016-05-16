@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemPipelineComponent" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+	<Caption>Add Pipeline Component</Caption>
+	<HostData>
+		<Icon ID="133" />
+		<CommandBar Name="Project Add" />
+	</HostData>
+	<Arguments>
+		<!-- Include fixed project values -->
+		<xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+		<Argument Name="PipelineComponentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+		</Argument>
+
+		<Argument Name="BizTalkNamespace">
+			<ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+		</Argument>
+
+		<Argument Name="ClassName" Type="System.String" />
+		<Argument Name="ComponentType" Type="System.String" />
+		<Argument Name="ImplementIProbeMessage" Type="System.Boolean" />
+		<Argument Name="ComponentName" Type="System.String" />
+		<Argument Name="ComponentDescription" Type="System.String" />
+		<Argument Name="ComponentVersion" Type="System.String" />
+		<Argument Name="DesignPropertyList" Type="BizTalkSoftwareFactory.BusinessEntities.DesignPropertyItemCollection, BizTalkSoftwareFactory" />
+
+		<Argument Name="PipelineComponentFileName">
+			<ValueProvider Type="Evaluator" Expression="$(ComponentName).cs">
+				<MonitorArgument Name="ComponentName" />
+			</ValueProvider>
+		</Argument>
+
+		<Argument Name="PipelineComponentFileNameResx">
+			<ValueProvider Type="Evaluator" Expression="$(ComponentName).resx">
+				<MonitorArgument Name="ComponentName" />
+			</ValueProvider>
+		</Argument>
+
+		<Argument Name="ComponentGuid">
+			<ValueProvider Type="BizTalkSoftwareFactory.ValueProviders.NewGuidValueProvider, BizTalkSoftwareFactory" />
+		</Argument>
+
+  </Arguments>
+	<GatheringServiceData>
+		<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+			<Pages>
+				<Page Type="BizTalkSoftwareFactory.CustomWizardPages.PipelineComponentWizard.PageGeneralSetup, BizTalkSoftwareFactory">
+					<Title>Step 1: General Settings</Title>
+				</Page>
+				<Page Type="BizTalkSoftwareFactory.CustomWizardPages.PipelineComponentWizard.PageGeneralProperties, BizTalkSoftwareFactory">
+					<Title>Step 2: General Properties</Title>
+				</Page>
+				<Page Type="BizTalkSoftwareFactory.CustomWizardPages.PipelineComponentWizard.PageDesignerProperties, BizTalkSoftwareFactory">
+					<Title>Step 3: Designer Properties</Title>
+				</Page>
+			</Pages>
+		</Wizard>
+	</GatheringServiceData>
+	<Actions>
+		<!-- Pipeline component class -->
+		<!--<Action Name="GeneratePipelineComponent" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\PipelineComponent\PipelineComponent.cs.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="PipelineComponentProjectSuffix" RecipeArgument="PipelineComponentProjectSuffix"/>
+			<Input Name="ComponentGuid" RecipeArgument="ComponentGuid"/>
+			<Input Name="ClassName" RecipeArgument="ClassName"/>
+			<Input Name="ComponentType" RecipeArgument="ComponentType"/>
+			<Input Name="ImplementIProbeMessage" RecipeArgument="ImplementIProbeMessage"/>
+			<Input Name="DesignPropertyList" RecipeArgument="DesignPropertyList"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddPipelineComponent" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Open="true">
+			<Input Name="Content" ActionOutput="GeneratePipelineComponent.Content" />
+			<Input Name="TargetFileName" RecipeArgument="PipelineComponentFileName" />
+			<Input Name="Project" RecipeArgument="PipelineComponentProject" />
+		</Action>
+		--><!-- Pipeline component resource file --><!--
+		<Action Name="GeneratePipelineComponentResx" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\PipelineComponent\PipelineComponent.resx.t4">
+			<Input Name="ComponentName" RecipeArgument="ComponentName"/>
+			<Input Name="ComponentDescription" RecipeArgument="ComponentDescription"/>
+			<Input Name="ComponentVersion" RecipeArgument="ComponentVersion"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddPipelineComponentResx" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Open="false">
+			<Input Name="Content" ActionOutput="GeneratePipelineComponentResx.Content" />
+			<Input Name="TargetFileName" RecipeArgument="PipelineComponentFileNameResx" />
+			<Input Name="Project" RecipeArgument="PipelineComponentProject" />
+		</Action>-->
+	</Actions>
+</Recipe>

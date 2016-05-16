@@ -1,0 +1,67 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.IO;
+using BizUnit;
+using BizUnit.Xaml;
+using BizUnit.TestSteps.File;
+using BizUnit.TestSteps.DataLoaders.File;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    [TestClass]
+    public class <#=UnitTestName.Replace(" ", "_") #>_Test
+    {
+        public <#=UnitTestName.Replace(" ", "_") #>_Test()
+        {
+        }
+
+		[TestInitialize]
+        public void Setup()
+        {
+        }
+
+        [DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName.Replace(" ", "_") #>" + "_Data.xml")]
+        [TestMethod]
+        public void <#=UnitTestName.Replace(" ", "_") #>_BizUnitCase()
+        {
+			// Sample scenario: create file at certain location, check for the output of a certain file at another location
+			// For additional steps please check the BizUnit documentation
+			var orchTestCase = new TestCase() { Name = "<#=UnitTestName #>" };
+
+			// Source and destination file path
+			// Source path is the folder where the TestData.xml file will be copied to (named dummy.xml)
+			string sourcePath = "path where the file will be picked up by BizTalk";
+			string targetPath = "path where the file will be written to after processing via BizTalk";
+
+			// Create the file, based on the test data file provided			
+			orchTestCase.ExecutionSteps.Add(new CreateStep() 
+			{
+				CreationPath = Path.Combine(sourcePath, "Dummy.xml"),
+				DataSource = new FileDataLoader() { FilePath = "<#=UnitTestName.Replace(" ", "_") #>" + "_Data.xml" }
+			});
+
+			// validate the existence of a new file
+			var validatingFileReadStep = new FileReadMultipleStep
+			{
+				DirectoryPath = targetPath, 
+				SearchPattern = "*.xml",
+				ExpectedNumberOfFiles = 1,
+				Timeout = 10000
+			};
+
+			// validate the result
+			orchTestCase.ExecutionSteps.Add(validatingFileReadStep);
+
+			// Run the testcase
+			var bizUnit = new BizUnit.BizUnit(orchTestCase);
+			bizUnit.RunTest();
+
+        }
+    }
+}

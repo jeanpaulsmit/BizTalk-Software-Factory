@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkSoftwareFactoryInstaller", "BizTalkSoftwareFactoryInstaller\BizTalkSoftwareFactoryInstaller.csproj", "{16D5E07B-4151-4ED9-A6F5-C84C906C2002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkSoftwareFactory", "BizTalkSoftwareFactory\BizTalkSoftwareFactory.csproj", "{DE2BD496-C368-4B38-B3C3-58DF2951BD7B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{16D5E07B-4151-4ED9-A6F5-C84C906C2002} = {16D5E07B-4151-4ED9-A6F5-C84C906C2002}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BizTalkSoftwareFactorySetup", "BizTalkSoftwareFactorySetup\BizTalkSoftwareFactorySetup.vdproj", "{9A68C593-1453-476E-B6A1-8B7B56E56FD5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs07.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BizTalkSoftwareFactory\\BizTalkSoftwareFactory.csproj
+		SccProjectName1 = BizTalkSoftwareFactory
+		SccLocalPath1 = BizTalkSoftwareFactory
+		SccProjectUniqueName2 = BizTalkSoftwareFactoryInstaller\\BizTalkSoftwareFactoryInstaller.csproj
+		SccProjectName2 = BizTalkSoftwareFactoryInstaller
+		SccLocalPath2 = BizTalkSoftwareFactoryInstaller
+		SccProjectUniqueName3 = BizTalkSoftwareFactorySetup\\BizTalkSoftwareFactorySetup.vdproj
+		SccProjectName3 = BizTalkSoftwareFactorySetup
+		SccLocalPath3 = BizTalkSoftwareFactorySetup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16D5E07B-4151-4ED9-A6F5-C84C906C2002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D5E07B-4151-4ED9-A6F5-C84C906C2002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D5E07B-4151-4ED9-A6F5-C84C906C2002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D5E07B-4151-4ED9-A6F5-C84C906C2002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2BD496-C368-4B38-B3C3-58DF2951BD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2BD496-C368-4B38-B3C3-58DF2951BD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2BD496-C368-4B38-B3C3-58DF2951BD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2BD496-C368-4B38-B3C3-58DF2951BD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A68C593-1453-476E-B6A1-8B7B56E56FD5}.Debug|Any CPU.ActiveCfg = Debug
+		{9A68C593-1453-476E-B6A1-8B7B56E56FD5}.Debug|Any CPU.Build.0 = Debug
+		{9A68C593-1453-476E-B6A1-8B7B56E56FD5}.Release|Any CPU.ActiveCfg = Release
+		{9A68C593-1453-476E-B6A1-8B7B56E56FD5}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Arguments xmlns="http://schemas.microsoft.com/pag/gax-core">
+	<!-- Define some const variables, this can only be done this way -->
+	<Argument Name="SolutionFolderBindings">
+		<ValueProvider Type="Evaluator" Expression="Bindings" />
+	</Argument>
+	<Argument Name="SolutionFolderRules">
+		<ValueProvider Type="Evaluator" Expression="Rules" />
+	</Argument>
+	<Argument Name="SolutionFolderPolicies">
+		<ValueProvider Type="Evaluator" Expression="Policies" />
+	</Argument>
+	<Argument Name="SolutionFolderDeployment">
+		<ValueProvider Type="Evaluator" Expression="Deployment" />
+	</Argument>
+	<Argument Name="BusinessComponentProjectTemplate">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\ClassLibrary\ClassLibrary.vstemplate" />
+	</Argument>
+	<Argument Name="PipelineComponentsProjectTemplate">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\PipelineComponent\PipelineComponent.vstemplate" />
+	</Argument>
+	<Argument Name="UnitTestProjectTemplate">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\UnitTest\UnitTest.vstemplate" />
+	</Argument>
+	<Argument Name="DeploymentFolderSourceDir">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\Deployment" />
+	</Argument>
+	<Argument Name="InstallWizardFile">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\Deployment\InstallWizard.xml" />
+	</Argument>
+	<Argument Name="UnInstallWizardFile">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\Deployment\UnInstallWizard.xml" />
+	</Argument>
+	<Argument Name="PortBindingsFile">
+		<ValueProvider Type="Evaluator" Expression="Templates\Projects\Deployment\PortBindings.xml" />
+	</Argument>
+	<Argument Name="SearchPatternAll">
+		<ValueProvider Type="Evaluator" Expression="*.*" />
+	</Argument>
+</Arguments>

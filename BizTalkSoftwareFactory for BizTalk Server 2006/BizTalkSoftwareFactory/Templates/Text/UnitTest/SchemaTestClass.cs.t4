@@ -1,0 +1,54 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="SchemaPath" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using NUnit.Framework;
+using Microsoft.Services.BizTalkApplicationFramework.BizUnit;	
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    [TestFixture]
+    public class <#=UnitTestName #>Fixture
+    {
+        public <#=UnitTestName #>Fixture()
+        {
+        }
+
+        [TestFixtureSetUp]
+        public void Setup()
+        {
+        }
+
+		
+        /// <summary>
+        /// Use the following attribute if you expect an exception for example an XmlSchemaValidationException
+		/// [ExpectedException(typeof(XmlSchemaValidationException)]
+        /// </summary>
+        [Test]
+        public void <#=UnitTestName #>Case()
+        {
+            // Execute the testcase
+            BizUnit bizUnit = new BizUnit(@"..\..\TestCases\" + "<#=UnitTestName #>" + ".xml");
+            bizUnit.RunTest();
+        }
+        
+        /// <summary>
+        /// Use this method to test using the XmlSchemaValidator by Michael Stephenson.
+		/// It will run an XSD validation over a supplied test XML message.       
+        /// </summary>
+        [Test]
+        public void <#= UnitTestName #>_XmlValidationCase()
+        {
+			string xmlPath = @"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml";
+			string schemaPath = @"<#= SchemaPath #>";
+			bool result = Helper.XmlSchemaValidator.ValidateAgainstSchema(xmlPath, schemaPath);
+			Assert.IsTrue(result, "The schema is not valid");
+        }
+    }
+}

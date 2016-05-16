@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemUnitTestSchemas" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+	<Caption>Add Schema unit test</Caption>
+	<HostData>
+		<Icon ID="133" />
+		<CommandBar Name="Project Add" />
+	</HostData>
+	<Arguments>
+		<!-- Include fixed project values -->
+		<xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+		<xi:include href="Common\UnitTestValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+		<Argument Name="UnitTestProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+		</Argument>
+		<Argument Name="UnitTestClassSchemaFileName">
+			<ValueProvider Type="Evaluator" Expression="Schema_$(UnitTestSchema.Name).cs">
+				<MonitorArgument Name="UnitTestSchema" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestCaseSchemaFileName">
+			<ValueProvider Type="Evaluator" Expression="Schema_$(UnitTestSchema.Name)_Case.xml">
+				<MonitorArgument Name="UnitTestSchema" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="UnitTestDataSchemaFileName">
+			<ValueProvider Type="Evaluator" Expression="Schema_$(UnitTestSchema.Name)_Data.xml">
+				<MonitorArgument Name="UnitTestSchema" />
+			</ValueProvider>
+		</Argument>
+    <Argument Name="SchemaName">
+      <ValueProvider Type="Evaluator" Expression="$(UnitTestSchema.Name)">
+        <MonitorArgument Name="UnitTestSchema" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="SchemaProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(SchemasProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="SchemasProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="UnitTestSchemaName">
+			<ValueProvider Type="Evaluator" Expression="Schema_$(UnitTestSchema.Name)">
+				<MonitorArgument Name="UnitTestSchema" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="SchemaPath">
+			<ValueProvider Type="Evaluator" Expression="$(UnitTestSchema.Path)">
+				<MonitorArgument Name="UnitTestSchema" />
+			</ValueProvider>
+		</Argument>
+		<Argument Name="SchemaNamespace">
+			<ValueProvider Type="Evaluator" Expression="$(UnitTestSchema.TargetNamespace)">
+				<MonitorArgument Name="UnitTestSchema" />
+			</ValueProvider>
+		</Argument>
+
+		<Argument Name="BizTalkNamespace">
+			<ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+		</Argument>
+		
+		<Argument Name="UnitTestSchema" Type="BizTalkSoftwareFactory.BusinessEntities.SchemaItem, BizTalkSoftwareFactory">
+			<Converter Type="BizTalkSoftwareFactory.Converters.SchemaConverter, BizTalkSoftwareFactory" />
+		</Argument>
+	</Arguments>
+	<GatheringServiceData>
+		<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+			<Pages>
+				<Page>
+					<Title>Select Schema to generate Unit test for</Title>
+					<Fields>
+						<Field Label="Select Schema" ValueName="UnitTestSchema" />
+					</Fields>
+				</Page>
+			</Pages>
+		</Wizard>
+	</GatheringServiceData>
+	<Actions>
+		<!-- Add the Unit Test Case to the project, this will be stored in the TestCase folder of the project -->
+		<!-- Add the Unit Test Class to the project -->
+		<Action Name="GenerateSchemaTestClass" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\SchemaTestClass.cs.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestProjectSuffix" RecipeArgument="UnitTestProjectSuffix"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestSchemaName"/>
+			<Input Name="SchemaProjectName" RecipeArgument="SchemaProjectName"/>
+      <Input Name="SchemaName" RecipeArgument="SchemaName"/>
+      <Output Name="Content" />
+		</Action>
+		<Action Name="AddSchemaTestClass" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Open="true">
+      <Input Name="Content" ActionOutput="GenerateSchemaTestClass.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestClassSchemaFileName" />
+			<Input Name="Project" RecipeArgument="UnitTestProject" />
+		</Action>
+		<!-- Add the Unit Test Case to the project, this will be stored in the TestCase folder of the project -->
+		<Action Name="GetUnitTestProjectTestCaseFolder" Type="BizTalkSoftwareFactory.Actions.GetProjectFolderItem, BizTalkSoftwareFactory">
+			<Input Name="CurrentProject" RecipeArgument="UnitTestProject" />
+			<Input Name="FolderName" RecipeArgument="UnitTestCaseFolderName" />
+			<Output Name="Item" />
+		</Action>
+		<Action Name="GenerateSchemaTestCase" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\SchemaTestCase.xml.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestSchemaName"/>
+			<Input Name="SchemaPath" RecipeArgument="SchemaPath"/>
+			<Input Name="SchemaNamespace" RecipeArgument="SchemaNamespace"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddSchemaTestCase" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions"
+	        Open="true" >
+			<Input Name="Content" ActionOutput="GenerateSchemaTestCase.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestCaseSchemaFileName" />
+			<Input Name="InputProjectItem" ActionOutput="GetUnitTestProjectTestCaseFolder.Item" />
+		</Action>
+		<!-- Add the Unit Test Data to the project, this will be stored in the TestData folder of the project -->
+		<Action Name="GetUnitTestProjectTestDataFolder" Type="BizTalkSoftwareFactory.Actions.GetProjectFolderItem, BizTalkSoftwareFactory">
+			<Input Name="CurrentProject" RecipeArgument="UnitTestProject" />
+			<Input Name="FolderName" RecipeArgument="UnitTestDataFolderName" />
+			<Output Name="Item" />
+		</Action>
+		<Action Name="GenerateSchemaTestData" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+				Template="Text\UnitTest\SchemaTestData.xml.t4">
+			<Input Name="BizTalkNamespace" RecipeArgument="BizTalkNamespace"/>
+			<Input Name="UnitTestName" RecipeArgument="UnitTestSchemaName"/>
+			<Input Name="TestMsgContent" RecipeArgument="UnitTestSchemaName"/>
+			<Output Name="Content" />
+		</Action>
+		<Action Name="AddSchemaTestData" Type="Microsoft.Practices.RecipeFramework.Extensions.Actions.VisualStudio.AddItemFromStringToProjectItemAction, Microsoft.Practices.RecipeFramework.Extensions"
+	        Open="true" >
+			<Input Name="Content" ActionOutput="GenerateSchemaTestData.Content" />
+			<Input Name="TargetFileName" RecipeArgument="UnitTestDataSchemaFileName" />
+			<Input Name="InputProjectItem" ActionOutput="GetUnitTestProjectTestDataFolder.Item" />
+		</Action>
+	</Actions>
+</Recipe>

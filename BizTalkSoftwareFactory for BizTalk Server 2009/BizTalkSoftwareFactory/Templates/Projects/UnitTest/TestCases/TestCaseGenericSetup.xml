@@ -1,0 +1,35 @@
+﻿<!-- This sample setup was taken from the BizUnit Sample solution -->
+<TestCase testName="TestCaseGenericSetup">
+	<TestSetup>
+	</TestSetup>
+
+	<TestExecution>
+		<!-- Sample step to stop the BizTalk host-->
+		<!--
+		<TestStep assemblyPath="" typeName="BizUnit.HostConductorStep">
+			<Action>stop</Action>
+			<HostInstanceName>BizTalkServerApplication</HostInstanceName>
+		</TestStep>
+		-->
+		<!-- Sample step to start the BizTalk host-->
+		<!--
+		<TestStep assemblyPath="" typeName="BizUnit.HostConductorStep">
+			<Action>start</Action>
+			<HostInstanceName>BizTalkServerApplication</HostInstanceName>
+		</TestStep>
+		-->
+		<!-- Sample step to restart IIS-->
+		<!--
+		<TestStep assemblyPath="" typeName="BizUnit.ExecuteCommandStep">
+			<ProcessName>iisreset</ProcessName>
+			<ProcessParams></ProcessParams>
+			<WorkingDirectory>..\..\.</WorkingDirectory>
+		</TestStep>
+		-->
+	</TestExecution>
+
+	<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+	<TestCleanup>
+	</TestCleanup>
+</TestCase>
+

@@ -1,0 +1,41 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+
+<!-- This is a sample BizUnit Test Case for testing Orchestrations -->
+<TestCase testName="<#=UnitTestName #>">
+
+<TestSetup>
+</TestSetup>
+
+<TestExecution>
+    <TestStep assemblyPath="" typeName="BizUnit.FileCreateStep">
+        <SourcePath><!-- Put here the path and name of your XML test message --></SourcePath>
+        <CreationPath><!-- Put here the path and name where BizTalk will pick it up --></CreationPath>
+    </TestStep>
+
+    <TestStep assemblyPath="" typeName="BizUnit.FileValidateStep">
+        <Timeout>60000</Timeout>
+        <Directory><!-- Put here the path of the file to validate, this will probably be the out-folder of your BizTalk process --></Directory>
+        <SearchPattern>*.xml</SearchPattern>
+        <DeleteFile>true</DeleteFile>
+
+        <ValidationStep assemblyPath="" typeName="BizUnit.XmlValidationStep">
+            <XmlSchemaPath><!-- Put here the path and name of the XSD Schema to validate against --></XmlSchemaPath>
+            <XmlSchemaNameSpace><!-- Put here the Namespace of the XSD Schema --></XmlSchemaNameSpace>
+            <XPathList>
+                <XPathValidation query="Put here the XPath query to get the data">Fill in here the expected result</XPathValidation>
+                <XPathValidation query="Put here the XPath query to get the data">Fill in here the expected result</XPathValidation>
+            </XPathList>
+        </ValidationStep>
+    </TestStep>
+</TestExecution>
+
+<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+<TestCleanup>
+
+</TestCleanup>
+
+</TestCase>
+
