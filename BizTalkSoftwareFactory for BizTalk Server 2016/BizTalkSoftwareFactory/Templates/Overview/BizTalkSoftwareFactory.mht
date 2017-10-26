@@ -1,9 +1,9 @@
 MIME-Version: 1.0
-Content-Type: multipart/related; boundary="----=_NextPart_01D34E96.F8C7A210"
+Content-Type: multipart/related; boundary="----=_NextPart_01D34E98.E3BC99A0"
 
 Dit document is een gecombineerd webpaginabestand, ook wel webarchiefbestand genoemd. Als dit bericht wordt weergegeven, worden webarchiefbestanden niet ondersteund door de browser of editor. Download een browser die webarchieven ondersteunt, bijvoorbeeld Windows® Internet Explorer®.
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
@@ -36,11 +36,11 @@ w\:* {behavior:url(#default#VML);}
   <o:Author>Jean-Paul Smit</o:Author>
   <o:Keywords>Didago IT Consultancy</o:Keywords>
   <o:LastAuthor>Gert Vloo</o:LastAuthor>
-  <o:Revision>12</o:Revision>
-  <o:TotalTime>3989</o:TotalTime>
+  <o:Revision>14</o:Revision>
+  <o:TotalTime>3995</o:TotalTime>
   <o:LastPrinted>2013-07-03T20:36:00Z</o:LastPrinted>
   <o:Created>2013-07-02T21:19:00Z</o:Created>
-  <o:LastSaved>2017-10-26T18:14:00Z</o:LastSaved>
+  <o:LastSaved>2017-10-26T18:27:00Z</o:LastSaved>
   <o:Pages>14</o:Pages>
   <o:Words>1736</o:Words>
   <o:Characters>9548</o:Characters>
@@ -374,6 +374,9 @@ ue"
    Name=3D"HTML Variable"/>
   <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
 ue"
+   Name=3D"Normal Table"/>
+  <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
+ue"
    Name=3D"annotation subject"/>
   <w:LsdException Locked=3D"false" Priority=3D"99" SemiHidden=3D"true"
    UnhideWhenUsed=3D"true" Name=3D"No List"/>
@@ -502,10 +505,16 @@ ue"
    Name=3D"Table Subtle 1"/>
   <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
 ue"
+   Name=3D"Table Subtle 2"/>
+  <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
+ue"
    Name=3D"Table Web 1"/>
   <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
 ue"
    Name=3D"Table Web 2"/>
+  <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
+ue"
+   Name=3D"Table Web 3"/>
   <w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"tr=
 ue"
    Name=3D"Balloon Text"/>
@@ -1219,7 +1228,8 @@ p.MsoTitle, li.MsoTitle, div.MsoTitle
 	mso-font-kerning:14.0pt;
 	font-weight:bold;}
 a:link, span.MsoHyperlink
-	{mso-style-parent:"";
+	{mso-style-noshow:yes;
+	mso-style-parent:"";
 	color:blue;
 	text-decoration:underline;
 	text-underline:single;}
@@ -1495,19 +1505,6 @@ p.Title1, li.Title1, div.Title1
 	mso-fareast-font-family:"Times New Roman";
 	color:black;
 	font-weight:bold;}
-p.Heading1, li.Heading1, div.Heading1
-	{mso-style-name:"Heading 1";
-	mso-style-unhide:no;
-	mso-style-link:"Heading 1 Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	line-height:13.0pt;
-	mso-pagination:widow-orphan;
-	font-size:10.0pt;
-	mso-bidi-font-size:12.0pt;
-	font-family:"Syntax",sans-serif;
-	mso-fareast-font-family:"Times New Roman";
-	mso-bidi-font-family:"Times New Roman";}
 span.Heading1Char
 	{mso-style-name:"Heading 1 Char";
 	mso-style-unhide:no;
@@ -1528,10 +1525,10 @@ span.Heading1Char
 	mso-themecolor:accent1;
 	mso-themeshade:191;
 	mso-ansi-language:NL;}
-p.Heading2, li.Heading2, div.Heading2
-	{mso-style-name:"Heading 2";
+p.Heading1, li.Heading1, div.Heading1
+	{mso-style-name:"Heading 1";
 	mso-style-unhide:no;
-	mso-style-link:"Heading 2 Char";
+	mso-style-link:"Heading 1 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1561,10 +1558,10 @@ span.Heading2Char
 	mso-themecolor:accent1;
 	mso-themeshade:191;
 	mso-ansi-language:NL;}
-p.Heading3, li.Heading3, div.Heading3
-	{mso-style-name:"Heading 3";
+p.Heading2, li.Heading2, div.Heading2
+	{mso-style-name:"Heading 2";
 	mso-style-unhide:no;
-	mso-style-link:"Heading 3 Char";
+	mso-style-link:"Heading 2 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1594,10 +1591,10 @@ span.Heading3Char
 	mso-themecolor:accent1;
 	mso-themeshade:127;
 	mso-ansi-language:NL;}
-p.Heading4, li.Heading4, div.Heading4
-	{mso-style-name:"Heading 4";
+p.Heading3, li.Heading3, div.Heading3
+	{mso-style-name:"Heading 3";
 	mso-style-unhide:no;
-	mso-style-link:"Heading 4 Char";
+	mso-style-link:"Heading 3 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1627,10 +1624,10 @@ span.Heading4Char
 	mso-themeshade:191;
 	mso-ansi-language:NL;
 	font-style:italic;}
-p.Heading5, li.Heading5, div.Heading5
-	{mso-style-name:"Heading 5";
+p.Heading4, li.Heading4, div.Heading4
+	{mso-style-name:"Heading 4";
 	mso-style-unhide:no;
-	mso-style-link:"Heading 5 Char";
+	mso-style-link:"Heading 4 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1659,10 +1656,10 @@ span.Heading5Char
 	mso-themecolor:accent1;
 	mso-themeshade:191;
 	mso-ansi-language:NL;}
-p.Heading6, li.Heading6, div.Heading6
-	{mso-style-name:"Heading 6";
+p.Heading5, li.Heading5, div.Heading5
+	{mso-style-name:"Heading 5";
 	mso-style-unhide:no;
-	mso-style-link:"Heading 6 Char";
+	mso-style-link:"Heading 5 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1691,10 +1688,10 @@ span.Heading6Char
 	mso-themecolor:accent1;
 	mso-themeshade:127;
 	mso-ansi-language:NL;}
-p.Heading7, li.Heading7, div.Heading7
-	{mso-style-name:"Heading 7";
+p.Heading6, li.Heading6, div.Heading6
+	{mso-style-name:"Heading 6";
 	mso-style-unhide:no;
-	mso-style-link:"Heading 7 Char";
+	mso-style-link:"Heading 6 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1725,10 +1722,10 @@ span.Heading7Char
 	mso-themeshade:127;
 	mso-ansi-language:NL;
 	font-style:italic;}
-p.Header, li.Header, div.Header
-	{mso-style-name:Header;
+p.Heading7, li.Heading7, div.Heading7
+	{mso-style-name:"Heading 7";
 	mso-style-unhide:no;
-	mso-style-link:"Header Char";
+	mso-style-link:"Heading 7 Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1748,10 +1745,10 @@ span.HeaderChar
 	mso-ascii-font-family:Syntax;
 	mso-hansi-font-family:Syntax;
 	mso-ansi-language:NL;}
-p.Footer, li.Footer, div.Footer
-	{mso-style-name:Footer;
+p.Header, li.Header, div.Header
+	{mso-style-name:Header;
 	mso-style-unhide:no;
-	mso-style-link:"Footer Char";
+	mso-style-link:"Header Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1772,10 +1769,10 @@ span.FooterChar
 	mso-ascii-font-family:Syntax;
 	mso-hansi-font-family:Syntax;
 	mso-ansi-language:NL;}
-p.Title, li.Title, div.Title
-	{mso-style-name:Title;
+p.Footer, li.Footer, div.Footer
+	{mso-style-name:Footer;
 	mso-style-unhide:no;
-	mso-style-link:"Title Char";
+	mso-style-link:"Footer Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1801,10 +1798,10 @@ span.TitleChar
 	mso-font-kerning:14.0pt;
 	mso-ansi-language:NL;
 	font-weight:bold;}
-p.BalloonText, li.BalloonText, div.BalloonText
-	{mso-style-name:"Balloon Text";
+p.Title, li.Title, div.Title
+	{mso-style-name:Title;
 	mso-style-unhide:no;
-	mso-style-link:"Balloon Text Char";
+	mso-style-link:"Title Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	line-height:13.0pt;
@@ -1827,6 +1824,19 @@ span.BalloonTextChar
 	mso-hansi-font-family:"Segoe UI";
 	mso-bidi-font-family:"Segoe UI";
 	mso-ansi-language:NL;}
+p.BalloonText, li.BalloonText, div.BalloonText
+	{mso-style-name:"Balloon Text";
+	mso-style-unhide:no;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:13.0pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Syntax",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
 p.Heading1zondernummering, li.Heading1zondernummering, div.Heading1zondernu=
 mmering
 	{mso-style-name:"Heading 1 zonder nummering";
@@ -2438,16 +2448,17 @@ y:visible;
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image001.jpg" o:title=3D"=
  didago"/>
 </v:shape><![endif]--><![if !vml]><img width=3D324 height=3D147
-src=3D"BizTalkSoftwareFactory_files/image002.jpg" alt=3D"Description: didag=
+src=3D"BizTalkSoftwareFactory_files/image056.jpg" alt=3D"Description: didag=
 o"
 v:shapes=3D"Picture_x0020_1"><![endif]></span><span style=3D'font-size:9.0p=
 t;
 mso-bidi-font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span=
 ></p>
 
-<p class=3DMsoTitle align=3Dleft style=3D'text-align:left'>BizTalk Software=
- <span
-class=3DSpellE>Factory</span> v6</p>
+<p class=3DMsoTitle align=3Dleft style=3D'text-align:left'><span lang=3DEN-=
+US
+style=3D'mso-ansi-language:EN-US'>BizTalk Software Factory v6<o:p></o:p></s=
+pan></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
 '>By
@@ -2559,7 +2570,7 @@ style=3D'mso-list:Ignore'>o<span style=3D'font:7.0pt "Times New Roman"'>&nb=
 sp;&nbsp;
 </span></span></span><![endif]><span lang=3DEN-US style=3D'mso-ansi-languag=
 e:EN-US'>BizTalk
-Deployment Framework 5.1<o:p></o:p></span></p>
+Deployment Framework 5.7<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing style=3D'margin-left:72.0pt;text-indent:-18.0pt;mso=
 -list:
@@ -2655,9 +2666,8 @@ a dependency between GAT and GAX so you need to install in the order specif=
 ied.<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
-'>GAT
-depends on the Visual Studio 2012 SDK, so install this first using the exte=
-nsion
+'>GAT depends
+on the Visual Studio 2015 SDK, so install this first using the extension
 manager in Visual Studio (picture below) or directly from this URL:<o:p></o=
 :p></span></p>
 
@@ -2676,7 +2686,7 @@ ible;
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image003.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D190
-src=3D"BizTalkSoftwareFactory_files/image004.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image057.jpg" v:shapes=3D"Picture_x0020=
 _46"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -2688,9 +2698,9 @@ lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 to <a
 href=3D"https://github.com/MicrosoftArchive/OpenGAX/releases/tag/VS2015-v1.=
 0.1">https://github.com/MicrosoftArchive/OpenGAX/releases/tag/VS2015-v1.0.1=
-</a>
-<span style=3D'mso-spacerun:yes'>&nbsp;</span>and download and install:<o:p=
-></o:p></span></p>
+</a><span
+style=3D'mso-spacerun:yes'>&nbsp; </span>and download and install:<o:p></o:=
+p></span></p>
 
 <p class=3DMsoNoSpacing style=3D'margin-left:36.0pt;text-indent:-18.0pt;mso=
 -list:
@@ -2741,7 +2751,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image005.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D328 height=3D246
-src=3D"BizTalkSoftwareFactory_files/image006.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image058.jpg" v:shapes=3D"Picture_x0020=
 _35"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -2767,7 +2777,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image007.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D324 height=3D244
-src=3D"BizTalkSoftwareFactory_files/image008.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image059.jpg" v:shapes=3D"Picture_x0020=
 _36"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -2849,7 +2859,7 @@ p></span></h3>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
 '>To use
-the BSF, just launch Visual Studio 2012 and start the wizard to create a new
+the BSF, just launch Visual Studio 2015 and start the wizard to create a new
 project.<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
@@ -2869,7 +2879,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image009.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D336
-src=3D"BizTalkSoftwareFactory_files/image010.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image060.jpg" v:shapes=3D"Picture_x0020=
 _37"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -2902,7 +2912,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image011.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D407
-src=3D"BizTalkSoftwareFactory_files/image012.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image061.jpg" v:shapes=3D"Picture_x0020=
 _38"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -2956,7 +2966,7 @@ e;
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image013.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D502 height=3D408
-src=3D"BizTalkSoftwareFactory_files/image014.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image062.jpg" v:shapes=3D"Picture_x0020=
 _39"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3021,7 +3031,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image015.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D238 height=3D409
-src=3D"BizTalkSoftwareFactory_files/image016.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image063.jpg" v:shapes=3D"Picture_x0020=
 _41"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3047,7 +3057,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image017.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D246 height=3D426
-src=3D"BizTalkSoftwareFactory_files/image018.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image064.jpg" v:shapes=3D"Picture_x0020=
 _42"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3078,7 +3088,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image019.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D397 height=3D268
-src=3D"BizTalkSoftwareFactory_files/image020.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image065.jpg" v:shapes=3D"Picture_x0020=
 _44"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3105,7 +3115,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image021.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D398 height=3D155
-src=3D"BizTalkSoftwareFactory_files/image022.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image066.jpg" v:shapes=3D"Picture_x0020=
 _45"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3155,7 +3165,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image023.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D391 height=3D291
-src=3D"BizTalkSoftwareFactory_files/image024.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image067.jpg" v:shapes=3D"Picture_x0020=
 _49"><![endif]><o:p></o:p></span></p>
 
 <h3 style=3D'mso-list:l3 level3 lfo4'><![if !supportLists]><span lang=3DEN-=
@@ -3194,7 +3204,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image025.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D283
-src=3D"BizTalkSoftwareFactory_files/image026.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image068.jpg" v:shapes=3D"Picture_x0020=
 _50"><![endif]></span><span
 lang=3DEN-US style=3D'font-family:"Calibri",sans-serif;mso-ascii-theme-font=
 :minor-latin;
@@ -3247,12 +3257,12 @@ target namespace has been set according to best practices.<o:p></o:p></span=
 style=3D'mso-ansi-language:EN-US;mso-no-proof:yes'><!--[if gte vml 1]><v:sh=
 ape
  id=3D"Picture_x0020_51" o:spid=3D"_x0000_i1038" type=3D"#_x0000_t75" style=
-=3D'width:375.75pt;
+=3D'width:375pt;
  height:62.25pt;visibility:visible;mso-wrap-style:square'>
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image027.png" o:title=3D"=
 "/>
-</v:shape><![endif]--><![if !vml]><img border=3D0 width=3D501 height=3D83
-src=3D"BizTalkSoftwareFactory_files/image028.jpg" v:shapes=3D"Picture_x0020=
+</v:shape><![endif]--><![if !vml]><img border=3D0 width=3D500 height=3D83
+src=3D"BizTalkSoftwareFactory_files/image069.jpg" v:shapes=3D"Picture_x0020=
 _51"><![endif]></span><span
 lang=3DEN-US style=3D'font-family:"Calibri",sans-serif;mso-ascii-theme-font=
 :minor-latin;
@@ -3306,7 +3316,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image029.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D336
-src=3D"BizTalkSoftwareFactory_files/image030.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image070.jpg" v:shapes=3D"Picture_x0020=
 _52"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3331,7 +3341,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image031.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D350
-src=3D"BizTalkSoftwareFactory_files/image032.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image071.jpg" v:shapes=3D"Picture_x0020=
 _53"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3373,7 +3383,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image033.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D395 height=3D172
-src=3D"BizTalkSoftwareFactory_files/image034.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image072.jpg" v:shapes=3D"Picture_x0020=
 _54"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3399,7 +3409,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image035.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D502 height=3D185
-src=3D"BizTalkSoftwareFactory_files/image036.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image073.jpg" v:shapes=3D"Picture_x0020=
 _55"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3432,7 +3442,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image037.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D206 height=3D221
-src=3D"BizTalkSoftwareFactory_files/image038.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image074.jpg" v:shapes=3D"Picture_x0020=
 _56"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3441,9 +3451,8 @@ ng=3DEN-US
 style=3D'mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
-'>After
-the wizard finishes, the map is renamed to contain the source and destinati=
-on
+'>After the
+wizard finishes, the map is renamed to contain the source and destination
 schema as a naming convention.<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
@@ -3493,7 +3502,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image039.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D304 height=3D120
-src=3D"BizTalkSoftwareFactory_files/image040.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image075.jpg" v:shapes=3D"Picture_x0020=
 _57"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3571,7 +3580,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image041.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D431 height=3D277
-src=3D"BizTalkSoftwareFactory_files/image042.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image076.jpg" v:shapes=3D"Picture_x0020=
 _58"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3608,13 +3617,14 @@ pan></h3>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
 '>One of
-the most important parts of a project is testing, so the BSF supports unit
-tests. These tests can be done by Visual Studio, for schemas and mappings, =
-but
-for the more advanced testing <span class=3DSpellE>BizUnit</span> can be us=
-ed
-(although <span class=3DSpellE>BizUnit</span> seems no longer maintained).<=
-o:p></o:p></span></p>
+the most important parts of a project is testing, so the BSF supports unit =
+tests.
+These tests can be done by Visual Studio, for schemas and mappings, but for=
+ the
+more advanced testing <span class=3DSpellE>BizUnit</span> can be used (alth=
+ough <span
+class=3DSpellE>BizUnit</span> seems no longer maintained).<o:p></o:p></span=
+></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
 '><o:p>&nbsp;</o:p></span></p>
@@ -3639,7 +3649,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image043.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D503 height=3D415
-src=3D"BizTalkSoftwareFactory_files/image044.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image077.jpg" v:shapes=3D"Picture_x0020=
 _59"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3667,7 +3677,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image045.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D391 height=3D272
-src=3D"BizTalkSoftwareFactory_files/image046.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image078.jpg" v:shapes=3D"Picture_x0020=
 _60"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3699,7 +3709,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image047.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D386 height=3D206
-src=3D"BizTalkSoftwareFactory_files/image048.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image079.jpg" v:shapes=3D"Picture_x0020=
 _61"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3758,9 +3768,9 @@ s New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
 o:p></span></h3>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
-'>For
-adding Business Rules Engine (BRE) rules and policies there is a solution
-folder available.<o:p></o:p></span></p>
+'>For adding
+Business Rules Engine (BRE) rules and policies there is a solution folder
+available.<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing align=3Dcenter style=3D'text-align:center'><span la=
 ng=3DEN-US
@@ -3772,7 +3782,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image049.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D240 height=3D144
-src=3D"BizTalkSoftwareFactory_files/image050.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image080.jpg" v:shapes=3D"Picture_x0020=
 _62"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3859,11 +3869,10 @@ Deployment Framework<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
 '>The
-BizTalk Deployment Framework is the most extended framework available for d=
-eploying
-BizTalk solutions. Therefore a lot of developers are familiar with it and i=
-s it
-available in the BSF.<o:p></o:p></span></p>
+BizTalk Deployment Framework is the most extended framework available for
+deploying BizTalk solutions. Therefore a lot of developers are familiar wit=
+h it
+and is it available in the BSF.<o:p></o:p></span></p>
 
 <p class=3DMsoNoSpacing><span lang=3DEN-US style=3D'mso-ansi-language:EN-US=
 '>If
@@ -3889,7 +3898,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image051.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D209 height=3D215
-src=3D"BizTalkSoftwareFactory_files/image052.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image081.jpg" v:shapes=3D"Picture_x0020=
 _64"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3928,7 +3937,7 @@ ape
  <v:imagedata src=3D"BizTalkSoftwareFactory_files/image053.png" o:title=3D"=
 "/>
 </v:shape><![endif]--><![if !vml]><img border=3D0 width=3D502 height=3D100
-src=3D"BizTalkSoftwareFactory_files/image054.jpg" v:shapes=3D"Picture_x0020=
+src=3D"BizTalkSoftwareFactory_files/image082.jpg" v:shapes=3D"Picture_x0020=
 _65"><![endif]></span><span
 lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
@@ -3938,7 +3947,7 @@ lang=3DEN-US style=3D'mso-ansi-language:EN-US'><o:p></o:p></span></p>
 
 </html>
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/item0062.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml
@@ -3947,17 +3956,17 @@ Content-Type: text/xml
 ctedStyle=3D"\APA.XSL" StyleName=3D"APA" xmlns:b=3D"http://schemas.openxmlf=
 ormats.org/officeDocument/2006/bibliography" xmlns=3D"http://schemas.openxm=
 lformats.org/officeDocument/2006/bibliography"></b:Sources>
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/props063.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml
 
 <?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
-<ds:datastoreItem ds:itemID=3D"{E4F06E9B-AD32-4A9F-91D5-6E1EA33881F0}" xmln=
+<ds:datastoreItem ds:itemID=3D"{29036060-93D7-40D1-83F4-5B6FEB6CC18E}" xmln=
 s:ds=3D"http://schemas.openxmlformats.org/officeDocument/2006/customXml"><d=
 s:schemaRefs><ds:schemaRef ds:uri=3D"http://schemas.openxmlformats.org/offi=
 ceDocument/2006/bibliography"/></ds:schemaRefs></ds:datastoreItem>
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/themedata.thmx
 Content-Transfer-Encoding: base64
 Content-Type: application/vnd.ms-officetheme
@@ -4018,7 +4027,7 @@ AAAAAAAAANYCAAB0aGVtZS90aGVtZS90aGVtZTEueG1sUEsBAi0AFAAGAAgAAAAhAA3RkJ+2AAAA
 GwEAACcAAAAAAAAAAAAAAAAAsgkAAHRoZW1lL3RoZW1lL19yZWxzL3RoZW1lTWFuYWdlci54bWwu
 cmVsc1BLBQYAAAAABQAFAF0BAACtCgAAAAA=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/colorschememapping.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml
@@ -4028,8 +4037,8 @@ Content-Type: text/xml
  bg1=3D"lt1" tx1=3D"dk1" bg2=3D"lt2" tx2=3D"dk2" accent1=3D"accent1" accent=
 2=3D"accent2" accent3=3D"accent3" accent4=3D"accent4" accent5=3D"accent5" a=
 ccent6=3D"accent6" hlink=3D"hlink" folHlink=3D"folHlink"/>
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image002.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image056.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -4127,8 +4136,8 @@ FFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAU
 UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
 RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//2X==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image004.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image057.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -4471,8 +4480,8 @@ zwFwAPr/AJxXRL8MbRGDJqNyrDkEKARVHxB4Fh07RLm8/tC5maBdyo+MZJoA7XQJ5LnQrGaZy8sk
 SszHqTVDw7/yCx/vt/Orfhn/AJFvTf8ArgtVPDv/ACCx/vt/OhAXNS/5Btx/uVR8L/6u+/67L/6A
 tXtS/wCQbcf7lUfC/wDq77/rsv8A6Atbf8un6nK/95Xp+puUUUVgdR//2R==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image006.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image058.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -4709,8 +4718,8 @@ cOwe3q/zP7w/tK8/5+Zfzo/tK8/5+Zfzooo9nDsHt6v8z+8P7SvP+fmX86P7SvP+fmX86KKPZw7B
 /wAz+8T+0rz/AJ+Zfzpf7SvP+fmX86KKPZw7B7er/M/vD+0rz/n5l/Og6leD/l5k/Oiij2cOwe3q
 /wAz+8gmnkmPmTOzsOMnriiiijbRGU5Nu7P/2b==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image008.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image059.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -4872,8 +4881,8 @@ Ypr6haGN/wDSYuVPG4elGrsrDvFXdzlKKTsPWivVufNCiloooQg79TS49zRRQAg+tH4miigA7dTR
 TRRQAuPc0h+poooAPxNH4miimMXHuaMe5oopCDHuaT8TRRQAfiaXHuaKKAE/E0D60UUwFPHc0n4m
 iikAfiaO/U0UUAKfqaTHuaKKAGOxDcGiiiobBtn/2d==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image010.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image060.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -5174,8 +5183,8 @@ qOsRxPt09GlQqANj7WG4gtkE8Y529ec1f+3ab/z0vv8Avo0fbtN/56X3/fRpeyn2H9YpfzL7x2nG
 4axQ3YImJbcD1A3HH6Yq7Y/8fs3/AFyX+bVQ+3ab/wA9L7/vo1JBqunWzsyG5ZmABL88D8fej2U+
 wfWKX8yM3xF/yFj/AMB/9BNFQ6xcpd3wmi3bCQBuGDwpoq6ytyp9kZYZp87X8zP/2T==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image012.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image061.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -5526,8 +5535,8 @@ zB/wkF56Q/8AfB/xo/4SC89If++D/jRRR7Cn2D63W/mD/hILz0h/74P+NH/CQXnpD/3wf8aKKPYU
 +wfW638wf8JBeekP/fB/xo/4SC89If8Avg/40UUewp9g+t1v5ilc3L3c7TS7dzYztGBRRRWiSSsj
 CTcndn//2X==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image014.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image062.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -5835,8 +5844,8 @@ UP5H/Gj/AISK6/55Q/kf8aKKPYU+wfXK/wDMH/CRXX/PKH8j/jR/wkV1/wA8ofyP+NFFHsKfYPrl
 f+YP+Eiuv+eUP5H/ABo/4SK6/wCeUP5H/Giij2FPsH1yv/MZ9zcNdXDzOAGfqF6UUUVqlZWRztuT
 uz//2T==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image016.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image063.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -6081,8 +6090,8 @@ Tj5fu/lip5ZraeN45dxRjnjIPsQexyKpUUWAle206WRJJBK8ikHczsSSOmeeafbJY2sgeISbgpX5
 iTwTk/rVeiiyAkNppmyNBE4EX3CCcryT1/E/nUtuun2szSwxlXYEE4Pc5P61WoosgNL7dD6t+VH2
 6H1b8qzaKLAaX26H1b8qPt0Pq35Vm0UWA0vt0Pq35VJFMkwJTPHXIrJq9p/3ZPqKTQH/2Q==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image018.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image064.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -6383,8 +6392,8 @@ PpgCrPlJ/cX8qPKT+4v5UWAitI7CxLG3UqWUKTyeB0/nVn7bB/eP5Go/KT+4v5UeUn9xfyosBJ9t
 g/vH8jR9tg/vH8jUflJ/cX8qPKT+4v5UWAk+2wf3j+Ro+2wf3j+RqPyk/uL+VHlJ/cX8qLATRzxz
 MQhJIGelFNhRVYlVA47CikB//9l=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image020.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image065.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -6652,8 +6661,8 @@ CY9DijB/vfpS0UAJg/3v0owf736UtFACYP8Ae/SjB/vfpS0UAJg/3v0owf736UtFACYP979KMH+9
 tFACYP8Ae/SjB/vfpS0UAJg/3v0owf736UtFACYP979KMH+9+lLRQAmD/e/SjB/vfpS0UAJg/wB7
 9KMe+aWigAooooA//9k=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image022.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image066.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -6836,8 +6845,8 @@ S2jxsYVR4wNx+63UVXHhfTgpUxuVIwRvwMcdhx2FbFFAGZaaHDZam13CxVTGUEQHAJIJOfwHFaVL
 RQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAlFLRQAl
 HNLRQBmz6DZXAO9HBJPzK5B5LEjPod7fnU+n6dBpluYLVNkZcvjPc1booASilooASilooA//2Q==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image024.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image067.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -7029,8 +7038,8 @@ CiiigAooooAKKKKACiiigApKKKAI1J2j6U12KgEGiigBnmP/AHjR5j/3jRRQAm9vWje3rRRQAb29
 aN7etFFABvb1o3t60UUAG9vWje3rRRQAb29aN7etFFABvb1q1bcoSfWiikwRNRRRUjCiiigAoooo
 AKKKKAGv0oooqkI//9k=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image026.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image068.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -7268,14 +7277,14 @@ APPGf/vpv/iqwvIX+9L/AN/W/wAaPIX+9L/39b/Gj9z5hbFd4/ibv2zR/wDnjP8A99N/8VU8Gsab
 aqywxzKGOT8ucnp3Nc35C/3pf+/rf40eQv8Ael/7+t/jR+58wtiu8fxL+qXcd7emWLdt2gfMMGiq
 HkL/AHpf+/rf40V0RxMIqyTOOeAqzk5NrX1P/9l=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image028.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image069.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
 /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMg
 IyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMpPT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCABTAfUDASIA
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCABTAfQDASIA
 AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
 AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
 ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
@@ -7284,133 +7293,133 @@ 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
-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
+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
-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
+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
-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
+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
-1RQBV+xL/fP5UfYl/vn8qtUUAVfsS/3z+VH2Jf75/KrVFAFX7Ev98/lR9iX++fyq1RQBV+xL/fP5
-UfYl/vn8qtUUAVfsS/3z+VH2Jf75/KrVFAFX7Ev98/lR9iX++fyq1RQBV+xL/fP5UfYl/vn8qtUU
-AVfsS/3z+VWRwKWigAooooAgsv8Ajyh/3RU9FFABRRRQAUUUUAFFFFABRRRQBXuvv2//AF1/9laq
-em/8f0v/AFwj/wDQ5KKKYGpRRRSAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA
-KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAo
-oooAKKKKAP/Z
+1RQBWWzCsDvPBz0qzRRQAUUUUAQWX/HlD/uip6KKACiiigAooooAKKKKACiiigCtc/662/66H/0E
+1U0v/j8n/wCuMX83oooA1KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+KACiiigD/9k=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image030.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image070.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -7654,8 +7663,8 @@ aq16b2Nt0/nYyf7pG372MDdxx04rQ/tq1/6BkX/jv+FH9tWv/QMi/wDHf8KPYVOwfW6P8xb86P8A
 56R/99CrOlENBOVII89+QfpWX/bVr/0DIv8Ax3/CpE8RRxrtjsti+isAP5UfV6nYPrdH+YwPHX+o
 1D/tn/NaKg8XXP2zTb2fZs3bPlznHzKKK3qJrlT7HJRak5Nd2f/Z
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image032.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image071.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -7926,8 +7935,8 @@ If8AxVH/AAlVj/cuvyH/AMVRYOc7XB9KMH0riv8AhKrH+5dfkP8A4qj/AISqx/uXX5D/AOKosHOd
 rg+lGD6VxX/CVWP9y6/If/FUf8JVY/3Lr8h/8VRYOcveKf8AkG3v1X/0JaKxNW8RWl1pc8MaThm2
 4LKMfeB9aKbJR//Z
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image034.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image072.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -8137,8 +8146,8 @@ o/t6y/vS/wDfs15H/wAJrqH/ADwtf++W/wDiqP8AhNdQ/wCeFr/3y3/xVHsafmH1uv5fieuf29Zf
 97DEsBclWydy47V5R4p/5GK6/wCAf+gLVv8A4TXUP+eFr/3y3/xVYGqapNfahLcSpGHfGQoOOAB6
 +1FTljTUUKi5zrOcu3+R/9m=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image036.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image073.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -8362,8 +8371,8 @@ SiiikBUutVs7O5ignmCyyuERevJ6fSqd5o2h3ks0F1awFzKtzL1XMnRWLDHPtmsrW/8AkZ7b/ron
 /stS+KP+QrH/ANcv6mkpXJhLmv5GxfadbX84kdomkC4CyDcuPpkc9Of8aK4uf76f9c1/lRSbsbRi
 2tz/2d==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image038.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image074.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -8476,8 +8485,8 @@ n1i/75o/s60/59Yv++a47M3/AD0H5H/GjM3/AD0H5H/GlyU/5vwH7ar/AM+/xR2P9nWn/PrF/wB8
 L/vmuOzN/wA9B+R/xozN/wA9B+R/xo5Kf834B7ar/wA+/wAUdvHGsSBI0CovRQMAVyGp/wDIYm/3
 n/mKr5m/56D8j/jUtpaPd3O1pVXCE5CH1HvVLkjF2le5nL2tSUbwtZ90f//Z
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image040.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image075.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -8626,8 +8635,8 @@ vFN7cXVnBbaaJndPMnKNkAbyhKkkccE5NFFLf+vITVl9xUsNduba0iCR/abh1jUPNM2DvmdOR7Y6
 9e1WZPFGoB4LaHTVnvTJKsqxsSuI2Cnbkg85B56UUU1v94S6mrpupXF1fXVvdwpbvEcpF82/ZnAY
 n7pB9vxrToopdBdQooooAKKKKACiiigAooooA//Z
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image042.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image076.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -8914,8 +8923,8 @@ KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigDOb75q5bf6haKKpgS0UUVIBRRRQAUUUUAFFF
 FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUU
 AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image044.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image077.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -9329,8 +9338,8 @@ FFAGFNf3kWo3En2nMEV5Hbi3Ma/MrICSD13DJPXHFFjr8mp3dj5dtNb285k5lX/WqFypBx/L861l
 sbVbxrtbaIXLDBlCDce3WmwadZ2zl7e1hiYsWyiAHJ6mhAV7z/j7f8P5Circ9j5spfzMbscY9qKk
 Z//Z
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image046.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image078.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -9511,8 +9520,8 @@ X/nm3/fxv8apf2z7x/8AfLUf2z7x/wDfLUWDmRd/s21/55t/38b/ABo/s21/55t/38b/ABql/bPv
 H/3y1H9s+8f/AHy1Fg5kXf7Ntf8Anm3/AH8b/Gp4okgjWONdqL0Gay/7Z94/++Wo/tn3j/75aiwc
 yJtR/wBcn+7RVSa/SdgzsoIGOFNFUjN6s//Z
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image048.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image079.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -9719,8 +9728,8 @@ FFFABRRRQAUUUUAFFFFACL90UtIv3RS0MAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
 CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
 KKKACiiigD//2T==
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image050.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image080.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -9856,8 +9865,8 @@ skDGIHG3GFDZ4POcnT+uyHbVf13O7orjb3Sr+NdREN1q7eXp63EBFxJk3Pz5xjr0X5Pu8/d5rQsW
 uB4qk8wXkwkj3FmE8cVv8q/KAf3T5OTkfMOevJDtqT0/r+up0VFFFIYUUUUAFFFFABRRRQAUUUUA
 FFFFABRRRQB//9l=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image052.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image081.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -10037,8 +10046,8 @@ bXD8sdvBGw8DPWiiqt+Y+nyHReJ3mUSrZjyFCLKTL8yuykgAY5HHXI69KgfxbcRwx7tNBuZfLMca
 z5G1kL8kgYI2kUUUlr+A2hL/AMT3yW9wbezhjYF1iaSXPzIyhtwA44bsT0rXsNSe6v7y0mijiktt
 vyq5YkH+LpjB5xzn1Aoop9hNaGhRRRSEFFFFABRRRQB//9l=
 
-------=_NextPart_01D34E96.F8C7A210
-Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image054.jpg
+------=_NextPart_01D34E98.E3BC99A0
+Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image082.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
 
@@ -10200,7 +10209,7 @@ bm/vfoKKKADc3979BRvb+8aKKADew/iNG5v736CiigA3N/e/QUbm/vfoKKKADc3979BRub+9+goo
 oANzf3v0FG5v736CiigA3N/e/QUbm/vfoKKKADc3979BRub+9+goooANzf3v0FG5v736CiigA3N/
 e/QUoJOcnsaKKAMfwiQf7a2qqr/aUmFUYA+VegooopIZ/9k=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/header.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
@@ -10431,8 +10440,8 @@ t:0;
  text-align:left;flip:y;z-index:251656192;visibility:visible;mso-wrap-style=
 :square;
  mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:9pt;
- mso-wrap-distance-top:-6e-5mm;mso-wrap-distance-right:9pt;
- mso-wrap-distance-bottom:-6e-5mm;mso-position-horizontal:absolute;
+ mso-wrap-distance-top:-8e-5mm;mso-wrap-distance-right:9pt;
+ mso-wrap-distance-bottom:-8e-5mm;mso-position-horizontal:absolute;
  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
  mso-position-vertical-relative:text;mso-width-percent:0;mso-height-percent=
 :0;
@@ -10526,7 +10535,7 @@ level=3D"22938f"/>
 
 </html>
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image001.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
@@ -11021,7 +11030,7 @@ KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAo
 oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
 igAooooAKKKKACiiigAooooAKKKKAP/Z
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image003.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -11925,7 +11934,7 @@ mcND4KK1I2alqavKidLsVDCg7JNCAf+yTmN4HKh4woaAZ0OBI2svWGhtULmpzycEWQoQcFzKt+0e
 MkAoiWfdIYgIeEJBwtjhYgxtyLRGsnzHpGji1pI1YIbKLUVheyi7hEKIBfHW9+WPBP8IAfLwbIDn
 wtMiGVkre8xCCX89duwYAKo6q8wuiNgAEUAEaheB/wd5vaddCGopbQAAAABJRU5ErkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image005.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -12519,7 +12528,7 @@ QKDm25CqbQq8SbNEcExDqaxYA2fuFPD7TWHGS2O+S0aoU2znaAiTu0OfYpP2udchPJ1L1kHKtn5N
 h+3qoKqtJ5FCCoWgjt6yVJvFfwtCbzZktIUqOszStnM9y9kyth1K5ZmsrajblKpfyt8C/yCe9Wdn
 iH04ncPKKEWphGvhA/8fWr6SzRAHKpsAAAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image007.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -12849,7 +12858,7 @@ uvoR3fL2bVIhyw/fbJWybzizT/VGaqc9yS0zyYEeuFVR+UdqZxikA7d86C3pVuDLbKHThv22w8NS
 p69tkdpzgKdWUDsJeDDqqPOb+92vqJAHGMcw17wBpFZlGaw9kaqLiiiw8EHHXZ65fOtO1zO3Owda
 VlFHn7xhaHQ733vzD4/OW/4ue53i/wML0lXOUA5FdAAAAABJRU5ErkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image009.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -13625,7 +13634,7 @@ jNA/Pp9+sTUBw2eICCCAAAIIIIAAAgi4AluvTZd+uquGo/B+pPiw0HTLOfAQQAABBBBAAAEEEEDA
 CZpJz+BKQAABBBBAAAEEEECgjQBBM5cIAggggAACCCCAAAIEzVwDCCCAAAIIIIAAAgh0J/D/B/T2
 UhQFgCi9AAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image011.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -14128,7 +14137,7 @@ xEVjBBBAAAEE6gTkgpqjknxUPzHqXYAaTe+G9IAAAgggMGECcgGw+5ywqQcxXWo0QahOaJ/UaIZ8
 F6afv3isDsW7RoMcAggggAACCCAwGAGuoxmMM6MggAACCCCAgLcAuQjvDAQQQAABBBAYpgC5yDD1
 GRsBBBBAAAEEyEV4DyCAAAIIIIDAMAX+fwh6UP7CD5T4AAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image013.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -14496,7 +14505,7 @@ IoAAAgi0U8C8EQtHawIeMyKDX+0PfX3QWracjQACCCCAAAIIVAscfGvo8NvDzt96L80ghwACCCCA
 AAIIdECAq2Y6gEwRCCCAAAIIIOAtQCDCyEAAAQQQQAABZQIEIsroKRgBBBBAAAEECEQYAwgggAAC
 CCCgTIBARBk9BSOAAAIIIIDA/wf+r/j6boOEoAAAAABJRU5ErkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image015.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -15035,7 +15044,7 @@ GtWsM6XhQ/ExJdDJNYMYLTmWsAQCIDBsAvBow54BtA8CIJAcAZeskyLt5OzDEgiAAAgMloD1ejRi
 tMGyhnUQAIE0CcCjpUkbbYEACAyWADzaYPnCOgiAQJoE4NHSpI22QAAEBksAHm2wfGEdBEAgTQL/
 PxEaFurKHp6bAAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image017.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -15639,7 +15648,7 @@ AdQPAiCQBgGXMSbl1WlYhg0QAAEQyIKAuNaMvCwL1qgDBECg1wQQy3pNGPZBAASyIIBYlgVl1AEC
 INBrAohlvSYM+yAAAlkQQCzLgjLqAAEQ6DWBEb1XttdYYR8EQCBjAv8/sWMwqT8BClwAAAAASUVO
 RK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image019.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -16283,7 +16292,7 @@ AAiAAAgMDAG4UwMz1TAUBEAABEAABECgNQTgTrWGK6SCAAiAAAiAAAgMDAG4UwMz1TAUBEAABEAA
 BECgNQTgTrWGK6SCAAiAAAiAAAgMDAG4UwMz1TAUBEAABEAABECgNQTgTrWGK6SCAAiAAAiAAAgM
 DAG4UwMz1TAUBEAABEAABECgNQT+fzS8Qg1T1D25AAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image021.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -16759,7 +16768,7 @@ GiMAydgYP7QGARAAARAAARAAgT4gAMnYBwcZQwQBEAABEAABEACBxghAMjbGD61BAARAAARAAARA
 oA8IQDL2wUHGEEEABEAABEAABECgMQKQjI3xQ2sQAAEQAAEQAAEQ6AMC/z/d89eh5OO0lwAAAABJ
 RU5ErkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image023.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -17817,7 +17826,7 @@ gwAIgAAIgAAIgAAIJJcAHIDk9j0sBwEQAAEQAAEQAAEQSCABJAEnsNNhMgiAQIIIzCAJmJIUEwQU
 poLATAhI7y3b7SAJeCa8498IjgGNfx/DQhAAARDoEJiBAwDaIAAC0yMAB2B6bBMl2ecA/D8XB+u0
 VCiTfQAAAABJRU5ErkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image025.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -18215,7 +18224,7 @@ ofHiCzgigAACCCCAAAIIHECAhOAB0DgEAQQQQAABBBBoLEBoxZWBAAIIIIAAAggEJkBoFRglBSGA
 AAIIIIAAAoRWXAMIIIAAAggggEBgAoRWgVFSEAIIIIAAAggg8Ez6R2dQQAABBBBAAAEEEAhE4Jnd
 3e8DKYhCEEAAAQQQQAABBP5/6a6YllNfjtAAAAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image027.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -18535,7 +18544,7 @@ CLQmAdjfrTku0AoEQAAEQAAEQAAEQKAzCcD+7sxxRa9AAARAAARAAARAAARakwDs79YcF2gFAiAA
 AiAAAiAAAiDQmQRgf3fmuKJXIAACIAACIAACIAACrUkA9ndrjgu0AgEQAAEQAAEQAAEQ6EwC/x/w
 yV0L2IJsOgAAAABJRU5ErkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image029.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -18913,7 +18922,7 @@ DQIIIIAAAggggEALged/dfjFXx+pO0B+inP0HRmgRAABBBBAAAEEEOhBQKYrVgZ7cOMUBBBAAAEE
 EECgqQDpihcHAggggAACCCBgUoB0ZVKTWggggAACCCCAAOmK1wACCCCAAAIIIGBS4P8DxtpvtvEb
 0jEAAAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image031.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -19220,7 +19229,7 @@ NgHiSNhmlPEggAACCCAQOAHiSOCmzOcdtlsaMbvc8Hkk8q+VH5+Pie4hgAACCHgsQBzxGDg61T+l
 AAEEFAsQRxRPAM0jgAACCCCAAHGEewABBBBAAAEEFAsQRxRPAM0jgAACCCCAAHGEewABBBBAAAEE
 FAv0TbyRVtwFmkcAAQQQQACBaAv8fxs8FGY1oMVcAAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image033.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -19399,7 +19408,7 @@ L0cdmnvWyUqjhdAZBEAABHJIgOI48io59DtMBgEQyBQBxPFMuRPGgAAI5JAA4ngOnQ6TQQAEMkUA
 cTxT7oQxIAACOSSAOJ5Dp8NkEACBTBEYKv56MlMGwRgQAAEQyBmB/we3FlmMut9nawAAAABJRU5E
 rkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image035.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -19983,7 +19992,7 @@ N438cdsFymr2Z3GWJlcz95ezI3JxUTc/2AHsz2bI8vvF5dOiQpmJoCNFbJ9kF4RA3MbzKE/rVoQP
 fILc59U42A/2g/2oECAuBPqJgLhGzurYq5JaHnp2RRYj5cpzlmq0ZZS12bTpLGnaSHb+xIZxUGQ6
 mNRYZtKaprdVXH04+/8DBqyWRE/BJ7gAAAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image037.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -20157,7 +20166,7 @@ gMBzJ+A5FFXecw8EAiAAgZoEcCiSAwIQkEsAh5IbG5RBAAI4FDkAAQjIJYBDyY0NyiAAAXMvDwoQ
 gAAEBBLQ9/LUs2fPHv73Q/3fzg/6qc8QPgPNZ+9/9sKfzi8WemiSwP8Dx+zRVAxHgCUAAAAASUVO
 RK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image039.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -20292,7 +20301,7 @@ BStvrExbFztDgz1CRRxKmnGrbfUtck1XL/OxifRA/TAP7lqw5udPswcHXrwAgcLWoXO3M33npuRR
 9Q3Vcwc6LCNreLDOH51KRKW57mSFrV3S4vGqOt1vDm0iYxnl8w4+32GjlFmaiIOiLk2TXgzWQWYa
 BhOxAMziNRqRpSuTUldCQb+xZtJzGQr/P+CgrhcykFosAAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image041.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -21058,7 +21067,7 @@ AAEQQJCHMQACIAACIAACIAACY0gAQd4YdipcAgEQAAEQAAEQAAEEeRgDIAACIAACIAACIDCGBBDk
 jWGnwiUQAAEQAAEQAAEQQJCHMQACIAACIAACIAACY0gAQd4YdipcAgEQAAEQAAEQAIH/P5f/WdG4
 frRuAAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image043.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -21742,7 +21751,7 @@ EBhFwPfZOSADARDwEqA4/j/8h/8wyCQZ8+rRlyAAAiAAAiAAAmEJxNfHT7ZOfFgOKA8CIAACIAAC
 i0Ygpj5eTpY5/5a/3vn4E758pDye4BWVi9ZzsAcEQAAEQAAERhP4/wOfRFz0K7uZ3AAAAABJRU5E
 rkJggk==
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image045.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -22054,7 +22063,7 @@ EEAAAQQQUCfAYo06e2pGAAEEEEAAAUOAdISBgAACCCCAAAKKBUhHFHcA1SOAAAIIIIAA6QhjAAEE
 EEAAAQQUC5COKO4AqkcAAQQQQAAB/coaFBBAAAEEEEAAAYUCfbu7TxRWT9UIIIAAAggggMD/B8Cb
 afZ0f0+yAAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image047.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -22210,7 +22219,7 @@ MRAQgwBESoxxRBYgICwBiJSwQ4vEQEAMAhApMcYRWYCAsAQgUsIOLRIDATEIQKTEGEdkAQLCEoBI
 CTu0SAwExCAAkRJjHJEFCAhLACIl7NAiMRAQgwBESoxxRBYgICwBiJSwQ4vEQEAMAhApMcYRWYCA
 sAQgUsIOLRIDATEIQKTEGEdkAQLCEvh/p1xqXNo6dEoAAAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image049.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -22341,7 +22350,7 @@ WcyYcL6ohQmjwwIZZjn5zIJ6KVL6tnZ4wCwmBPgQYBB6X8++zsTmEVmDwRwaUSmQdy6cgb4bLUiB
 9AOdHM1F83X/O2O7mEVR3qSDQoqHux532MwKLQtkmIgbM+vworoJ5JHY/EeAces79zDXdKZh+1dg
 th6IFSv+N+xe1fj/uBUDzv7CpN8AAAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image051.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -22583,7 +22592,7 @@ hoyFTmDW/w1gtajYmvtUztXrw9t64QEnUZuIy4zLljo3pIXXFoqrRcg5BzmbT5sx/RKJUjgyZN0l
 XOOi49XOXu81pDisi0Fw9duo3KRAYRzc2hFyknBQXpr2MAbPiJVzI4MTQ6SOmvx/WgVJOEqbvogA
 AAAASUVORK5CYIJ=
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image053.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -22902,7 +22911,7 @@ j/UFjthFuMXdED0dNruFLsEawdCTMEyMCIwKAny2QuO7Rv5WHnR6/ufn5rSF96JnokzNdEUuJsZI
 HKcdlgPISC0EHcsBXNDT6kaFPUVbEjjMBqasYzdhoRdQMO2xQADIQSw6DmYD8ClA5MHDxYem5eD/
 A4e/rCLlIDkCAAAAAElFTkSuQmCC
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/image055.jpg
 Content-Transfer-Encoding: base64
 Content-Type: image/jpeg
@@ -23778,7 +23787,7 @@ dirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVd
 irsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdi
 rsVdirsVf//Z
 
-------=_NextPart_01D34E96.F8C7A210
+------=_NextPart_01D34E98.E3BC99A0
 Content-Location: file:///C:/486BCAB9/BizTalkSoftwareFactory_files/filelist.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml; charset="utf-8"
@@ -23790,61 +23799,61 @@ Content-Type: text/xml; charset="utf-8"
  <o:File HRef=3D"themedata.thmx"/>
  <o:File HRef=3D"colorschememapping.xml"/>
  <o:File HRef=3D"image001.jpg"/>
- <o:File HRef=3D"image002.jpg"/>
+ <o:File HRef=3D"image056.jpg"/>
  <o:File HRef=3D"image003.png"/>
- <o:File HRef=3D"image004.jpg"/>
+ <o:File HRef=3D"image057.jpg"/>
  <o:File HRef=3D"image005.png"/>
- <o:File HRef=3D"image006.jpg"/>
+ <o:File HRef=3D"image058.jpg"/>
  <o:File HRef=3D"image007.png"/>
- <o:File HRef=3D"image008.jpg"/>
+ <o:File HRef=3D"image059.jpg"/>
  <o:File HRef=3D"image009.png"/>
- <o:File HRef=3D"image010.jpg"/>
+ <o:File HRef=3D"image060.jpg"/>
  <o:File HRef=3D"image011.png"/>
- <o:File HRef=3D"image012.jpg"/>
+ <o:File HRef=3D"image061.jpg"/>
  <o:File HRef=3D"image013.png"/>
- <o:File HRef=3D"image014.jpg"/>
+ <o:File HRef=3D"image062.jpg"/>
  <o:File HRef=3D"image015.png"/>
- <o:File HRef=3D"image016.jpg"/>
+ <o:File HRef=3D"image063.jpg"/>
  <o:File HRef=3D"image017.png"/>
- <o:File HRef=3D"image018.jpg"/>
+ <o:File HRef=3D"image064.jpg"/>
  <o:File HRef=3D"image019.png"/>
- <o:File HRef=3D"image020.jpg"/>
+ <o:File HRef=3D"image065.jpg"/>
  <o:File HRef=3D"image021.png"/>
- <o:File HRef=3D"image022.jpg"/>
+ <o:File HRef=3D"image066.jpg"/>
  <o:File HRef=3D"image023.png"/>
- <o:File HRef=3D"image024.jpg"/>
+ <o:File HRef=3D"image067.jpg"/>
  <o:File HRef=3D"image025.png"/>
- <o:File HRef=3D"image026.jpg"/>
+ <o:File HRef=3D"image068.jpg"/>
  <o:File HRef=3D"image027.png"/>
- <o:File HRef=3D"image028.jpg"/>
+ <o:File HRef=3D"image069.jpg"/>
  <o:File HRef=3D"image029.png"/>
- <o:File HRef=3D"image030.jpg"/>
+ <o:File HRef=3D"image070.jpg"/>
  <o:File HRef=3D"image031.png"/>
- <o:File HRef=3D"image032.jpg"/>
+ <o:File HRef=3D"image071.jpg"/>
  <o:File HRef=3D"image033.png"/>
- <o:File HRef=3D"image034.jpg"/>
+ <o:File HRef=3D"image072.jpg"/>
  <o:File HRef=3D"image035.png"/>
- <o:File HRef=3D"image036.jpg"/>
+ <o:File HRef=3D"image073.jpg"/>
  <o:File HRef=3D"image037.png"/>
- <o:File HRef=3D"image038.jpg"/>
+ <o:File HRef=3D"image074.jpg"/>
  <o:File HRef=3D"image039.png"/>
- <o:File HRef=3D"image040.jpg"/>
+ <o:File HRef=3D"image075.jpg"/>
  <o:File HRef=3D"image041.png"/>
- <o:File HRef=3D"image042.jpg"/>
+ <o:File HRef=3D"image076.jpg"/>
  <o:File HRef=3D"image043.png"/>
- <o:File HRef=3D"image044.jpg"/>
+ <o:File HRef=3D"image077.jpg"/>
  <o:File HRef=3D"image045.png"/>
- <o:File HRef=3D"image046.jpg"/>
+ <o:File HRef=3D"image078.jpg"/>
  <o:File HRef=3D"image047.png"/>
- <o:File HRef=3D"image048.jpg"/>
+ <o:File HRef=3D"image079.jpg"/>
  <o:File HRef=3D"image049.png"/>
- <o:File HRef=3D"image050.jpg"/>
+ <o:File HRef=3D"image080.jpg"/>
  <o:File HRef=3D"image051.png"/>
- <o:File HRef=3D"image052.jpg"/>
+ <o:File HRef=3D"image081.jpg"/>
  <o:File HRef=3D"image053.png"/>
- <o:File HRef=3D"image054.jpg"/>
+ <o:File HRef=3D"image082.jpg"/>
  <o:File HRef=3D"header.htm"/>
  <o:File HRef=3D"image055.jpg"/>
  <o:File HRef=3D"filelist.xml"/>
 </xml>
-------=_NextPart_01D34E96.F8C7A210--
+------=_NextPart_01D34E98.E3BC99A0--
