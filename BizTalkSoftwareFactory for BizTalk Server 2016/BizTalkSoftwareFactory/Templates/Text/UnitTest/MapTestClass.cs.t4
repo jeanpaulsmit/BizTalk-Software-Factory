@@ -1,0 +1,80 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="SchemasProjectSfx" #>
+<#@ property processor="PropertyProcessor" name="MapsProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="MapName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using System.IO;
+using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using <#=BizTalkNamespace #>.<#=MapsProjectSuffix #>;
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    [TestClass]
+    public class <#=UnitTestName #>_Test
+    {
+        public <#=UnitTestName #>_Test()
+        {
+        }
+
+		[TestInitialize]
+        public void Setup()
+        {
+        }
+
+        /// <summary>
+		/// Validate map using the tools BizTalk Server 2013 is supplying
+        /// </summary>
+        [DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml")]
+        [DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Expected.xml")]
+        [TestMethod]
+        public void <#=UnitTestName #>_Case()
+        {
+            string inputFile = @"<#=UnitTestName #>_Data.xml";
+            string outputFile = @"<#=UnitTestName #>_Result.xml";
+            string expectedFile = @"<#=UnitTestName #>_Expected.xml";
+
+            Microsoft.BizTalk.TestTools.Mapper.TestableMapBase map = new <#=BizTalkNamespace #>.<#=MapsProjectSuffix #>.<#=MapName #>();
+            map.TestMap(inputFile, Microsoft.BizTalk.TestTools.Schema.InputInstanceType.Xml, outputFile, Microsoft.BizTalk.TestTools.Schema.OutputInstanceType.XML);
+
+            // Now compare the contents of the file
+            Assert.IsTrue(Helper.IsActualEqualToExpected(outputFile, expectedFile));
+        }
+
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Example Unit test for validating specific map logic by means of setting and validating fields
+		/// <summary>
+        /// Validate the logic in a map by dynamically inserting a value and checking the output
+        /// </summary>
+        //[DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml")]
+        //[DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Expected.xml")]
+        //[TestMethod]
+        //public void <#=UnitTestName #>_Field_Case()
+        //{
+        //   string inputFile = @"<#=UnitTestName #>_Data.xml";
+        //    string outputFile = @"<#=UnitTestName #>_Result.xml";
+
+            // Manipulate the input file before applying the map
+            // Set Field value in input data file
+        //    Helper.SetXpathValue(inputFile, 
+        //                        "<XPath from map pointing to the source field in which this value needs to be filled in>",
+        //                        "<Value to fill in>");
+            // Apply the map
+        //    Microsoft.BizTalk.TestTools.Mapper.TestableMapBase map = new <#=BizTalkNamespace #>.<#=MapsProjectSuffix #>.<#=MapName #>();
+        //    map.TestMap(inputFile, Microsoft.BizTalk.TestTools.Schema.InputInstanceType.Xml, outputFile, Microsoft.BizTalk.TestTools.Schema.OutputInstanceType.XML);
+
+            // Now compare the contents of the file
+            // Describe the logic and why a certain field value should show up
+        //    string valueOut = "<Value expected>";
+        //    string xpathOut = @"<XPath from map pointing to the destination field in which this value needs to be filled in>";
+        //    Assert.AreEqual(valueOut, Helper.GetXpathValue(outputFile, xpathOut));
+        //}
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    }
+}

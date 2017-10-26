@@ -1,0 +1,41 @@
+<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="BizTalkNamespace" #>
+<#@ property processor="PropertyProcessor" name="UnitTestProjectSuffix" #>
+<#@ property processor="PropertyProcessor" name="UnitTestName" #>
+<#@ property processor="PropertyProcessor" name="SchemaProjectName" #>
+<#@ property processor="PropertyProcessor" name="SchemaName" #>
+<#@ assembly name="System.dll" #>
+
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace <#=BizTalkNamespace #>.<#= UnitTestProjectSuffix #>
+{
+    [TestClass]
+    public class <#=UnitTestName #>_Test
+    {
+        public <#=UnitTestName #>_Test()
+        {
+        }
+
+        [TestInitialize]
+        public void Setup()
+        {
+        }
+		
+        /// <summary>
+		/// Validate schema using the tools BizTalk Server 2013 is supplying
+        /// </summary>
+		[DeploymentItem(@"..\..\TestData\" + "<#=UnitTestName #>" + "_Data.xml")]
+        [TestMethod]
+        public void <#= UnitTestName #>_Case()
+        {
+			string inputFile = "<#=UnitTestName #>" + "_Data.xml";
+
+			Microsoft.BizTalk.TestTools.Schema.TestableSchemaBase schema = new <#=SchemaProjectName #>.<#=SchemaName #>();
+			bool result = schema.ValidateInstance(inputFile, Microsoft.BizTalk.TestTools.Schema.OutputInstanceType.XML);
+		 
+			Assert.IsTrue(result);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Arguments xmlns="http://schemas.microsoft.com/pag/gax-core">
+	<!-- Define some const variables, this can only be done this way -->
+	<Argument Name="SchemasProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="Schemas" />
+	</Argument>
+	<Argument Name="MapsProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="Maps" />
+	</Argument>
+	<Argument Name="OrchestrationsProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="Orchestrations" />
+	</Argument>
+	<Argument Name="PipelinesProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="Pipelines" />
+	</Argument>
+	<Argument Name="BusinessComponentsProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="BusinessComponents" />
+	</Argument>
+	<!--<Argument Name="PipelineComponentProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="PipelineComponents" />
+	</Argument>-->
+	<Argument Name="UnitTestProjectSuffix">
+		<ValueProvider Type="Evaluator" Expression="UnitTests" />
+	</Argument>
+  <Argument Name="DeploymentProjectSuffix">
+    <ValueProvider Type="Evaluator" Expression="Deployment" />
+  </Argument>
+</Arguments>

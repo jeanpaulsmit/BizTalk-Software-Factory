@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemSchema" Recurrent="true" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="Common\TypeAliases.xml"
+              xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Create BizTalk schema</Caption>
+  <Description>Create BizTalk schema</Description>
+	<HostData>
+		<Icon ID="133" />
+		<CommandBar Menu="BSFProject" />
+	</HostData>
+  <Arguments>
+    <Argument Name="BizTalkNamespace">
+      <ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+    </Argument>
+    <Argument Name="Date" Type="System.DateTime">
+      <ValueProvider Type="BizTalkSoftwareFactory.ValueProviders.DateNowValueProvider, BizTalkSoftwareFactory" />
+    </Argument>
+    <Argument Name="Year">
+      <ValueProvider Type="Evaluator" Expression="$(Date.Year.ToString())">
+        <MonitorArgument Name="Date" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="Month">
+      <ValueProvider Type="Evaluator" Expression="$(Date.Month.ToString())">
+        <MonitorArgument Name="Date" />
+      </ValueProvider>
+    </Argument>
+  </Arguments>
+</Recipe>

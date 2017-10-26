@@ -1,0 +1,29 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name Package="{7a51b143-7eea-450d-baef-827253c52e43}" ID="1000" />
+		<Description Package="{7a51b143-7eea-450d-baef-827253c52e43}" ID="1001" />
+		<Icon Package="{7a51b143-7eea-450d-baef-827253c52e43}" ID="226" />
+		<ProjectType>BizTalk</ProjectType>
+		<SortOrder>100</SortOrder>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>BizTalk Server Project</DefaultName>
+		<ProvideDefaultName>false</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="BizTalkApplication.btproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio</Assembly>
+    <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+  </WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0">
+			<References>
+
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

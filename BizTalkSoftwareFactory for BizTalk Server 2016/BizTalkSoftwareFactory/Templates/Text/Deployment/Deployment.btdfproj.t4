@@ -1,0 +1,121 @@
+<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ Assembly Name="BizTalkSoftwareFactory.dll" #>
+<#@ property processor="PropertyProcessor" name="solutionName" #>
+<#@ property processor="PropertyProcessor" name="includeSchemas" #>
+<#@ property processor="PropertyProcessor" name="includeMappings" #>
+<#@ property processor="PropertyProcessor" name="includeOrchestrations" #>
+<#@ property processor="PropertyProcessor" name="includePipelines" #>
+<#@ property processor="PropertyProcessor" name="includeComponents" #>
+<#@ property processor="PropertyProcessor" name="productIdCodeGuid" #>
+<#@ property processor="PropertyProcessor" name="productUpgradeCodeGuid" #>
+<#var solutionPath = string.Concat("..\\", solutionName);  #>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  Deployment Framework for BizTalk
+  Copyright (C) 2008-17 Thomas F. Abraham, 2004-08 Scott Colestock
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Installer" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <SchemaVersion>1.0</SchemaVersion>
+    <ProjectName><#=solutionName #></ProjectName>
+    <ProjectVersion>1.0</ProjectVersion>
+    <IncludeSchemas><#=includeSchemas #></IncludeSchemas>
+    <IncludeOrchestrations><#=includeOrchestrations #></IncludeOrchestrations>
+    <IncludeTransforms><#=includeMappings #></IncludeTransforms>
+    <IncludePipelines><#=includePipelines #></IncludePipelines>
+    <IncludeComponents><#=includeComponents #></IncludeComponents>
+    <IncludePipelineComponents>False</IncludePipelineComponents>
+    <IncludeCustomFunctoids>False</IncludeCustomFunctoids>
+    <IncludeVocabAndRules>False</IncludeVocabAndRules>
+    <IncludeVirtualDirectories>False</IncludeVirtualDirectories>
+    <IncludeMessagingBindings>True</IncludeMessagingBindings>
+    <IncludeDeploymentTest>False</IncludeDeploymentTest>
+    <Includelog4net>False</Includelog4net>
+    <IncludeSSO>False</IncludeSSO>
+    <IncludeEsbItineraries>False</IncludeEsbItineraries>
+    <IncludeBam>False</IncludeBam>
+    <IncludeInstallUtilForComponents>False</IncludeInstallUtilForComponents>
+    <UsingMasterBindings>True</UsingMasterBindings>
+    <RequireXmlPreprocessDirectives>False</RequireXmlPreprocessDirectives>
+    <ApplyXmlEscape>True</ApplyXmlEscape>
+    <IncludeSettingsSpreadsheetInMsi>True</IncludeSettingsSpreadsheetInMsi>
+    <SkipIISReset>True</SkipIISReset>
+    <SkipHostInstancesRestart>False</SkipHostInstancesRestart>
+    <StartApplicationOnDeploy>True</StartApplicationOnDeploy>
+    <EnableAllReceiveLocationsOnDeploy>True</EnableAllReceiveLocationsOnDeploy>
+    <StartReferencedApplicationsOnDeploy>True</StartReferencedApplicationsOnDeploy>
+    <UseIsolatedAppDomain>True</UseIsolatedAppDomain>
+    <EnableBizTalkExtendedLogging>False</EnableBizTalkExtendedLogging>
+    <EnableBizTalkAssemblyValidation>False</EnableBizTalkAssemblyValidation>
+    <EnableBizTalkCorrelationValidation>False</EnableBizTalkCorrelationValidation>
+    <EnableBizTalkSchemaValidation>False</EnableBizTalkSchemaValidation>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Properties related to building an MSI for server deployments -->
+    <!-- BizTalk App Version Upgrade -->
+    <!--   For each new product release to be deployed to your BizTalk servers: -->
+    <!--     1) Increment ProductVersion -->
+    <!--     2) Generate a new GUID and update ProductId with the new GUID -->
+    <!--   This allows the new MSI to automatically uninstall (not undeploy!) the old MSI and install the new one. -->
+    <ProductVersion>1.0.0</ProductVersion>
+    <ProductId><#=productIdCodeGuid #></ProductId>
+    <!-- BizTalk App Version Upgrade -->
+    <ProductName><#=solutionName #></ProductName>
+    <Manufacturer>Your company name</Manufacturer>
+    <PackageDescription>Your description</PackageDescription>
+    <PackageComments>Your comments</PackageComments>
+    <!-- NEVER change the ProductUpgradeCode. -->
+    <ProductUpgradeCode><#=productUpgradeCodeGuid #></ProductUpgradeCode>
+  </PropertyGroup>
+  <!-- Under TFS Team Build, set CustomizableOutDir property to true in TFS 2005/2008/2010 UpgradeTemplate. -->
+  <!-- With a workflow build, copy the default template then modify the MSBuild task for the solution build. Set OutDir to blank and -->
+  <!-- CommandLineArguments to String.Format("/p:SkipInvalidConfigurations=true;TeamBuildOutDir=""{0}"" {1}", BinariesDirectory, MSBuildArguments). -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DeploymentFrameworkTargetsPath>$(MSBuildExtensionsPath)\DeploymentFrameworkForBizTalk\5.0\</DeploymentFrameworkTargetsPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' == ''">bin\Debug\</OutputPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' != ''">$(TeamBuildOutDir)</OutputPath>
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DeploymentFrameworkTargetsPath>$(MSBuildExtensionsPath)\DeploymentFrameworkForBizTalk\5.0\</DeploymentFrameworkTargetsPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' == ''">bin\Release\</OutputPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' != ''">$(TeamBuildOutDir)</OutputPath>
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Server'">
+    <DeploymentFrameworkTargetsPath>Framework\</DeploymentFrameworkTargetsPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>true</DeployPDBsToGac>
+  </PropertyGroup>
+  <ItemGroup>
+    <PropsFromEnvSettings Include="SsoAppUserGroup;SsoAppAdminGroup" />
+  </ItemGroup>
+  <!-- !!! TODO !!! -->
+  <!-- Add ItemGroup elements that contain one or more Schemas, Orchestrations, Transforms, etc. elements that describe -->
+  <!-- the specific artifacts in your solution that need to be deployed. Use IntelliSense as a guide. -->
+  <ItemGroup>
+    <!-- The Deployment Framework defaults to Transforms but we use Maps -->
+	<!-- Adjust the LocationPath to remove the blocking " + ", this was necessary to be able to generate this using T4 -->
+	<Transforms Include="<#=solutionName #>.Maps.dll">
+      <LocationPath><#=solutionPath #>.Maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
+    <!-- The Deployment Framework defaults to Transforms but we use Maps -->
+	<!-- Adjust the LocationPath to remove the blocking " + ", this was necessary to be able to generate this using T4 -->
+	<Components Include="<#=solutionName #>.BusinessComponents.dll">
+      <LocationPath><#=solutionPath #>.BusinessComponents\bin\$(Configuration)</LocationPath>
+    </Components>
+  </ItemGroup>
+  <!-- !!! TODO !!! -->
+  <Import Project="$(DeploymentFrameworkTargetsPath)BizTalkDeploymentFramework.targets" />
+  <!--
+    The Deployment Framework automatically packages most files into the server install MSI.
+    However, if there are special folders that you need to include in the MSI, you can
+    copy them to the folder $(RedistDir) in the CustomRedist target.
+    To include individual files, add an ItemGroup with AdditionalFiles elements.
+  -->
+  <Target Name="CustomRedist">
+  </Target>
+</Project>
