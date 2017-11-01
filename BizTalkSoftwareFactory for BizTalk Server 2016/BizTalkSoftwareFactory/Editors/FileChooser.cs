@@ -19,9 +19,10 @@ namespace BizTalkSoftwareFactory.Editors
     {
         public virtual string InitialDirectory
         {
-            get { return "C:\\"; }
+            get { return Properties.Settings.Default.FileChooserInitialDirectory; }
+            set { Properties.Settings.Default.FileChooserInitialDirectory = value; }
         }
-
+        
         public virtual string FileFilter
         {
             get { return "All files (*.*)|*.*"; }
@@ -54,6 +55,9 @@ namespace BizTalkSoftwareFactory.Editors
             fileDialog.RestoreDirectory = true;
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
+                InitialDirectory = fileDialog.FileName;
+                Properties.Settings.Default.Save();
+
                 return fileDialog.FileName;
             }
             else
@@ -61,5 +65,6 @@ namespace BizTalkSoftwareFactory.Editors
                 return string.Empty;
             }
         }
+        
     }
 }

@@ -22,5 +22,17 @@ namespace BizTalkSoftwareFactory.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\")]
+        public string FileChooserInitialDirectory {
+            get {
+                return ((string)(this["FileChooserInitialDirectory"]));
+            }
+            set {
+                this["FileChooserInitialDirectory"] = value;
+            }
+        }
     }
 }
