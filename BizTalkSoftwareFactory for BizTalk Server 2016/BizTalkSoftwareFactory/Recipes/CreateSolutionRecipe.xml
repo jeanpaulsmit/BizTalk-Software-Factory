@@ -24,6 +24,7 @@
       </ValueProvider>
     </Argument>
     <Argument Name="KeyFile" Type="System.String" Required="false"/>
+    <Argument Name="GeneralAssemblyInfoFile" Type="System.String" Required="false"/>
     <Argument Name="AddSchemasProject" Type="System.Boolean" Required="true">
       <ValueProvider Type="Evaluator" Expression="true" />
     </Argument>
@@ -180,6 +181,10 @@
             <Field Label="KeyFile" ValueName="KeyFile" ReadOnly="true">
               <Help>If no keyfile is picked, a new one will be generated in the solution root folder</Help>
               <Editor Type="BizTalkSoftwareFactory.Editors.KeyFileChooser, BizTalkSoftwareFactory" />
+            </Field>
+            <Field Label="GeneralAssemblyInfoFile" ValueName="GeneralAssemblyInfoFile" ReadOnly="true">
+              <Help>Set a GeneralAssemblyInfo file</Help>
+              <Editor Type="BizTalkSoftwareFactory.Editors.GeneralAssemblyChooser, BizTalkSoftwareFactory" />
             </Field>
           </Fields>
         </Page>
@@ -383,6 +388,10 @@
     <Action Name="CreateStrongNamedKey" Type="BizTalkSoftwareFactory.Actions.CreateStrongNamedKey, BizTalkSoftwareFactory">
       <Input Name="Name" RecipeArgument="BizTalkNamespace"/>
       <Input Name="KeyFile" RecipeArgument="KeyFile"/>
+    </Action>
+    <Action Name="AddGeneralAssemblyInfoFile" Type="BizTalkSoftwareFactory.Actions.AddGeneralAssemblyInfoFile, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="BizTalkNamespace"/>
+      <Input Name="GeneralAssemblyInfoFile" RecipeArgument="GeneralAssemblyInfoFile"/>
     </Action>
     <Action Name="CreateSolutionFolderRules" Type="BizTalkSoftwareFactory.Actions.CreateSolutionFolder, BizTalkSoftwareFactory">
       <Input Name="Name" RecipeArgument="SolutionFolderRules" />

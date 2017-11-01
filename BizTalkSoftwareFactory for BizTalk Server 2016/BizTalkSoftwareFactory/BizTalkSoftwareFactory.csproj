@@ -151,6 +151,7 @@
     <Compile Include="Actions\CopyFilesRecursively.cs" />
     <Compile Include="Actions\CreateSingleProjectSolution.cs" />
     <Compile Include="Actions\CreateSolutionFolder.cs" />
+    <Compile Include="Actions\AddGeneralAssemblyInfoFile.cs" />
     <Compile Include="Actions\CreateStrongNamedKey.cs" />
     <Compile Include="Actions\DeleteItem.cs" />
     <Compile Include="Actions\GetProjectFolderItem.cs" />
@@ -176,6 +177,7 @@
     </Compile>
     <Compile Include="CustomWizardPages\PipelineComponentWizard\Properties\Resources.Designer.cs" />
     <Compile Include="CustomWizardPages\PipelineComponentWizard\PropertyPairEvent.cs" />
+    <Compile Include="Editors\GeneralAssemblyChooser.cs" />
     <Compile Include="Editors\KeyFileChooser.cs" />
     <Compile Include="ValueProviders\NewGuidValueProvider.cs" />
     <Content Include="CustomWizardPages\PipelineComponentWizard\Resources\watermark.bmp" />
