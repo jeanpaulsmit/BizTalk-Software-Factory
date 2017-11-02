@@ -12,6 +12,7 @@ using VSLangProj;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
+using BizTalkSoftwareFactory.OperationalManagement;
 
 #endregion
 
@@ -84,6 +85,11 @@ namespace BizTalkSoftwareFactory.Actions
                     {
                         //add GeneralAssemblyInfoFile in PropertiesFolder
                         var propertiesFolder = project.ProjectItems.Item("Properties");
+
+                        //check generalAssemblyFile allready added, then continue
+                        if (propertiesFolder.ProjectItems.Exists(Path.GetFileName(generalAssemblyInfoFile)))                        
+                            continue;                        
+
                         propertiesFolder.ProjectItems.AddFromFile(generalAssemblyInfoFile);
                         
                         // determine filename of AssemblyInfo file

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemGeneralAssemblyInfo" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add GeneralAssemblyInfo file</Caption>
+  <HostData>
+    <Icon ID="133" />
+    <CommandBar Name="Solution Add" />
+  </HostData>
+  <Arguments>
+    <!-- Include fixed project values -->
+    <xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+    <xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+
+    <Argument Name="BizTalkNamespace">
+      <ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+    </Argument>
+    <Argument Name="GeneralAssemblyInfoFile" Type="System.String" Required="true">
+      <!--<Converter Type="NamespaceStringConverter" />-->
+      <!--<ValueProvider Type="VisualStudioCreateItemName" DefaultValue="HttpModule1" />-->
+    </Argument>
+    <!--<Argument Name="AddSchemasProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddMapsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddOrchestrationsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddPipelinesProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddBusinessComponentsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>-->
+    <!--<Argument Name="AddPipelineComponentsProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>-->
+    <!--<Argument Name="AddUnitTestProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddDeploymentProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="AddNamespacePrefixToProject" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>-->
+    <!--<Argument Name="MultiProjectSolution" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="MainProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace)">
+        <MonitorArgument Name="BizTalkNamespace" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="SchemasProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(SchemasProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="SchemasProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="MapsProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(MapsProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="MapsProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="OrchestrationsProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(OrchestrationsProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="OrchestrationsProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="PipelinesProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(PipelinesProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="PipelinesProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="BusinessComponentsProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(BusinessComponentsProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="BusinessComponentsProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="UnitTestProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(UnitTestProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="UnitTestProjectSuffix" />
+      </ValueProvider>
+    </Argument>-->
+    <!--<Argument Name="PipelineComponentProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(PipelineComponentProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="PipelineComponentProjectSuffix" />
+      </ValueProvider>
+    </Argument>-->
+    <!--<Argument Name="DeploymentProjectName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).$(DeploymentProjectSuffix)">
+        <MonitorArgument Name="BizTalkNamespace" />
+        <MonitorArgument Name="DeploymentProjectSuffix" />
+      </ValueProvider>
+    </Argument>
+    <Argument Name="FinalSolutionName">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).sln">
+        <MonitorArgument Name="BizTalkNamespace" />
+      </ValueProvider>
+    </Argument>-->
+    <!--<Argument Name="ReferencesFolderTargetDir">
+      <ValueProvider Type="Evaluator" Expression="References" />
+    </Argument>
+    <Argument Name="DeploymentFolderTargetDir">
+      <ValueProvider Type="Evaluator" Expression="$(BizTalkNamespace).Deployment" />
+    </Argument>
+    <Argument Name="DeploymentBuildFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\$(BizTalkNamespace).Deployment.btdfproj" />
+    </Argument>
+    <Argument Name="BuildDebugMsiFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildDebugMsi.bat" />
+    </Argument>
+    <Argument Name="BuildReleaseMsiFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildReleaseMsi.bat" />
+    </Argument>
+    <Argument Name="SettingsFileGeneratorFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\SettingsFileGenerator.xml" />
+    </Argument>
+    <Argument Name="InstallWizardFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\InstallWizard.xml" />
+    </Argument>
+    <Argument Name="UnInstallWizardFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\UnInstallWizard.xml" />
+    </Argument>
+    <Argument Name="PortBindingsMasterFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\PortBindingsMaster.xml" />
+    </Argument>
+    <Argument Name="DeploymentProductIdCodeGuid">
+      <ValueProvider Type="BizTalkSoftwareFactory.ValueProviders.NewGuidValueProvider, BizTalkSoftwareFactory" />
+    </Argument>
+    <Argument Name="DeploymentProductUpgradeCodeGuid">
+      <ValueProvider Type="BizTalkSoftwareFactory.ValueProviders.NewGuidValueProvider, BizTalkSoftwareFactory" />
+    </Argument>-->
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+      <Pages>
+        <Page>
+          <Title>Select GeneralAssemblyInfo file</Title>
+          <Fields>
+            <Field Label="GeneralAssemblyInfoFile" ValueName="GeneralAssemblyInfoFile">
+              <Editor Type="BizTalkSoftwareFactory.Editors.GeneralAssemblyChooser, BizTalkSoftwareFactory" />
+            </Field>
+          </Fields>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions>
+    <Action Name="AddGeneralAssemblyInfoFile" Type="BizTalkSoftwareFactory.Actions.AddGeneralAssemblyInfoFile, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="BizTalkNamespace"/>
+      <Input Name="GeneralAssemblyInfoFile" RecipeArgument="GeneralAssemblyInfoFile"/>
+    </Action>
+  </Actions>
+</Recipe>

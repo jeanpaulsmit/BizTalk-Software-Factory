@@ -179,6 +179,7 @@
     <Compile Include="CustomWizardPages\PipelineComponentWizard\PropertyPairEvent.cs" />
     <Compile Include="Editors\GeneralAssemblyChooser.cs" />
     <Compile Include="Editors\KeyFileChooser.cs" />
+    <Compile Include="OperationalManagement\Helpers.cs" />
     <Compile Include="ValueProviders\NewGuidValueProvider.cs" />
     <Content Include="CustomWizardPages\PipelineComponentWizard\Resources\watermark.bmp" />
     <Content Include="img\logo.gif" />
@@ -251,6 +252,11 @@
     <Compile Include="References\SolutionFolderRecipeReference.cs" />
     <Compile Include="References\UnitTestProjectRecipeReference.cs" />
     <Compile Include="References\UnitTestProjectReference.cs" />
+    <Content Include="Recipes\NewItemGeneralAssemblyInfoRecipe.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Templates\Projects\ClassLibrary\Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -287,6 +293,7 @@
     <Content Include="Recipes\BindingRecipe.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Recipes\Common\GeneralValues.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -346,10 +353,12 @@
     <Content Include="Recipes\NewItemUnitTestOrchestrationRecipe.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Recipes\NewItemUnitTestSchemaRecipe.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Templates\Items\BizTalkMap.btm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

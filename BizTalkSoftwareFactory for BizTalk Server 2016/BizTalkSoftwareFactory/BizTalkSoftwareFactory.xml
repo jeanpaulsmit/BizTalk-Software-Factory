@@ -32,5 +32,6 @@
     <xi:include href="Recipes/NewItemUnitTestMapRecipe.xml" />
     <xi:include href="Recipes/NewItemUnitTestSchemaRecipe.xml" />
     <xi:include href="Recipes/NewItemUnitTestOrchestrationRecipe.xml" />
+    <xi:include href="Recipes/NewItemGeneralAssemblyInfoRecipe.xml" />
   </Recipes>
 </GuidancePackage>
