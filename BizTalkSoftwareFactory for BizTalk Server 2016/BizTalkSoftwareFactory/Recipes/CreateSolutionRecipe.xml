@@ -186,6 +186,10 @@
               <Help>Set a GeneralAssemblyInfo file</Help>
               <Editor Type="BizTalkSoftwareFactory.Editors.GeneralAssemblyChooser, BizTalkSoftwareFactory" />
             </Field>
+            <Field Label="DeploymentProjectTemplateFile" ValueName="DeploymentProjectTemplateFile" ReadOnly="true">
+              <Help>If no file is picked, the default one will be used in the solution root folder</Help>
+              <Editor Type="BizTalkSoftwareFactory.Editors.DeploymentProjectTemplateFileChooser, BizTalkSoftwareFactory" />
+            </Field>
           </Fields>
         </Page>
       </Pages>
@@ -255,9 +259,11 @@
       <Input Name="SearchPattern" RecipeArgument="SearchPatternAll" />
       <Input Name="RelativeTargetDir" RecipeArgument="ReferencesFolderTargetDir" />
     </Action>
+
     <!-- Customize deployment script file -->
-	  <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildFile" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+	  <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildFile" Type="BizTalkSoftwareFactory.Actions.TextTemplateAction, BizTalkSoftwareFactory"
             Template="Text\Deployment\Deployment.btdfproj.t4">
+      <Input Name="CustomTemplate" RecipeArgument="DeploymentProjectTemplateFile"/>
       <Input Name="solutionName" RecipeArgument="BizTalkNamespace"/>
       <Input Name="includeSchemas" RecipeArgument="AddSchemasProject"/>
       <Input Name="includeMappings" RecipeArgument="AddMapsProject"/>

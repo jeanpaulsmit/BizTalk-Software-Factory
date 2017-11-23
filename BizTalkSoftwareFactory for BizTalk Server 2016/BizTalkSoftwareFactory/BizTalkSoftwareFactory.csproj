@@ -74,6 +74,13 @@
     <Reference Include="Microsoft.Practices.RecipeFramework.Extensions">
       <HintPath>..\References\Microsoft.Practices.RecipeFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.Extensions.resources">
+      <HintPath>..\References\en-US\Microsoft.Practices.RecipeFramework.Extensions.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.VisualStudio.Library, Version=2.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Microsoft.Practices.RecipeFramework.VisualStudio.Library.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -160,6 +167,7 @@
     <Compile Include="Actions\SetItemProperty.cs" />
     <Compile Include="Actions\SetMapRootNodes.cs" />
     <Compile Include="Actions\SetProjectAssemblyName.cs" />
+    <Compile Include="Actions\TextTemplateAction.cs" />
     <Compile Include="Converters\MapConverter.cs" />
     <Compile Include="Converters\OrchestrationConverter.cs" />
     <Compile Include="Converters\SchemaConverter.cs" />
@@ -177,6 +185,7 @@
     </Compile>
     <Compile Include="CustomWizardPages\PipelineComponentWizard\Properties\Resources.Designer.cs" />
     <Compile Include="CustomWizardPages\PipelineComponentWizard\PropertyPairEvent.cs" />
+    <Compile Include="Editors\DeploymentProjectTemplateFileChooser.cs" />
     <Compile Include="Editors\GeneralAssemblyChooser.cs" />
     <Compile Include="Editors\KeyFileChooser.cs" />
     <Compile Include="OperationalManagement\Helpers.cs" />
