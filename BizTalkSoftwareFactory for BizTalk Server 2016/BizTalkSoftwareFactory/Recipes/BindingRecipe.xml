@@ -18,8 +18,9 @@
 		<Action Name="CreateUnboundItemTemplateRefUnitTestsMap" Type="RefCreator" AssetName="NewItemUnitTestMaps" ReferenceType="BizTalkSoftwareFactory.References.UnitTestProjectRecipeReference, BizTalkSoftwareFactory" />
 		<Action Name="CreateUnboundItemTemplateRefUnitTestsSchema" Type="RefCreator" AssetName="NewItemUnitTestSchemas"	ReferenceType="BizTalkSoftwareFactory.References.UnitTestProjectRecipeReference, BizTalkSoftwareFactory" />
 		<Action Name="CreateUnboundItemTemplateRefUnitTestsOrchestration" Type="RefCreator" AssetName="NewItemUnitTestOrchestrations"	ReferenceType="BizTalkSoftwareFactory.References.UnitTestProjectRecipeReference, BizTalkSoftwareFactory" />
-			
+
     <Action Name="CreateUnboundItemTemplateRefGeneralAssemblyInfo" Type="RefCreator" AssetName="NewItemGeneralAssemblyInfo"	ReferenceType="BizTalkSoftwareFactory.References.AnyElementReference, BizTalkSoftwareFactory" />
-</Actions>
+    <Action Name="CreateUnboundItemTemplateRefAddIISFolder" Type="RefCreator" AssetName="AddIISFolderRecipe"	ReferenceType="BizTalkSoftwareFactory.References.AnyElementReference, BizTalkSoftwareFactory" />
+  </Actions>
 </Recipe>
 

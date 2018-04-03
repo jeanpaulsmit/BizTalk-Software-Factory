@@ -22,6 +22,7 @@
     </Menu>
   </HostData>
   <Recipes>
+    <xi:include href="Recipes/AddIISFolderRecipe.xml" />
     <xi:include href="Recipes/BindingRecipe.xml" />
     <xi:include href="Recipes/CreateSolutionRecipe.xml" />
     <xi:include href="Recipes/NewItemSchemaRecipe.xml" />
