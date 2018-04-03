@@ -49,6 +49,8 @@
     <Argument Name="AddDeploymentProject" Type="System.Boolean" Required="true">
       <ValueProvider Type="Evaluator" Expression="true" />
     </Argument>
+    <Argument Name="DeploymentProjectTemplateFile" Type="System.String" Required="false">
+    </Argument>
     <Argument Name="AddNamespacePrefixToProject" Type="System.Boolean" Required="true">
       <ValueProvider Type="Evaluator" Expression="true" />
     </Argument>
@@ -122,12 +124,12 @@
     <Argument Name="DeploymentBuildFileName">
       <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\$(BizTalkNamespace).Deployment.btdfproj" />
     </Argument>
-	  <Argument Name="BuildDebugMsiFileName">
-		  <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildDebugMsi.bat" />
-	  </Argument>
-	  <Argument Name="BuildReleaseMsiFileName">
-		  <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildReleaseMsi.bat" />
-	  </Argument>
+    <Argument Name="BuildDebugMsiFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildDebugMsi.bat" />
+    </Argument>
+    <Argument Name="BuildReleaseMsiFileName">
+      <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\BuildReleaseMsi.bat" />
+    </Argument>
     <Argument Name="SettingsFileGeneratorFileName">
       <ValueProvider Type="Evaluator" Expression="$(DeploymentFolderTargetDir)\SettingsFileGenerator.xml" />
     </Argument>
@@ -261,7 +263,7 @@
     </Action>
 
     <!-- Customize deployment script file -->
-	  <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildFile" Type="BizTalkSoftwareFactory.Actions.TextTemplateAction, BizTalkSoftwareFactory"
+    <Action Condition="$(AddDeploymentProject)" Name="GenerateBuildFile" Type="BizTalkSoftwareFactory.Actions.TextTemplateAction, BizTalkSoftwareFactory"
             Template="Text\Deployment\Deployment.btdfproj.t4">
       <Input Name="CustomTemplate" RecipeArgument="DeploymentProjectTemplateFile"/>
       <Input Name="solutionName" RecipeArgument="BizTalkNamespace"/>
@@ -280,7 +282,7 @@
       <Input Name="Content" ActionOutput="GenerateBuildFile.Content" />
     </Action>
 
-	  <!--<Action Conditition="$(AddDeploymentProject)" Name="CreateSolutionFolderDeployment" Type="BizTalkSoftwareFactory.Actions.CreateSolutionFolder, BizTalkSoftwareFactory">
+    <!--<Action Conditition="$(AddDeploymentProject)" Name="CreateSolutionFolderDeployment" Type="BizTalkSoftwareFactory.Actions.CreateSolutionFolder, BizTalkSoftwareFactory">
       <Input Name="Name" RecipeArgument="SolutionFolderDeployment" />
     </Action>-->
     <Action Condition="$(AddDeploymentProject)" Name="AddSettingsFileGeneratorFile" Type="BizTalkSoftwareFactory.Actions.AddSolutionItem, BizTalkSoftwareFactory">
