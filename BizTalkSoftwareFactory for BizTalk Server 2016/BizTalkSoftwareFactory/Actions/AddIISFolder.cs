@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BizTalkSoftwareFactory.OperationalManagement;
 using System.Web;
+using System.Xml.Linq;
 
 #endregion
 
@@ -77,8 +78,125 @@ namespace BizTalkSoftwareFactory.Actions
         /// </summary>
         public override void Execute()
         {
-            CreateWebsiteFolders();
+            EnvDTE.DTE dte = this.GetService<EnvDTE.DTE>(true);
+
+            CreateWebsiteFolders(dte);
+            UpdateDeploymentProjectFile(dte);
         }
+
+        private void UpdateDeploymentProjectFile(EnvDTE.DTE dte)
+        {
+            var soln = (EnvDTE80.Solution2)dte.Solution;
+
+            var deploymentProjectFile = FindSolutionItemByFileExtension(soln, ".btdfproj");
+            var fileName = deploymentProjectFile?.FileNames[1];
+            XDocument xmlFile = XDocument.Load(fileName);
+
+            var ns = xmlFile.Root.Name.Namespace;
+            var project = xmlFile.Element(ns + "Project");
+            var lastItemGroup = project.Elements(ns + "ItemGroup").LastOrDefault();
+
+  //          <IISAppPool Include="$(ProjectName)WcfAppPool">
+		//	<DotNetFrameworkVersion>v4.0</DotNetFrameworkVersion>
+		//	<PipelineMode>Integrated</PipelineMode>
+		//	<Enable32Bit>false</Enable32Bit>
+		//	<DeployAction>CreateOrUpdate</DeployAction>
+		//	<UndeployAction>None</UndeployAction>
+		//</IISAppPool>
+		//<IISApp Include="/Kw1c.BizTalk.ErrorHandling.WebsiteWCF-WebHttp">
+		//	<AppPoolName>$(ProjectName)WcfAppPool</AppPoolName>
+		//	<SiteName>Default Web Site</SiteName>
+		//	<VirtualPath>/$(ProjectName).WCF</VirtualPath>
+		//	<PhysicalPath>..\$(ProjectName).WebsiteWCF-WebHttp</PhysicalPath>
+		//	<DeployAction>CreateOrUpdate</DeployAction>
+		//	<UndeployAction>Delete</UndeployAction>
+		//</IISApp>
+
+
+            //determine IISAppPoolDefinitionGroup is Added
+            var iISAppPoolDefinitionGroup = from g in xmlFile.Root.Elements(ns + "ItemDefinitionGroup").Elements(ns + "IISAppPool") select g;
+
+            // add IISAppPoolDefinitionGroup if not added yet
+            if (!iISAppPoolDefinitionGroup.Any())
+            {
+                //create iISAppPool
+                var newItem = new XElement(ns + "ItemDefinitionGroup",
+                        new XElement(ns + "IISAppPool",
+                            new XElement(ns + "IdentityType", "SpecificUser"),
+                            new XElement(ns + "UserName", "IISAppPoolUser"),
+                            new XElement(ns + "Password", "IISAppPoolPass")
+                        )
+                    );
+                
+                lastItemGroup.AddAfterSelf(newItem);
+                lastItemGroup = newItem;
+            }
+
+            //determine IISAppPoolItemGroup is Added
+            var iISAppPoolItemGroup = from g in xmlFile.Root.Elements(ns + "ItemGroup").Elements(ns + "IISAppPool") select g;
+
+            // add IISAppPoolDefinitionGroup if not added yet
+            if (!iISAppPoolItemGroup.Any())
+            {
+                //create IISAppPool
+                var newItem = new XElement(ns + "ItemGroup",
+                        new XAttribute("Condition", @"Exists('..\$(ProjectName).WebsiteWCF-WebHttp')"),
+                        new XElement(ns + "IISAppPool",
+                            new XAttribute("Include", "$(ProjectName)WcfAppPool"),
+                            new XElement(ns + "DotNetFrameworkVersion", "v4.0"),
+                            new XElement(ns + "PipelineMode", "Integrated"),
+                            new XElement(ns + "Enable32Bit", "false"),
+                            new XElement(ns + "DeployAction", "CreateOrUpdate"),
+                            new XElement(ns + "UndeployAction", "None")
+                        )
+                    );
+                
+                lastItemGroup.AddAfterSelf(newItem);
+                lastItemGroup = newItem;
+            }
+
+            //determine IISAppItemGroup is Added
+            var iISAppItemGroup = from g in xmlFile.Root.Elements(ns + "ItemGroup").Elements(ns + "IISApp") select g;
+
+            // add IISAppGroup if not added yet
+            if (!iISAppItemGroup.Any())
+            {
+                //create IISApp
+                var newItem = new XElement(ns + "ItemGroup",
+                        new XAttribute("Condition", @"Exists('..\$(ProjectName).WebsiteWCF-WebHttp')"),
+                        new XElement(ns + "IISApp",
+                            new XAttribute("Include", "/Kw1c.BizTalk.ErrorHandling.WebsiteWCF-WebHttp"),
+                            new XElement(ns + "AppPoolName", "$(ProjectName)WcfAppPool"),
+                            new XElement(ns + "SiteName", "Default Web Site"),
+                            new XElement(ns + "VirtualPath", "/$(ProjectName).WCF"),
+                            new XElement(ns + "PhysicalPath", @"..\$(ProjectName).WebsiteWCF-WebHttp"),
+                            new XElement(ns + "DeployAction", "CreateOrUpdate"),
+                            new XElement(ns + "UndeployAction", "None")
+                        )
+                    );
+                lastItemGroup.AddAfterSelf(newItem);
+                lastItemGroup = newItem;
+            }
+
+            xmlFile.Save(fileName);
+
+        }
+
+        private static EnvDTE.ProjectItem FindSolutionItemByFileExtension(EnvDTE80.Solution2 soln, string extension)
+        {
+            foreach (EnvDTE.Project project in soln.Projects)
+            {
+                foreach (EnvDTE.ProjectItem item in project.ProjectItems)
+                {
+                    if (Path.GetExtension(item.Name) == extension)
+                    {
+                        return item;
+                    }
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Performs an undo of the action.
         /// </summary>
@@ -86,9 +204,8 @@ namespace BizTalkSoftwareFactory.Actions
         {
 
         }
-        private void CreateWebsiteFolders()
+        private void CreateWebsiteFolders(EnvDTE.DTE dte)
         {
-            EnvDTE.DTE dte = this.GetService<EnvDTE.DTE>(true);
 
             var soln = (EnvDTE80.Solution2)dte.Solution;
             var deploymentFolderFullPath = Path.GetDirectoryName(soln.FullName);
