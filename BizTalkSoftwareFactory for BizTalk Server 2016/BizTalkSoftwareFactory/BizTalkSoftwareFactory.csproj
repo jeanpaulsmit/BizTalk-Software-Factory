@@ -535,6 +535,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <None Include="Templates\Projects\UnitTest\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Snippets\Basic\BizTalkSoftwareFactory\" />
