@@ -12,7 +12,8 @@
 	<TemplateContent>
 		<Project File="UnitTest.csproj" ReplaceParameters="true">
 			<ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
-			<ProjectItem ReplaceParameters="true">Helper.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Helper.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">packages.config</ProjectItem>
       <ProjectItem ReplaceParameters="true">TestClass.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">TestData\SampleTestData.xml</ProjectItem>
     </Project>
