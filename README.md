@@ -9,7 +9,7 @@ Create a structured project layout for BizTalk solutions built in 2006/R2/2009/2
 * v3.0 BizTalk Server 2010
 * v4.0 BizTalk Server 2013
 * v5.0 BizTalk Server 2013R2
-* v6.0 BizTalk Server 2016 (tbd)
+* v6.0 BizTalk Server 2016
 
 ### Version 1.7 for BizTalk Server 2006 (R2)
 
@@ -41,7 +41,7 @@ http://www.microsoft.com/downloads/details.aspx?FamilyId=E28205C6-BB07-401B-9A76
 http://www.microsoft.com/downloads/details.aspx?FamilyId=B91066B3-D1D6-4990-A45F-34CF8DBDC60C&displaylang=en
 http://www.microsoft.com/downloads/details.aspx?FamilyId=DF79C099-4753-4A59-91E3-5020D9714E4E&displaylang=en
 
-###Version 3.0 for BizTalk Server 2010
+### Version 3.0 for BizTalk Server 2010
 
 This release is updated for Visual Studio 2010 and BizTalk Server 2010. It contains basically the same functionality as the v1.7 and V2.1 release but updated with:
 - Class library for .NET 4.0
@@ -73,13 +73,15 @@ For this release you need to have the Open Guidance Automation Extensions, the O
 Automation Toolkit 2013 and the Visual Studio 2013 SDK installed. (https://opengax.codeplex.com/)
 Please check the documentation for installation information. 
 
-### Version 6.0 for BizTalk Server 2016 (to be done)
+### Version 6.0 for BizTalk Server 2016
 
 This release is updated for Visual Studio 2015 and BizTalk Server 2016. It contains basically the same functionality as the other releases but updated with:
 
 For this release you need to have the Open Guidance Automation Extensions, the Open Guidance
 Automation Toolkit 2015 and the Visual Studio 2015 SDK installed. (https://opengax.codeplex.com/)
 Please check the documentation for installation information. 
+
+Huge thanks to Gert Vloo and Emiel Kool for their contribution!
 
 ### What to do with this release?
 
