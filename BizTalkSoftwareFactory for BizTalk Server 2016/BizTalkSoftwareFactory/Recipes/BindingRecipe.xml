@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="BindingRecipe" 
+		xmlns="http://schemas.microsoft.com/pag/gax-core" 
+		xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="Common/TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+	<Caption>Creates unbound references to the BizTalk Software Factory guidance package</Caption>
+	<Actions>
+		<!-- Add context menu for new items -->
+		<Action Name="CreateUnboundItemTemplateRefMaps" Type="RefCreator" AssetName="Items\BizTalkMap.vstemplate" ReferenceType="BizTalkSoftwareFactory.References.MapsProjectReference, BizTalkSoftwareFactory" />
+		<Action Name="CreateUnboundItemTemplateRefSchemas" Type="RefCreator" AssetName="Items\BizTalkSchema.vstemplate" ReferenceType="BizTalkSoftwareFactory.References.SchemasProjectReference, BizTalkSoftwareFactory" />
+		<Action Name="CreateUnboundItemTemplateRefOrchestrations" Type="RefCreator" AssetName="Items\BizTalkOrchestration.vstemplate" ReferenceType="BizTalkSoftwareFactory.References.OrchestrationsProjectReference, BizTalkSoftwareFactory" />
+		<Action Name="CreateUnboundItemTemplateRefSendPipelines" Type="RefCreator" AssetName="Items\BizTalkSendPipeline.vstemplate" ReferenceType="BizTalkSoftwareFactory.References.PipelinesProjectReference, BizTalkSoftwareFactory" />
+		<Action Name="CreateUnboundItemTemplateRefReceivePipelines" Type="RefCreator" AssetName="Items\BizTalkReceivePipeline.vstemplate" ReferenceType="BizTalkSoftwareFactory.References.PipelinesProjectReference, BizTalkSoftwareFactory" />
+
+		<!--<Action Name="CreateUnboundItemTemplateRefPipelineComponents" Type="RefCreator" AssetName="NewItemPipelineComponent" ReferenceType="BizTalkSoftwareFactory.References.PipelineComponentsProjectRecipeReference, BizTalkSoftwareFactory" />-->
+
+		<!-- The AssetName will be used in the UnitTestProjectRecipeReference in order to show the item in hte context menu or not -->
+		<Action Name="CreateUnboundItemTemplateRefUnitTestsMap" Type="RefCreator" AssetName="NewItemUnitTestMaps" ReferenceType="BizTalkSoftwareFactory.References.UnitTestProjectRecipeReference, BizTalkSoftwareFactory" />
+		<Action Name="CreateUnboundItemTemplateRefUnitTestsSchema" Type="RefCreator" AssetName="NewItemUnitTestSchemas"	ReferenceType="BizTalkSoftwareFactory.References.UnitTestProjectRecipeReference, BizTalkSoftwareFactory" />
+		<Action Name="CreateUnboundItemTemplateRefUnitTestsOrchestration" Type="RefCreator" AssetName="NewItemUnitTestOrchestrations"	ReferenceType="BizTalkSoftwareFactory.References.UnitTestProjectRecipeReference, BizTalkSoftwareFactory" />
+
+    <Action Name="CreateUnboundItemTemplateRefGeneralAssemblyInfo" Type="RefCreator" AssetName="NewItemGeneralAssemblyInfo"	ReferenceType="BizTalkSoftwareFactory.References.AnyElementReference, BizTalkSoftwareFactory" />
+    <Action Name="CreateUnboundItemTemplateRefAddIISFolder" Type="RefCreator" AssetName="AddIISFolderRecipe"	ReferenceType="BizTalkSoftwareFactory.References.AnyElementReference, BizTalkSoftwareFactory" />
+  </Actions>
+</Recipe>
+

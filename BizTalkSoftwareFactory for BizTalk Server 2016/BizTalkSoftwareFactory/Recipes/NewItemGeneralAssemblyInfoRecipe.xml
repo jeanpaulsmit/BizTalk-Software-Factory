@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="NewItemGeneralAssemblyInfo" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add GeneralAssemblyInfo file</Caption>
+  <HostData>
+    <Icon ID="133" />
+    <CommandBar Name="Solution Add" />
+  </HostData>
+  <Arguments>
+    <!-- Include fixed project values -->
+    <xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+    <xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+
+    <Argument Name="BizTalkNamespace">
+      <ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+    </Argument>
+    <Argument Name="GeneralAssemblyInfoFile" Type="System.String" Required="true">
+    </Argument>
+  </Arguments>
+  <GatheringServiceData>
+    <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+      <Pages>
+        <Page>
+          <Title>Select GeneralAssemblyInfo file</Title>
+          <Fields>
+            <Field Label="GeneralAssemblyInfoFile" ValueName="GeneralAssemblyInfoFile">
+              <Editor Type="BizTalkSoftwareFactory.Editors.GeneralAssemblyChooser, BizTalkSoftwareFactory" />
+            </Field>
+          </Fields>
+        </Page>
+      </Pages>
+    </Wizard>
+  </GatheringServiceData>
+  <Actions>
+    <Action Name="AddGeneralAssemblyInfoFile" Type="BizTalkSoftwareFactory.Actions.AddGeneralAssemblyInfoFile, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="BizTalkNamespace"/>
+      <Input Name="GeneralAssemblyInfoFile" RecipeArgument="GeneralAssemblyInfoFile"/>
+    </Action>
+  </Actions>
+</Recipe>

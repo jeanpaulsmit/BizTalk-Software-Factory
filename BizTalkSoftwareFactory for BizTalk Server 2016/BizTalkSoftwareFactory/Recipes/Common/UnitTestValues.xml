@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Arguments xmlns="http://schemas.microsoft.com/pag/gax-core">
+	<!-- Unit Test types -->
+	<Argument Name="UnitTestTypeMap">
+		<ValueProvider Type="Evaluator" Expression="Map" />
+	</Argument>
+	<Argument Name="UnitTypeTypeOrchestration">
+		<ValueProvider Type="Evaluator" Expression="Orchestration" />
+	</Argument>
+	<Argument Name="UnitTestTypePipeline">
+		<ValueProvider Type="Evaluator" Expression="Pipeline" />
+	</Argument>
+	<Argument Name="UnitTestTypePipelineComponent">
+		<ValueProvider Type="Evaluator" Expression="PipelineComponent" />
+	</Argument>
+	<Argument Name="UnitTestCaseFolderName">
+		<ValueProvider Type="Evaluator" Expression="TestCases" />
+	</Argument>
+	<Argument Name="UnitTestDataFolderName">
+		<ValueProvider Type="Evaluator" Expression="TestData" />
+	</Argument>
+</Arguments>

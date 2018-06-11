@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2003/XInclude"
+    Name="BizTalkSoftwareFactory" 
+    Caption="BizTalk Software Factory"
+    Description="Guidance for building BizTalk 2013R2 applications"
+    BindingRecipe="BindingRecipe"
+    Guid="ff269dc0-6b76-448a-bf39-1ce95b2c2784" 
+    SchemaVersion="1.0">
+  <Overview Url="Templates\Overview\BizTalkSoftwareFactory.mht" />
+  <HostData>
+    <Menu Name="BSFSolution" Text="BizTalk Software Factory" Priority="1">
+      <CommandBar Name="Solution"/>
+    </Menu>
+    <Menu Name="BSFProject" Text="BizTalk Software Factory" Priority="1">
+      <CommandBar Name="Project Add" />
+    </Menu>
+    <Menu Name="BSFItem" Text="BizTalk Software Factory" Priority="1">
+      <CommandBar Name="Item"/>
+    </Menu>
+    <Menu Name="BSFFolder" Text="BizTalk Software Factory" Priority="1">
+      <CommandBar Name="Solution Folder"/>
+    </Menu>
+  </HostData>
+  <Recipes>
+    <xi:include href="Recipes/AddIISFolderRecipe.xml" />
+    <xi:include href="Recipes/BindingRecipe.xml" />
+    <xi:include href="Recipes/CreateSolutionRecipe.xml" />
+    <xi:include href="Recipes/NewItemSchemaRecipe.xml" />
+    <xi:include href="Recipes/NewItemMapRecipe.xml" />
+    <xi:include href="Recipes/NewItemOrchestrationRecipe.xml" />
+    <xi:include href="Recipes/NewItemSendPipelineRecipe.xml" />
+    <xi:include href="Recipes/NewItemReceivePipelineRecipe.xml" />
+    <xi:include href="Recipes/NewItemUnitTestMapRecipe.xml" />
+    <xi:include href="Recipes/NewItemUnitTestSchemaRecipe.xml" />
+    <xi:include href="Recipes/NewItemUnitTestOrchestrationRecipe.xml" />
+    <xi:include href="Recipes/NewItemGeneralAssemblyInfoRecipe.xml" />
+  </Recipes>
+</GuidancePackage>

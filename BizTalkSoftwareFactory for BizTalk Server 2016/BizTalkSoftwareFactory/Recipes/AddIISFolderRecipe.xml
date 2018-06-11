@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipe Name="AddIISFolderRecipe" Bound="false" xmlns="http://schemas.microsoft.com/pag/gax-core" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="Common\TypeAliases.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Types)" />
+  <Caption>Add IIS Site Folder</Caption>
+  <HostData>
+    <Icon ID="133" />
+    <CommandBar Name="Solution Add" />
+  </HostData>
+  <Arguments>
+    <!-- Include fixed project values -->
+    <xi:include href="Common\ProjectSuffixValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+    <xi:include href="Common\GeneralValues.xml" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(/gax:Arguments/gax:Argument)" />
+
+
+    <Argument Name="BizTalkNamespace">
+      <ValueProvider Type="GlobalValueProvider" Key="BizTalkNamespace"/>
+    </Argument>
+    <Argument Name="CreateWCF" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="true" />
+    </Argument>
+    <Argument Name="CreateSoap" Type="System.Boolean" Required="true">
+      <ValueProvider Type="Evaluator" Expression="false" />
+    </Argument>
+  </Arguments>
+ 
+  <Actions>
+    <Action Name="AddIISFolder" Type="BizTalkSoftwareFactory.Actions.AddIISFolder, BizTalkSoftwareFactory">
+      <Input Name="Name" RecipeArgument="BizTalkNamespace"/>
+      <Input Name="CreateWCF" RecipeArgument="CreateWCF"/>
+      <Input Name="CreateSoap" RecipeArgument="CreateSoap"/>
+    </Action>
+  </Actions>
+</Recipe>
