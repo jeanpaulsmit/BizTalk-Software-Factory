@@ -1,6 +1,6 @@
 # BizTalk Software Factory
 
-Create a structured project layout for BizTalk solutions built in 2006/R2/2009/2010/2013/R2
+Create a structured project layout for BizTalk solutions built in 2006/R2/2009/2010/2013/R2/2016
 
 ### Overview
 
