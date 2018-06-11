@@ -81,7 +81,7 @@ For this release you need to have the Open Guidance Automation Extensions, the O
 Automation Toolkit 2015 and the Visual Studio 2015 SDK installed. (https://opengax.codeplex.com/)
 Please check the documentation for installation information. 
 
-Huge thanks to Gert Vloo and Emiel Kool for their contribution!
+**Huge thanks to Gert Vloo(@Geronius) and Emiel Kool(@EmielKool) for their contribution!**
 
 ### What to do with this release?
 
